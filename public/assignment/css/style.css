@@ -15,9 +15,10 @@ p.navbar-text.pull-left {
     margin-left: 15px;
 }
 
-a.padding-bottom{
-    margin-bottom: 100px;
+p.navbar-header.pull-left{
+    padding-left: 15px;
 }
+
 
 .jga-widget-tool {
     position: absolute;
