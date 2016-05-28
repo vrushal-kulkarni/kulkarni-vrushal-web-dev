@@ -1,30 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="viewport" content="initial-scale=1.25, user-scalable = no">
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="/assignment/css/style.css" rel="stylesheet"/>
-</head>
-<body>
+
 
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
             <p class="navbar-text pull-left">
-                <a href="/assignment/page/page-list.html" class="navbar-link">
+                <a href="/assignment/widget/widget-list.html" class="navbar-link">
                   <span class="glyphicon glyphicon-chevron-left">
                   </span>
                 </a>
             </p>
-            <a class="navbar-brand" href="">
-                Edit Page
+            <a class="navbar-brand" href="#">
+                Widget Edit
             </a>
             <p class="navbar-text pull-right">
-                <a href="/assignment/page/page-list.html" class="navbar-link">
+                <a href="/assignment/widget/widget-list.html" class="navbar-link">
                   <span class="glyphicon glyphicon-ok">
                   </span>
                 </a>
@@ -41,18 +30,32 @@
             <input type="text"
                    class="form-control"
                    id="name"
-                   placeholder="Blog Post">
+                   placeholder="">
         </div>
         <div class="form-group">
-            <label for="title">Title</label>
+            <label for="title">Text</label>
             <input type="text"
                    id="title"
                    class="form-control"
-                   placeholder="Page Title">
+                   placeholder="">
+        </div>
+        <div class="form-group">
+            <label for="URL">URL</label>
+            <input type="url"
+                   class="form-control"
+                   id="URL"
+                   placeholder="https://www.youtube.com/watch?v=8kf-kS70FUk&index=4&list=PL_GGiAMracOWHzgUwaw-6rJTCEXlMjmIv">
+        </div>
+        <div class="form-group">
+            <label for="width">Width</label>
+            <input type="text"
+                   id="width"
+                   class="form-control"
+                   placeholder="">
         </div>
     </form>
     <a class="btn btn-danger  btn-block"
-       href="/assignment/page/page-list.html">Delete</a>
+       href="/assignment/widget/widget-list.html">Delete</a>
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
@@ -72,6 +75,3 @@
         </div>
     </div>
 </nav>
-
-</body>
-</html>
