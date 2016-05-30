@@ -9,12 +9,17 @@
         var id = $routeParams.userId;
 
         function init() {
-            vm.user = UserService.findUserById(id);
+            vm.user =angular.copy(UserService.findUserById(id));
         }
         init();
 
         function updateUser(newUser) {
-            UserService.updateUser(id, newUser);
+            var result = UserService.updateUser(id, newUser);
+            if(result){
+                vm.success = "Your profile was saved";
+            }else{
+                vm.error ="Failed to update profile";
+            }
         }
 
     }

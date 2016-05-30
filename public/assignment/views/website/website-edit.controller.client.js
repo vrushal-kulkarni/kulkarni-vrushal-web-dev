@@ -9,9 +9,10 @@
         vm.websiteId = $routeParams.websiteId;
         vm.deleteWebsite = deleteWebsite;
         vm.updateWebsite = updateWebsite;
+        //vm.navigateToWebsite = navigateToWebsite;
 
         function init() {
-            vm.website = WebsiteService.findWebsiteById(vm.websiteId);
+            vm.website = angular.copy(WebsiteService.findWebsiteById(vm.websiteId));
         }
         init();
 
@@ -32,5 +33,9 @@
                 vm.error = "Unable to update website";
             }
         }
+
+        // function navigateToWebsite() {
+        //     $location.url("/user/" + vm.userId + "/website");
+        // }
     }
 })();

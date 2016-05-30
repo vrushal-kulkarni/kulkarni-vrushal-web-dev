@@ -2,30 +2,28 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <p class="navbar-text pull-left">
-                <a href="/assignment/page/page-list.html" class="navbar-link">
-                  <span class="glyphicon glyphicon-chevron-left">
-                  </span>
+                <a ng-click="model.linkToPageList()">
+                    <span class="glyphicon glyphicon-chevron-left"/>
                 </a>
             </p>
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="">
                 Widgets
             </a>
             <p class="navbar-text pull-right">
-                <a href="/assignment/widget/widget-chooser.html" class="navbar-link">
-                  <span class="glyphicon glyphicon-plus">
-                  </span>
+                <a ng-click="model.linktoWidgetChooser()" class="navbar-link">
+                    <span class="glyphicon glyphicon-plus">
+                    </span>
                 </a>
             </p>
         </div>
     </div>
 </nav>
 
-
 <div class="container">
 
     <div ng-repeat="widget in model.widgets" class="jga-widget">
         <div class="jga-widget-tool">
-            <a href="#">
+            <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
                 <span class="glyphicon glyphicon-cog"></span>
             </a>
             <span class="glyphicon glyphicon-align-justify"></span>
@@ -57,19 +55,21 @@
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container">
-        <div class="row navbar-text">
-            <div class="col-xs-3 text-center">
-            </div>
-            <div class="col-xs-3 text-center">
-            </div>
-            <div class="col-xs-3 text-center">
-            </div>
-            <div class="col-xs-3 text-center">
-                <a href="/assignment/user/profile.html">
-                    <span class="glyphicon glyphicon-user"></span>
-                </a>
-            </div>
-        </div>
+    <div class="container-fluid">
+        <p class="navbar-text pull-left">
+            <a href="" class="navbar-link">
+                <span class="glyphicon glyphicon-play"></span>
+            </a>
+        </p>
+        <p class="navbar-text pull-left">
+            <a href="" class="navbar-link">
+                <span class="glyphicon glyphicon-eye-open"></span>
+            </a>
+        </p>
+        <p class="navbar-text pull-right">
+            <a href="#/user/{{model.userId}}">
+                <span class="glyphicon glyphicon-user"></span>
+            </a>
+        </p>
     </div>
 </nav>

@@ -2,6 +2,7 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <p class="navbar-text pull-left">
+                <!--<a ng-click="model.navigateToWebsite()" class="navbar-link">-->
                 <a href="#/user/{{model.userId}}/website" class="navbar-link">
                   <span class="glyphicon glyphicon-chevron-left">
                   </span>
@@ -11,7 +12,7 @@
                 Edit Website
             </a>
             <p class="navbar-text pull-right">
-                <a href="#/user/{{model.userId}}/website" class="navbar-link">
+                <a ng-click="model.updateWebsite()" class="navbar-link">
                   <span class="glyphicon glyphicon-ok">
                   </span>
                 </a>
@@ -21,7 +22,9 @@
 </nav>
 
 <div class="container">
-
+    <div ng-show="model.error" class="alert alert-danger">
+        {{model.error}}
+    </div>
     <form>
         <div class="form-group">
             <label for="website-name">Website Name</label>

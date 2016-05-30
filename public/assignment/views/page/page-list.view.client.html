@@ -1,21 +1,21 @@
 
-
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
             <p class="navbar-text pull-left">
-                <a href="/assignment/website/website-list.html" class="navbar-link">
-                  <span class="glyphicon glyphicon-chevron-left">
-                  </span>
+                <!--<a ng-click="model.linktoWebsiteList()" class="navbar-link">-->
+                <a href="#/user/{{model.userId}}/website" class="navbar-link">
+                <span class="glyphicon glyphicon-chevron-left"/>
                 </a>
             </p>
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="">
                 Pages
             </a>
             <p class="navbar-text pull-right">
-                <a href="page-new.view.client.html" class="navbar-link">
-                  <span class="glyphicon glyphicon-plus">
-                  </span>
+                <a ng-click="model.linkToPageNew()" class="navbar-link">
+                <!--<a href="#/user/{{model.userId}}/website/{{model.webSiteId}}/page/new" class="navbar-link">-->
+                    <span class="glyphicon glyphicon-plus">
+                    </span>
                 </a>
             </p>
         </div>
@@ -24,35 +24,13 @@
 
 <div class="container">
     <ul class="list-group">
-        <li class="list-group-item">
-            <a href="/assignment/widget/widget-list.html">
-                Some Blog Post
+        <li ng-repeat="page in model.pages"
+            class="list-group-item">
+            <a href="#/user/{{model.userId}}/website/{{page.websiteId}}/page/{{page._id}}/widget">
+                {{page.name}}
             </a>
-            <a href="page-edit.view.client.html" class="pull-right">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a href="/assignment/widget/widget-list.html">
-                Home
-            </a>
-            <a href="page-edit.view.client.html" class="pull-right">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a href="/assignment/widget/widget-list.html">
-                About
-            </a>
-            <a href="page-edit.view.client.html" class="pull-right">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a href="/assignment/widget/widget-list.html">
-                Product List
-            </a>
-            <a href="page-edit.view.client.html" class="pull-right">
+            <a href="#/user/{{model.userId}}/website/{{page.websiteId}}/page/{{page._id}}"
+               class="pull-right">
                 <span class="glyphicon glyphicon-cog"></span>
             </a>
         </li>
@@ -69,7 +47,7 @@
             <div class="col-xs-3 text-center">
             </div>
             <div class="col-xs-3 text-center">
-                <a href="/assignment/user/profile.html">
+                <a href="#/user/{{model.websiteId}}">
                     <span class="glyphicon glyphicon-user"></span>
                 </a>
             </div>

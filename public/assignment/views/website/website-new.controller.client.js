@@ -5,8 +5,10 @@
 
     function NewWebsiteController($location, $routeParams, WebsiteService) {
         var vm = this;
+
         vm.userId = $routeParams.userId;
         vm.createWebsite = createWebsite;
+        //vm.navigateToWebsiteList = navigateToWebsiteList;
 
         function createWebsite(name, description) {
             var newWebsite = WebsiteService.createWebsite(vm.userId, name, description);
@@ -16,5 +18,9 @@
                 vm.error = "Unable to create website";
             }
         }
+
+        // function navigateToWebsiteList(){
+        //     $location.url("/user/" + vm.userId + "/website");
+        // }
     }
 })();
