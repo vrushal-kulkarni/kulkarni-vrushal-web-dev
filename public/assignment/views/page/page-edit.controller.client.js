@@ -38,7 +38,7 @@
                 vm.error = "Unable to update page";
             }
         }
-
+        
         function linkToPageList() {
             $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page");
         }

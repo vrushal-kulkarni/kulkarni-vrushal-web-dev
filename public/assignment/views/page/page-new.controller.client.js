@@ -20,6 +20,7 @@
                 vm.error = "Unable to create website";
             }
         }
+        
         function linkToPageList() {
             $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page");
         }
