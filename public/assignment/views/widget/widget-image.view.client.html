@@ -55,19 +55,27 @@
                    class="form-control"
                    placeholder=" 100%">
         </div>
-        <div class="form-group">
-            <label for="upload">Upload</label>
-            <input ng-model="model.widget.upload"
-                   type="file"
-                   id="upload"
-                   class="form-control"
-                   placeholder="">
-        </div>
     </form>
-    <a class="btn btn-primary  btn-block"
-       href="#">Upload Image</a>
-    <a class="btn btn-danger  btn-block"
-       ng-click="model.deleteWidget()">Delete</a>
+
+        <strong>Upload</strong>
+        <form action="/api/upload"  method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <input  name="myFile"   type="file" class="form-control"/>
+                <input  name="width"    value="{{model.widget.width}}" style="display: none"/>
+                <input  name="widgetId" value="{{model.widget._id}}"   style="display: none"/>
+                <input  name="userId" value="{{model.userId}}"   style="display: none"/>
+                <input  name="websiteId" value="{{model.websiteId}}"   style="display: none"/>
+                <input  name="pageId" value="{{model.pageId}}"   style="display: none"/>
+                <button type="submit"   class="btn btn-block btn-primary">Upload Image</button>
+                <a class="btn btn-primary btn-block"
+                   href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{model.widgetId}}/flickr"
+                   role="button">Search Flickr Image</a>
+
+                <a class="btn btn-danger  btn-block"
+                   ng-click="model.deleteWidget()">Delete</a>
+
+            </div>
+        </form>
 </div>
 
 

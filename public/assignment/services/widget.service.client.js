@@ -4,7 +4,7 @@
         .factory("WidgetService", WidgetService);
 
     function WidgetService($http) {
-        
+
         var widgets = [
             { "_id": "123", "widgetType": "HEADER", "pageId": "321", "size": 2, "text": "GIZMODO"},
             { "_id": "234", "widgetType": "HEADER", "pageId": "321", "size": 4, "text": "Lorem ipsum"},
@@ -35,10 +35,14 @@
             var url = "/api/widget/" + widgetId;
             return $http.get(url);
         }
-
+        
         function createWidget(pageId, widget) {
-            var url = "/api/page/" + pageId + "/widget";
-            return $http.post(url, widget);
+            var newWidget = {
+                widgetType: widget.widgetType,
+                text: widget.text,
+                pageId: pageId
+            };
+            return $http.post("/api/page/"+pageId+"/widget", newWidget);
         }
 
         function updateWidget(widgetId, widget) {

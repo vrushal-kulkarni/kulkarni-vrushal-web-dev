@@ -7,6 +7,11 @@ body {
     padding-bottom: 60px;
 }
 
+img.pflickr {
+    border: 3px solid black;
+    padding: 3px;
+}
+
 p.navbar-text.pull-right {
     margin-right: 15px;
 }

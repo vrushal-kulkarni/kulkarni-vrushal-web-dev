@@ -20,7 +20,36 @@ module.exports = function(app) {
     app.put("/api/widget/:widgetId", updateWidget);
     app.delete("/api/widget/:widgetId", deleteWidget);
 
+    var multer = require('multer'); // npm install multer --save
+    var upload = multer({ dest: __dirname+'/../../public/uploads' });
+    app.post ("/api/upload", upload.single('myFile'), uploadImage);
 
+
+    function uploadImage(req, res) {
+
+        var widgetId = req.body.widgetId;
+        var width = req.body.width;
+        var myFile = req.file;
+        var userId = req.body.userId;
+        var websiteId = req.body.websiteId;
+        var pageId = req.body.pageId;
+
+        var originalname = myFile.originalname; // file name on user's computer
+        var filename = myFile.filename;     // new file name in upload folder
+        var path = myFile.path;         // full path of uploaded file
+        var destination = myFile.destination;  // folder where file is saved to
+        var size = myFile.size;
+        var mimetype= myFile.mimetype;
+
+        for (var i in widgets) {
+            if (widgets[i]._id === widgetId) {
+                widgets[i].url = "/uploads/" + filename;
+            }
+        }
+
+        res.redirect("/assignment/#/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId);
+    }
+    
     function findWidgetById(req, res) {
         var widgetId = req.params.widgetId;
         for (var i in widgets){
@@ -44,20 +73,11 @@ module.exports = function(app) {
         return;
     }
 
-
-    /////////this is remaining//////////////
-    function createWidget(req , res) {
-        var widget = req.body;
-        // var id = req.params.pageId;
-        // var newWidget = {
-        //     _id: (new Date()).getTime()+"",
-        //     widgetType: widget.widgetType,
-        //     pageId: id,
-        //     text: widget.text
-        // };
-
-        widgets.push(widget);
-        res.send(200);
+    function createWidget(req, res) {
+        var newWidget = req.body;
+        newWidget._id = (new Date()).getTime()+"";
+        widgets.push(newWidget);
+        res.send(newWidget);
     }
 
     function updateWidget(req, res) {
