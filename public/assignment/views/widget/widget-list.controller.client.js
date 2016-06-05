@@ -16,8 +16,13 @@
         vm.linktoWidgetChooser = linktoWidgetChooser;
 
         function init(){
-            vm.widgets = angular.copy(WidgetService.findWidgetsByPageId(vm.pageId));
-        }init();
+            WidgetService
+                .findWidgetsByPageId(vm.pageId)
+                .then(function (response) {
+                    vm.widgets = angular.copy(response.data);
+                });
+        }
+        init();
 
         function  getSafeHtml(widget) {
             return $sce.trustAsHtml(widget.text);

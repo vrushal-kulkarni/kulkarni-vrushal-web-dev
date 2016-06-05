@@ -3,7 +3,8 @@
         .module("WebAppMaker")
         .factory("WidgetService", WidgetService);
 
-    function WidgetService() {
+    function WidgetService($http) {
+        
         var widgets = [
             { "_id": "123", "widgetType": "HEADER", "pageId": "321", "size": 2, "text": "GIZMODO"},
             { "_id": "234", "widgetType": "HEADER", "pageId": "321", "size": 4, "text": "Lorem ipsum"},
@@ -26,52 +27,28 @@
         return api;
 
         function findWidgetsByPageId(pageId) {
-            var result = [];
-            for (var i in widgets){
-                if(widgets[i].pageId === pageId)
-                    result.push(widgets[i]);
-            }
-            return result;
+            var url = "/api/page/" + pageId + "/widget";
+            return $http.get(url);
         }
 
         function findWidgetById(widgetId) {
-            for (var i in widgets){
-                if(widgets[i]._id === widgetId){
-                    return widgets[i];
-                }
-            }
-            return null;
+            var url = "/api/widget/" + widgetId;
+            return $http.get(url);
         }
 
         function createWidget(pageId, widget) {
-            var newWidget = {
-                _id: (new Date()).getTime()+"",
-                widgetType: widget.widgetType,
-                pageId: pageId,
-                text: widget.text
-            };
-            widgets.push(newWidget);
-            return newWidget;
+            var url = "/api/page/" + pageId + "/widget";
+            return $http.post(url, widget);
         }
 
         function updateWidget(widgetId, widget) {
-            for(var i in widgets){
-                if(widgets[i]._id === widgetId){
-                    widgets[i] = widget;
-                    return true;
-                }
-            }
-            return false;
+            var url = "/api/widget/" + widgetId;
+            return $http.put(url, widget);
         }
 
         function deleteWidget(widgetId) {
-            for(var i in widgets){
-                if(widgets[i]._id === widgetId){
-                    widgets.splice(i, 1);
-                    return true;
-                }
-            }
-            return false;
+            var url = "/api/widget/" + widgetId;
+            return $http.delete(url);
         }
 
     }

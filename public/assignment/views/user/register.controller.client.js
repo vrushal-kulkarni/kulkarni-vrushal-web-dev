@@ -7,19 +7,29 @@
 
         var vm = this;
         vm.registerUser = registerUser;
+
         function registerUser (username, password1, password2) {
-            var user =  UserService.findUserByUsername(username);
-            if(user) {
-                vm.error = "Username already Exist.";
+            if(password1 === password2)
+            {
+                var user = {
+                    _id: (new Date()).getTime()+"",
+                    username: username,
+                    password: password1
+                };
+                UserService
+                    .createUser(user)
+                    .then(function(response){
+                        if(response.data)
+                            $location.url("/user/"+user._id);
+                        else
+                            vm.error = "Error while creating user";
+                    });
             }
-            else if(password1 !==password2) {
-                vm.error = "Password does not match";
+            else
+            {
+                vm.error = "Password does not match"
             }
-            else{
-                var user = UserService.createUser({username: username, password: password1});
-                var id = user._id;
-                $location.url("/user/" + id);
-            }
+
         }
     }
 })();

@@ -12,13 +12,23 @@
         vm.createPage = createPage;
         vm.linkToPageList = linkToPageList;
 
-        function createPage(pageName, pageTitle) {
-            var result = PageService.createPage(vm.websiteId, {pageName: pageName, pageTitle: pageTitle});
-            if (result){
-                $location.url("/user/" + vm.userId + "/website/" + result.websiteId + "/page");
-            } else {
-                vm.error = "Unable to create website";
-            }
+        function createPage(name){
+            var newPage = {
+                _id: (new Date()).getTime()+"",
+                name: name,
+                websiteId: vm.websiteId
+            };
+            PageService
+                .createPage(vm.websiteId, newPage)
+                .then(function(response){
+                    var page = response.data;
+                    if(page) {
+                        $location.url("/user/"+ vm.userId +"/website/"+ vm.websiteId +"/page");
+                    }
+                    else {
+                        vm.error="Unable to create page";
+                    }
+                });
         }
         
         function linkToPageList() {

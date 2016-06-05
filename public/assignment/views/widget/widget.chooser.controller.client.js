@@ -17,12 +17,16 @@
                 widgetType:widgetType,
                 text:""
             };
-            var newWidget = WidgetService.createWidget(vm.pageId,widget);
-            if(newWidget) {
-                $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget/"+newWidget._id);
-            } else {
-                vm.error = "Unable to create Widget";
-            }
+            WidgetService
+                .createWidget(vm.pageId,widget)
+                .then(function (response) {
+                    var newWidget = response.data;
+                    if(newWidget) {
+                        $location.url("/user/"+ vm.userId +"/website/"+ vm.websiteId +"/page/"+ vm.pageId +"/widget/"+newWidget._id);
+                    } else {
+                        vm.error = "Unable to create Widget";
+                    }
+                });
         }
     }
 

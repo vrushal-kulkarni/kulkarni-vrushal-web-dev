@@ -1,4 +1,4 @@
-(function(){
+(function () {
     angular
         .module("WebAppMaker")
         .controller("EditWebsiteController", EditWebsiteController);
@@ -11,27 +11,34 @@
         vm.updateWebsite = updateWebsite;
 
         function init() {
-            vm.website = angular.copy(WebsiteService.findWebsiteById(vm.websiteId));
+            WebsiteService
+                .findWebsiteById(vm.websiteId)
+                .then(function (response) {
+                    vm.website = angular.copy(response.data);
+                });
         }
+
         init();
 
         function deleteWebsite(websiteId) {
-            var result = WebsiteService.deleteWebsite(websiteId);
-            if(result) {
-                $location.url("/user/"+vm.userId+"/website");
-            } else {
-                vm.error = "Unable to delete website";
-            }
+            WebsiteService
+                .deleteWebsite(vm.websiteId)
+                .then(function () {
+                    $location.url("/user/" + vm.userId + "/website");
+                }, function () {
+                    vm.error = "Unable to delete website";
+                });
         }
-        
+
         function updateWebsite() {
-            var result = WebsiteService.updateWebsite(vm.websiteId, vm.website);
-            if(result) {
-                $location.url("/user/"+vm.userId+"/website");
-            } else {
-                vm.error = "Unable to update website";
-            }
+            WebsiteService
+                .updateWebsite(vm.websiteId, vm.website)
+                .then(function (response) {
+                    $location.url("/user/" + vm.userId + "/website");
+                }, function (error) {
+                    vm.error = "Unable to update website";
+                });
         }
-        
+
     }
 })();

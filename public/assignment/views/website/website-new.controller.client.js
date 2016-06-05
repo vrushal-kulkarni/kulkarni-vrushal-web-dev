@@ -10,12 +10,25 @@
         vm.createWebsite = createWebsite;
 
         function createWebsite(name, description) {
-            var newWebsite = WebsiteService.createWebsite(vm.userId, name, description);
-            if(newWebsite) {
-                $location.url("/user/"+vm.userId+"/website");
-            } else {
-                vm.error = "Unable to create website";
-            }
+            var website = {
+                _id: (new Date()).getTime()+"",
+                name: name,
+                desc: description,
+                developerId: vm.userId
+            };
+
+            WebsiteService
+                .createWebsite(vm.userId, website)
+                .then(function(response){
+                    var newWebsite = response.data;
+
+                    if(newWebsite) {
+                        $location.url("/user/" + vm.userId + "/website");
+                    }
+                    else {
+                        vm.error="Unable to create website";
+                    }
+                });
         }
     }
 })();

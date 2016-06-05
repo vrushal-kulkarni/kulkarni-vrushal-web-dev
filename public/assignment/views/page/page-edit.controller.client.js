@@ -10,33 +10,43 @@
         vm.websiteId = $routeParams.websiteId;
         vm.pageId = $routeParams.pageId;
 
-        function init() {
-            vm.page = angular.copy(PageService.findPageById(vm.pageId));
-        }
-        init();
-
         vm.updatePage = updatePage;
         vm.deletePage = deletePage;
         vm.linkToPageList = linkToPageList;
 
-        function deletePage() {
-            var result = PageService.deletePage(vm.pageId);
-            if (result) {
-                if (result) {
-                    $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page");
-                } else {
-                    vm.error = "Unable to delete page";
-                }
-            }
+        function init() {
+            PageService
+                .findPageById( vm.pageId)
+                .then(function (response) {
+                    vm.page = angular.copy(response.data);
+                });
+        }
+
+        init();
+
+        function deletePage(){
+            PageService
+                .deletePage(vm.pageId)
+                .then(function(response)
+                {
+                    var page = response.data;
+                    if(page) {
+                        $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page");
+                    }
+                    else {
+                        vm.error="Unable to delete page";
+                    }
+                });
         }
 
         function updatePage() {
-            var result =  PageService.updatePage(vm.pageId, vm.page);
-            if (result){
-                $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page");
-            } else {
-                vm.error = "Unable to update page";
-            }
+            PageService
+                .updatePage(vm.pageId, vm.page)
+                .then(function (response) {
+                    $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page");
+                }, function (error) {
+                        vm.error = "Unable to update page";
+                });
         }
         
         function linkToPageList() {

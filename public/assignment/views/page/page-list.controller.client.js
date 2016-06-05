@@ -7,16 +7,20 @@
     function PageListController($routeParams,PageService, $location) {
         var vm = this;
         vm.userId = $routeParams.userId;
-        vm.webSiteId = $routeParams.websiteId;
+        vm.websiteId = $routeParams.websiteId;
         vm.linkToPageNew = linkToPageNew;
 
-        function init() {
-            vm.pages = angular.copy(PageService.findPageByWebsiteId(vm.webSiteId));
+        function  init() {
+            PageService
+                .findPageByWebsiteId(vm.websiteId)
+                .then(function (response) {
+                    vm.pages = angular.copy(response.data);
+                });
         }
         init();
 
         function linkToPageNew() {
-             $location.url("/user/" + vm.userId + "/website/" + vm.webSiteId + "/page/new");
+             $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/new");
          }
     }
 })();
