@@ -1,10 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="GreAppMaker">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- The above 5 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <!-- Custom styles for this template -->
+    <link href="css/carousel.css" rel="stylesheet">
+    <link href="../css/jquery-ui.css" rel="stylesheet"/>
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="images/title_image1.jpg">
+
     <title>Project Home Page</title>
+
+
 </head>
+
 <body>
-    <h1>Project Home Page</h1>
+
+<ng-include src = "'views/header/header.view.html'"  style="font-family: Noto Serif;"></ng-include>
+
+<div ng-view class="topspace" style="font-family: Noto Serif;">
+</div>
+
 </body>
+
+
+
+<!-- javaScript code goes here -->
+
+<script src="../js/jquery.js"></script>
+<script src="../js/jquery-ui.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/raty/2.7.0/jquery.raty.min.js"></script>
+<script>window.jQuery || document.write('<script src="../js/jquery.min.js"><\/script>')</script>
+<!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+<script src="../js/holder.min.js"></script>
+
+<script src="app.js"></script>
+<script src="config.js"></script>
+
+<!-- All controllers over here -->
+
+
+<!-- All services over here -->
+
+<!--ng-rating is an Angular directive to display “stars” (or something else) based ratings. -->
+<!--<script src="../js/ng-rating.js"></script>-->
+<!--<script src="../js/ng-infinite-scroll.min.js"></script>-->
+<!--<script src="../js/loading-bar.js"></script>-->
+
 </html>

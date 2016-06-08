@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ShopaholicApp">
+<head>
+    <meta charset="UTF-8">
+    <!-- IE Edge Meta Tag -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Viewport : This is for the display on smaller devices such as mobile, tab etc.-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- Minified CSS through CDN-->
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel= "stylesheet" href = "css/animate.css">
+    <link rel= "stylesheet" href = "css/project_style.css">
+    <link rel= "stylesheet" href = "css/ng-rating.css">
+    <link rel= "stylesheet" href = "../../experiments/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Fredericka+the+Great' rel='stylesheet' type='text/css'>
+
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+    <link href='https://fonts.googleapis.com/css?family=Sanchez' rel='stylesheet' type='text/css'>
+
+    <link href='https://fonts.googleapis.com/css?family=Karla' rel='stylesheet' type='text/css'>
+    <link rel= "stylesheet" href = "css/loading-bar.css">
+    <link href='https://fonts.googleapis.com/css?family=Noto+Serif' rel='stylesheet' type='text/css'>
+
+
+    <title>Shopaholic</title>
+
+
+</head>
+
+<body ng-controller="ProjectMainController">
+
+
+<ng-include src = "'views/header/header.view.html'"  style="font-family: Noto Serif;"></ng-include>
+<div ng-view class="topspace" style="font-family: Noto Serif;">
+
+</div>
+</body>
+
+
+
+
+<!-- javaScript code goes here -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/raty/2.7.0/jquery.raty.min.js"></script>
+<script src="app.js"></script>
+<script src="config.js"></script>
+<script src="projectMain.controller.js"></script>
+<script src="views/header/header.controller.js"></script>
+<script src="views/users/register.controller.js"></script>
+<script src="views/users/profile.controller.js"></script>
+<script src="views/users/login.controller.js"></script>
+<script src="views/admin/admin.controller.js"></script>
+<script src="services/user.service.client.js"></script>
+<script src="services/product.service.client.js"></script>
+
+<script src="services/review.service.client.js"></script>
+
+<script src="views/search/search.controller.js"></script>
+<script src="views/details/details.controller.js"></script>
+<script src="views/category/category.controller.js"></script>
+
+<script src="directives/starRating.js"></script>
+<script src="js/ng-rating.js"></script>
+<script src="js/ng-infinite-scroll.min.js"></script>
+<script src="js/loading-bar.js"></script>
+
+
+</html>
+
