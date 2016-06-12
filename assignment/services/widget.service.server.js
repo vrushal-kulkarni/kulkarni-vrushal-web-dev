@@ -21,11 +21,12 @@ module.exports = function(app, models) {
     app.post("/api/page/:pageId/widget", createWidget);
     app.put("/api/widget/:widgetId", updateWidget);
     app.delete("/api/widget/:widgetId", deleteWidget);
+    app.put("/page/:pageId/widget",dragWidget);
+
 
     var multer = require('multer'); // npm install multer --save
     var upload = multer({ dest: __dirname+'/../../public/uploads' });
     app.post ("/api/upload", upload.single('myFile'), uploadImage);
-
 
     function uploadImage(req, res) {
 
@@ -51,7 +52,43 @@ module.exports = function(app, models) {
 
         res.redirect("/assignment/#/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId);
     }
-    
+
+    function dragWidget(req,res){
+        var pageId = req.params.pageId;
+        var start = req.query.start;
+        var end = req.query.end;
+
+        widgetModel
+            .findAllWidgetsForPage(pageId)
+            .then(
+                function(widgets) {
+                    widgets.forEach(function(widget){
+                        delete widget._id;
+                        if(widget.order==start){
+                            widget.order = end;
+                        }
+                        else if(widget.order>start && widget.order<=end){
+                            widget.order = widget.order-1;
+                        }
+                        else if(widget.order<start && widget.order>=end){
+                            widget.order = widget.order+1;
+                        }
+                    });
+                    widgetModel
+                        .dragWidget(pageId,widgets)
+                        .then(
+                            function(response){
+                                res.json(widgets);
+                            },
+                            function(error){
+                                res.json({});
+                            });
+                },
+                function(error){
+                    res.json({});
+                });
+    }
+
     function findWidgetById(req, res) {
         var widgetId = req.params.widgetId;
         widgetModel
@@ -91,20 +128,21 @@ module.exports = function(app, models) {
         // return;
     }
 
-    function createWidget(req, res) {
+    function createWidget(req,res){
+        var id = req.params.pageId;
         var newWidget = req.body;
         widgetModel
-            .createWidget(newWidget)
+            .createWidget(id,newWidget)
             .then(
-                function(newWidget) {
-                    console.log(newWidget);
-                    res.json(newWidget);
+                function(widget){
+                    res.json(widget);
                 },
-                function(error) {
-                    res.statusCode(400).send(error);
+                function(error){
+                    res.json({});
                 }
             );
-        // newWidget._id = (new Date()).getTime()+"";
+        // newWidget._id =  (new Date()).getTime()+"";
+        // console.log(newWidget);
         // widgets.push(newWidget);
         // res.send(newWidget);
     }
@@ -137,7 +175,7 @@ module.exports = function(app, models) {
     function deleteWidget(req, res) {
         var id = req.params.widgetId;
         widgetModel
-            .deleteWebsite(id)
+            .deleteWidget(id)
             .then(
                 function(stats){
                     console.log(stats);

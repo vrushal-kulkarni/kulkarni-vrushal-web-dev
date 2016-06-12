@@ -12,21 +12,22 @@
 
         vm.createWidget = createWidget;
 
-        function createWidget(pageId,widgetType) {
-            var widget = {
-                widgetType:widgetType,
-                text:""
-            };
-            WidgetService
-                .createWidget(vm.pageId,widget)
-                .then(function (response) {
-                    var newWidget = response.data;
-                    if(newWidget) {
-                        $location.url("/user/"+ vm.userId +"/website/"+ vm.websiteId +"/page/"+ vm.pageId +"/widget/"+newWidget._id);
-                    } else {
-                        vm.error = "Unable to create Widget";
-                    }
-                });
+        function createWidget(type) {
+                var widget = {
+                    widgetType: type
+                };
+
+                WidgetService
+                    .createWidget(vm.pageId, widget)
+                    .then(
+                        function (response) {
+                            vm.widget = response.data;
+                            if (vm.widget._id)
+                                $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget/" + vm.widget._id);
+                            else
+                                vm.error = "Unable to create a Widget";
+                        });
+            
         }
     }
 

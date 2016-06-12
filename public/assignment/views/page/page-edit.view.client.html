@@ -23,6 +23,10 @@
 
 <div class="container">
 
+    <div ng-if="model.error" class="alert alert-danger">
+        {{model.error}}
+    </div>
+
     <form>
         <div class="form-group">
             <label for="name">Name</label>

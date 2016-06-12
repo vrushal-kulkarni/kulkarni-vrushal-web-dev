@@ -9,7 +9,8 @@ module.exports = function(){
         findAllWidgetsForPage: findAllWidgetsForPage,
         createWidget: createWidget,
         deleteWidget: deleteWidget,
-        updateWidget: updateWidget
+        updateWidget: updateWidget,
+        dragWidget:dragWidget
     };
     return api;
 
@@ -21,10 +22,19 @@ module.exports = function(){
         return Widget.find({"_page": pageId});
     }
 
-    function createWidget(newWidget){
-        delete newWidget._id;
-
-        return Widget.create(newWidget);
+    function createWidget(pageId, widget){
+        widget._page = pageId;
+        return Widget
+            .find({_page: pageId})
+            .then(
+                function (widgets) {
+                    widget.order = widgets.length;
+                    return Widget.create(widget);
+                },
+                function (error) {
+                    return null;
+                }
+            );
     }
 
     function deleteWidget(widgetId){
@@ -38,5 +48,9 @@ module.exports = function(){
             .update({_id: widgetId},{
                 $set: newWidget
             });
+    }
+
+    function dragWidget(pageId,widgets){
+        return  Widget.update({_page: pageId}, {$set: widgets}, false, true);
     }
 }

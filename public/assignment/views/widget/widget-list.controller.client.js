@@ -15,18 +15,34 @@
         vm.linkToPageList = linkToPageList;
         vm.linktoWidgetChooser = linktoWidgetChooser;
 
+        vm.dragWidget = dragWidget;
+
         function init(){
             WidgetService
                 .findWidgetsByPageId(vm.pageId)
-                .then(function (response) {
-                    vm.widgets = angular.copy(response.data);
-                    $(".container")
-                        .sortable({
-                            axis: 'y'
-                        });
-                });
+                .then(
+                    function(response){
+                        vm.widgets = angular.copy(response.data);
+                    },
+                    function(response){
+                        vm.error = "Unable to find widgets";
+                    });
         }
         init();
+
+        function dragWidget(start,end){
+            console.log(start+" "+end);
+            WidgetService
+                .dragWidget(vm.pageId,start,end)
+                .then(
+                    function(response){
+                        init();
+                    },
+                    function(response){
+                        vm.error = "Unable to sort widgets";
+                    });
+        }
+
 
         function  getSafeHtml(widget) {
             return $sce.trustAsHtml(widget.text);

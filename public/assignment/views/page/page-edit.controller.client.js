@@ -40,13 +40,18 @@
         }
 
         function updatePage() {
-            PageService
-                .updatePage(vm.pageId, vm.page)
-                .then(function (response) {
-                    $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page");
-                }, function (error) {
+            if (vm.page.name) {
+                PageService
+                    .updatePage(vm.pageId, vm.page)
+                    .then(function (response) {
+                        $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page");
+                    }, function (error) {
                         vm.error = "Unable to update page";
-                });
+                    });
+            }
+            else{
+                vm.error="Page Name is required";
+            }
         }
         
         function linkToPageList() {

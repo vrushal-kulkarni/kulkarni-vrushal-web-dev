@@ -23,18 +23,22 @@
         } init();
 
         function updateWidget(newWidget) {
-            WidgetService
-                .updateWidget(vm.widgetId,newWidget)
-                .then(function(response){
-                    if(response.data)
-                    {
-                        $location.url("/user/"+ vm.userId +"/website/"+ vm.websiteId +"/page/"+ vm.pageId +"/widget");
-                    }
-                    else
-                    {
-                        vm.error = "Unable to update Widget";
-                    }
-                });
+           if(newWidget.name) {
+
+               WidgetService
+                   .updateWidget(vm.widgetId, newWidget)
+                   .then(function (response) {
+                       if (response.data) {
+                           $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget");
+                       }
+                       else {
+                           vm.error = "Unable to update Widget";
+                       }
+                   });
+           }
+            else{
+               vm.error="Widget name is required"
+           }
         }
 
         function deleteWidget() {

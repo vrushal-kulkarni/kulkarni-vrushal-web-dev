@@ -1,5 +1,7 @@
 
 <div ng-switch="model.widget.widgetType">
+
+
     <div ng-switch-when="HEADER">
         <ng-include src="'/assignment/views/widget/widget-heading.view.client.html'"/>
     </div>
@@ -9,4 +11,11 @@
     <div ng-switch-when="YOUTUBE">
         <ng-include src="'/assignment/views/widget/widget-youtube.view.client.html'"/>
     </div>
+    <div ng-switch-when="HTML">
+        <div ng-include src="'views/widget/widget-html-edit.view.client.html'"></div>
+    </div>
+    <div ng-switch-when="TEXT INPUT">
+        <div ng-include src="'views/widget/widget-text.view.client.html'"></div>
+    </div>
+
 </div>

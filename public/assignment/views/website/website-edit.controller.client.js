@@ -31,13 +31,18 @@
         }
 
         function updateWebsite() {
-            WebsiteService
-                .updateWebsite(vm.websiteId, vm.website)
-                .then(function (response) {
-                    $location.url("/user/" + vm.userId + "/website");
-                }, function (error) {
-                    vm.error = "Unable to update website";
-                });
+            if (vm.website.name) {
+                WebsiteService
+                    .updateWebsite(vm.websiteId, vm.website)
+                    .then(function (response) {
+                        $location.url("/user/" + vm.userId + "/website");
+                    }, function (error) {
+                        vm.error = "Unable to update website";
+                    });
+            }
+            else {
+                vm.error = "Website Name is required"
+            }
         }
 
     }

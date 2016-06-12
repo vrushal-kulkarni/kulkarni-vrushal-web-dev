@@ -1,5 +1,9 @@
 <div class="container">
 
+    <div ng-if="model.error" class="alert alert-danger">
+        {{model.error}}
+    </div>
+
     <h1>Login</h1>
     <input ng-model="username"
            type="text"
