@@ -14,9 +14,9 @@
 
         function createPage(name){
             var newPage = {
-                _id: (new Date()).getTime()+"",
+                //_id: (new Date()).getTime()+"",
                 name: name,
-                websiteId: vm.websiteId
+                _website: vm.websiteId
             };
             PageService
                 .createPage(vm.websiteId, newPage)

@@ -6,10 +6,11 @@ module.exports = function (app) {
     //     res.send({message : msg});
     // });
 
-    require("./services/user.service.server.js")(app);
-    require("./services/website.service.server.js")(app);
-    require("./services/page.service.server.js")(app);
-    require("./services/widget.service.server.js")(app);
+    var models = require("./models/models.server")();
+    require("./services/user.service.server.js")(app, models);
+    require("./services/website.service.server.js")(app, models);
+    require("./services/page.service.server.js")(app, models);
+    require("./services/widget.service.server.js")(app, models);
 
     // var users = [
     //     {_id: "123", username: "alice", password: "alice", firstName: "Alice", lastName: "Wonder"},

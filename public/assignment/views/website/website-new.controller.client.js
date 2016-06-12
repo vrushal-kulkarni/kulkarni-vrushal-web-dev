@@ -11,10 +11,10 @@
 
         function createWebsite(name, description) {
             var website = {
-                _id: (new Date()).getTime()+"",
+                //_id: (new Date()).getTime()+"",
                 name: name,
                 desc: description,
-                developerId: vm.userId
+                _user: vm.userId
             };
 
             WebsiteService
