@@ -1,6 +1,7 @@
-<!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
-      xmlns="http://www.w3.org/1999/html">
+
+<!--Pearson key-->
+<!--Consumer Key: 41qHzuGLY9YEr8F6zmvN7FWQOanqUQzV-->
+<!--Consumer Secret: IAdFqnA2VzUgRh8z-->
 
 <!--Your Quizlet Client ID (used for public and user access):
 eB8UExXvN3
@@ -10,26 +11,8 @@ KVSVXxVxdVPGeZe6jqQ35e (reset)
 Your Redirect URI:
 http://webdev-kulkarni.rhcloud.com/ (double-click to edit) -->
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
-
-    <title>GRE CHAMP</title>
-
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-
-    <!-- Custom styles for this template -->
-    <link href="../css/carousel.css" rel="stylesheet">
-</head>
 <!-- NAVBAR
 ================================================== -->
-<body>
 <div class="navbar-wrapper">
     <div class="container">
 
@@ -43,30 +26,30 @@ http://webdev-kulkarni.rhcloud.com/ (double-click to edit) -->
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="homepage.view.client.html">Project name</a>
+                    <a class="navbar-brand" href="#/homepage">Project name</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="homepage.view.client.html">Home</a></li>
-                        <li><a href="general/testimonials.view.client.html">Testimonials</a></li>
-                        <li><a href="general/about.view.client.html">About</a></li>
-                        <li><a href="general/contact.view.client.html">Contact</a></li>
+                        <li class="active"><a href="#/homepage">Home</a></li>
+                        <li><a href="#/testimonials">Testimonials</a></li>
+                        <li><a href="#/about">About</a></li>
+                        <li><a href="#/contact">Contact</a></li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-haspopup="true" aria-expanded="false">GRE HUB <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="verbal/verbal.view.client.html">Verbal Section</a></li>
-                                <li><a href="quant/quant.view.client.html">Quant Section</a></li>
-                                <li><a href="awa/awa.view.client.html">AWA Section</a></li>
+                                <li><a href="#/verbal">Verbal Section</a></li>
+                                <li><a href="#/quant">Quant Section</a></li>
+                                <li><a href="#/awa">AWA Section</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="general/greinfo.view.client.html">GRE Basic Info</a></li>
-                                <li><a href="general/practicetest.view.client.html">Practice Test</a></li>
+                                <li><a href="#/greinfo">GRE Basic Info</a></li>
+                                <li><a href="#/practicetest">Practice Test</a></li>
                             </ul>
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right" role="navigation">
-                        <li><a href="user/login.view.client.html">Log in</a></li>
-                        <li><a href="user/register.view.client.html"><button type="button" class="btn btn-sm btn-primary">Sign Up</button></a></li>
+                        <li><a href="#/login">Log in</a></li>
+                        <li><a href="#/register"><button type="button" class="btn btn-sm btn-primary">Sign Up</button></a></li>
                     </ul>
                 </div>
             </div>
@@ -90,9 +73,24 @@ http://webdev-kulkarni.rhcloud.com/ (double-click to edit) -->
             <img class="first-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="First slide">
             <div class="container">
                 <div class="carousel-caption">
+
+                    <div class="input-group">
+                        <input ng-model="searchText"
+                               type="text"
+                               class="form-control">
+            <span class="input-group-btn">
+                <a ng-click="model.searchPhotos(searchText)"
+                   class="btn btn-default"
+                   type="button">
+                    <span class="glyphicon glyphicon-search">
+                    </span>
+                </a>
+            </span>
+                    </div>
+
                     <h1>GRE Champ</h1>
                     <p>We have hundreds of GRE practice questions arranged into mini tests, each mini test has a score card at the end</p>
-                    <p><a class="btn btn-lg btn-primary" href="user/register.view.client.html" role="button">Sign up today</a></p>
+                    <p><a class="btn btn-lg btn-primary" href="#/register" role="button">Sign up today</a></p>
                 </div>
             </div>
         </div>
@@ -100,9 +98,24 @@ http://webdev-kulkarni.rhcloud.com/ (double-click to edit) -->
             <img class="second-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
             <div class="container">
                 <div class="carousel-caption">
+
+                    <div class="input-group">
+                        <input ng-model="searchText"
+                               type="text"
+                               class="form-control">
+            <span class="input-group-btn">
+                <a ng-click="model.searchPhotos(searchText)"
+                   class="btn btn-default"
+                   type="button">
+                    <span class="glyphicon glyphicon-search">
+                    </span>
+                </a>
+            </span>
+                    </div>
+
                     <h1>Be a GRE champ</h1>
                     <p>Our questions are developed by test prep professionals and reflect any new changes introduced.</p>
-                    <p><a class="btn btn-lg btn-primary" href="general/about.view.client.html" role="button">Learn more</a></p>
+                    <p><a class="btn btn-lg btn-primary" href="#/about" role="button">Learn more</a></p>
                 </div>
             </div>
         </div>
@@ -110,9 +123,24 @@ http://webdev-kulkarni.rhcloud.com/ (double-click to edit) -->
             <img class="third-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
             <div class="container">
                 <div class="carousel-caption">
+
+                    <div class="input-group">
+                        <input ng-model="searchText"
+                               type="text"
+                               class="form-control">
+            <span class="input-group-btn">
+                <a ng-click="model.searchPhotos(searchText)"
+                   class="btn btn-default"
+                   type="button">
+                    <span class="glyphicon glyphicon-search">
+                    </span>
+                </a>
+            </span>
+                    </div>
+
                     <h1>We will make you a Champ!!</h1>
                     <p>Use the menu on the left to get more information about the test sections, or choose a question type and do a test now.</p>
-                    <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+                    <p><a class="btn btn-lg btn-primary" href="" role="button">Browse gallery</a></p>
                 </div>
             </div>
         </div>
@@ -137,35 +165,35 @@ http://webdev-kulkarni.rhcloud.com/ (double-click to edit) -->
     <!-- Three columns of text below the carousel -->
     <div class="row">
         <div class="col-lg-4">
-            <img class="img-square" src="../images/quant_homepage.jpg" alt="Generic placeholder image" width="140" height="140">
+            <img class="img-square" ng-src="http://gradestack.com/blogs/wp-content/uploads/2014/07/quant.jpg" alt="Generic placeholder image" width="140" height="140"/>
             <h2>Quant</h2>
             <p></br>The Quantitative aptitude section of the GRE contains 20 questions (35 mins) which of three types:</br>
-           <u><b><a href="./quant/ps.view.client.html">Multiple choice problem solving </br></a>
-               <a href="./quant/ne.view.client.html">Numeric entry</br></a>
-               <a href="./quant/qc.view.client.html">Quantitative comparisons</br></a></b></u>
+           <u><b><a href="#/ps">Multiple choice problem solving </br></a>
+               <a href="#/ne">Numeric entry</br></a>
+               <a href="#/qc">Quantitative comparisons</br></a></b></u>
             You may be tested on basic arithmetic, algebra, geometry and a few miscellaneous topics (mainly data interpretation and applied math).</p>
-            <p><a class="btn btn-default" href="quant/quant.view.client.html" role="button">View details &raquo;</a></p>
+            <p><a class="btn btn-default" href="#/quant" role="button">View details &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
 
         <div class="col-lg-4">
-            <img class="img-square" src="../images/verbal_homepage.jpg" alt="Generic placeholder image" width="140" height="140">
+            <img class="img-square" ng-src="http://www.dilipoakacademy.com/blog/wp-content/uploads/2012/03/Vocab-2-Black-Red.png" alt="Generic placeholder image" width="140" height="140">
             <h2>Verbal</h2>
             <br>The verbal reasoning section of the GRE contains 20 questions (30 mins) per section which of three types:</br>
-            <u><b> <a href="verbal/se.view.client.html"> Sentence Equivalence </a></br>
-                <a href="verbal/tc.view.client.html">Text Completion</a></br>
-                <a href="verbal/rc.view.client.html">Reading Comprehension</a></br></b></u>
+            <u><b> <a href="#/se"> Sentence Equivalence </a></br>
+                <a href="#/tc">Text Completion</a></br>
+                <a href="#/rc">Reading Comprehension</a></br></b></u>
             A good vocabulary is essential for the Text Completion and Sentence Equivalence questions which account for approximately 50% of the questions in this section.</p>
-            <p><a class="btn btn-default" href="verbal/verbal.view.client.html" role="button">View details &raquo;</a></p>
+            <p><a class="btn btn-default" href="#/verbal" role="button">View details &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
 
         <div class="col-lg-4">
-            <img class="img-square" src="../images/awa_homepage.jpg" alt="Generic placeholder image" width="140" height="140">
+            <img class="img-square" src="http://usgraduatesblog.com/wp-content/uploads/2013/02/GRE-AWA-Tackling.jpg" alt="Generic placeholder image" width="140" height="140">
             <h2>AWA</h2>
             <br>GRE sets two writing tasks collectively called the Analytical Writing Section which of two types: </br>
-            <u><b><a href="awa/issue.view.client.html"> Analyze an Issue</a></br>
-                    <a href="awa/issue.view.client.html"> Analyze an Argument</a><br></b></u>
+            <u><b><a href="#/issue"> Analyze an Issue</a></br>
+                    <a href="#/argument"> Analyze an Argument</a><br></b></u>
                 The tasks are designed to test critical thinking and analytical writing skills. The essays come first on the test - 30 minutes for the issue and 30 minutes for the argument.</p>
-            <p><a class="btn btn-default" href="awa/awa.view.client.html" role="button">View details &raquo;</a></p>
+            <p><a class="btn btn-default" href="#/awa" role="button">View details &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
     </div><!-- /.row -->
 
@@ -233,17 +261,3 @@ http://webdev-kulkarni.rhcloud.com/ (double-click to edit) -->
     </footer>
 
 </div><!-- /.container -->
-
-
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-<script src="../../assets/js/vendor/holder.min.js"></script>
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-</body>
-</html>

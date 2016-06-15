@@ -5,7 +5,7 @@
 
     function LoginController($location, UserService) {
         var vm = this;
-
+        
         vm.login = function(username, password) {
             if (username === undefined && password === undefined)
                 vm.error = "Please enter your Username and Password";
