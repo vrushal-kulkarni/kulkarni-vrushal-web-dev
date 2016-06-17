@@ -11,6 +11,11 @@
             .when("/homepage", {
                 templateUrl: "views/homepage.view.client.html",
             })
+            .when("/pearson", {
+                templateUrl: "views/pearson/pearson-api.search.view.client.html",
+                controller: "PearsonWordSearchController",
+                controllerAs: "model"
+            })
             .when("/testimonials", {
                 templateUrl: "views/general/testimonials.view.client.html",
             })
