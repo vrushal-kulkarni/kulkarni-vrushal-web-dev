@@ -1,46 +1,49 @@
 
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
+
         <div class="navbar-header">
             <p class="navbar-text pull-left">
-                <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{model.widgetId}}">
+                <a ng-click="model.linkToPageList()">
                     <span class="glyphicon glyphicon-chevron-left">
                     </span>
                 </a>
             </p>
             <a class="navbar-brand" href="">
-                Search Flickr
+                New Page
             </a>
+            <p class="navbar-text pull-right">
+                <a ng-click="model.createPage(pageName)" class="navbar-link">
+                    <span class="glyphicon glyphicon-ok">
+                    </span>
+                </a>
+            </p>
         </div>
     </div>
 </nav>
 
 <div class="container">
-
-    <div class="input-group">
-        <input ng-model="searchText"
-               type="text"
-               class="form-control">
-    <span class="input-group-btn">
-        <a ng-click="model.searchPhotos(searchText)"
-           class="btn btn-default"
-           type="button">
-            <span class="glyphicon glyphicon-search">
-            </span>
-        </a>
-    </span>
+    <div ng-if="model.error" class="alert alert-danger">
+        {{model.error}}
     </div>
-
-    <p></p>
-    <div class="row">
-        <div ng-repeat="photo in model.photos.photo" class="col-xs-4">
-            <a ng-click="model.selectPhoto(photo)">
-                <img class="pflickr" width="100%"
-                     ng-src="https://farm{{photo.farm}}.staticflickr.com/{{photo.server}}/{{photo.id}}_{{photo.secret}}_s.jpg"/>
-            </a>
+    <form>
+        <div class="form-group">
+            <label  for="Name">Name</label>
+            <input ng-model="pageName"
+                   type="text"
+                   class="form-control"
+                   id="Name"
+                   placeholder="Page Name">
         </div>
-    </div>
-
+        <div class="form-group">
+            <label  for="Title">Title</label>
+            <input  ng-model="pageTitle"
+                    type="text"
+                    class="form-control"
+                    id="Title"
+                    placeholder="Page Title">
+        </div>
+    </form>
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
@@ -60,7 +63,3 @@
         </div>
     </div>
 </nav>
-
-
-
-

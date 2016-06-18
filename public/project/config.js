@@ -49,6 +49,9 @@
             .when("/profile", {
                 templateUrl: "views/user/profile.view.client.html",
             })
+            .when("/profile-homepage", {
+                templateUrl: "views/user/user-homepage.view.client.html",
+            })
             .when("/ps", {
                 templateUrl: "views/quant/ps.view.client.html",
             })
@@ -78,6 +81,8 @@
             })
             .when("/psp", {
                 templateUrl: "views/quant/psp.view.client.html",
+                controller: "PSPController",
+                controllerAs: "model"
             })
             .when("/qcp", {
                 templateUrl: "views/quant/qcp.view.client.html",
