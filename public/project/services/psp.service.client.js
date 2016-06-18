@@ -32,16 +32,16 @@
             }
         ];
 
-        var api = {
-
-            getQuestion:getQuestion
-        };
-        return api;
-
-        function getQuestion(id) {
-            var url = "/api/psp/" + id;
-            return $http.get(url);
-        }
+        // var api = {
+        //
+        //     getQuestion:getQuestion
+        // };
+        // return api;
+        //
+        // function getQuestion(id) {
+        //     var url = "/api/psp/" + id;
+        //     return $http.get(url);
+        // }
 
         return {
             getQuestion: function(id) {
