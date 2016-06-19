@@ -39,7 +39,7 @@
                    type="Email"
                    class="form-control"
                    id="Email"
-                   value="alice@wonderland.com">
+                   placeholder="alice@wonderland.com">
         </div>
         <div class="form-group">
             <label for="FirstName">First Name</label>
@@ -59,7 +59,8 @@
         </div>
         <a class="btn btn-primary btn-block"
            href="#/user/{{model.user._id}}/website">Websites</a>
-        <a class="btn btn-danger btn-block"
+        <a ng-click="model.logout()"
+           class="btn btn-danger  btn-block"
            href="#/login">Logout</a>
 
     </form>

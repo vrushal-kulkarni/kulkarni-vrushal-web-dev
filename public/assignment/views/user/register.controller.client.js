@@ -6,9 +6,9 @@
     function RegisterController($location, UserService) {
 
         var vm = this;
-        vm.registerUser = registerUser;
+        vm.register  = register ;
 
-        function registerUser (username, password1, password2) {
+        function register(username, password1, password2) {
             if (username && password1 && password2) {
                 if (password1 === password2) {
                     var newUser = {
@@ -17,7 +17,7 @@
                         password: password1
                     };
                     UserService
-                        .createUser(newUser)
+                        .register(username,password1)
                         .then(function (response) {
                             var user = response.data;
                             if (user)

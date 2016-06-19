@@ -6,8 +6,8 @@
     function PSPService() {
         var questions = [
             {
-                question: "Which is the largest country in the world by population?",
-                options: ["India", "USA", "China", "Russia"],
+                question: "1. Of the following, which is greater than ½ ?Indicate ALL such fractions.",
+                options: ["2/5", "4/7", "4/9", "5/11", "6/13", "8/15", "9/17"],
                 answer: 2
             },
             {

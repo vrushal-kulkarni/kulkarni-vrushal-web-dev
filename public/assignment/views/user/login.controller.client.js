@@ -11,7 +11,7 @@
                 vm.error = "Please enter your Username and Password";
             else {
                 UserService
-                    .findUserByCredentials(username, password)
+                    .login(username, password)
                     .then(function (response) {
                         var user = response.data;
                         if (user) {

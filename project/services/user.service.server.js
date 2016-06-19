@@ -15,6 +15,11 @@ module.exports = function (app, models) {
     //     {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose", lastName: "Annunzi"}
     // ];
 
+   /* app.get("/auth/facebook", passport.authenticate('facebook'));
+    app.get("/auth/facebook/callback", passport.authenticate('facebook', {
+        successRedirect: '/assignment/#/user',
+        failureRedirect: '/assignment/#/login'
+    }));
     app.get("/api/user", getUsers);
     app.get("/api/user/:userId", findUserById);
     app.post("/api/user", createUser);
@@ -23,24 +28,19 @@ module.exports = function (app, models) {
     app.post("/api/login", passport.authenticate('local'), login);
     app.post("/api/logout", logout);
     app.get ('/api/loggedIn', loggedIn);
-    app.post ('/api/register', register);
-    app.get("/auth/facebook", passport.authenticate('facebook'));
-    app.get("/auth/facebook/callback", passport.authenticate('facebook', {
-        successRedirect: '/assignment/#/profile',
-        failureRedirect: '/assignment/#/login'
-    }));
+    app.post ('/api/register', register);*/
 
 
-    var facebookConfig = {
-        clientID     : process.env.FACEBOOK_CLIENT_ID,
-        clientSecret : process.env.FACEBOOK_CLIENT_SECRET,
-        callbackURL  : process.env.FACEBOOK_CALLBACK_URL
-    };
-    passport.use('facebook', new FacebookStrategy(facebookConfig, facebookLogin));
-
-    passport.use('local',new LocalStrategy(localStrategy));
-    passport.serializeUser(serializeUser);
-    passport.deserializeUser(deserializeUser);
+    // var facebookConfig = {
+    //     clientID     : process.env.FACEBOOK_CLIENT_ID,
+    //     clientSecret : process.env.FACEBOOK_CLIENT_SECRET,
+    //     callbackURL  : process.env.FACEBOOK_CALLBACK_URL
+    // };
+    // // passport.use('facebook', new FacebookStrategy(facebookConfig, facebookLogin));
+    // //
+    // // passport.use('local',new LocalStrategy(localStrategy));
+    // // passport.serializeUser(serializeUser);
+    // // passport.deserializeUser(deserializeUser);
 
 
     function facebookLogin(token, refreshToken, profile, done) {
@@ -70,8 +70,7 @@ module.exports = function (app, models) {
 
                     }
 
-                }
-            );
+                });
     }
 
     function localStrategy(username, password, done) {
@@ -227,7 +226,7 @@ module.exports = function (app, models) {
     function findUserById(req, res) {
         var userId = req.params.userId;
         userModel
-            .findUserById(userId)
+            .findUserByID(userId)
             .then(function(user) {
                 res.send(user);
             },function(error) {
