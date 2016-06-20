@@ -6,7 +6,7 @@ var FacebookStrategy = require('passport-facebook').Strategy;
 
 module.exports = function (app, models) {
 
-    var userModel = models.userModel;
+    var userModel = models.usersModel;
 
     // var users = [
     //     {_id: "123", username: "alice", password: "alice", firstName: "Alice", lastName: "Wonder"},
