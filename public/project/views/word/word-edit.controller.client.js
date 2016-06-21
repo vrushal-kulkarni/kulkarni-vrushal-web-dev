@@ -1,6 +1,6 @@
 (function () {
     angular
-        .module("WebAppMaker")
+        .module("GreAppMaker")
         .controller("EditPageController", EditPageController);
 
     function  EditPageController($routeParams, $location, PageService) {
@@ -31,7 +31,7 @@
                 {
                     var page = response.data;
                     if(page) {
-                        $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page");
+                        $location.url("/user/" + vm.userId + "/wordlist/" + vm.websiteId + "/word");
                     }
                     else {
                         vm.error="Unable to delete page";
@@ -44,7 +44,7 @@
                 PageService
                     .updatePage(vm.pageId, vm.page)
                     .then(function (response) {
-                        $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page");
+                        $location.url("/user/" + vm.userId + "/wordlist/" + vm.websiteId + "/word");
                     }, function (error) {
                         vm.error = "Unable to update page";
                     });
@@ -55,7 +55,7 @@
         }
         
         function linkToPageList() {
-            $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page");
+            $location.url("/user/" + vm.userId + "/wordlist/" + vm.websiteId + "/word");
         }
     }
 

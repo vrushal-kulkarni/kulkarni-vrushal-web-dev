@@ -2,13 +2,13 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <p class="navbar-text pull-left">
-                <a href="#/user/{{model.userId}}/website" class="navbar-link">
+                <a href="#/user/{{model.userId}}/wordlist" class="navbar-link">
                   <span class="glyphicon glyphicon-chevron-left">
                   </span>
                 </a>
             </p>
             <a class="navbar-brand" href="">
-                New Website
+                New Wordlist
             </a>
             <p class="navbar-text pull-right">
                 <a ng-click="model.createWebsite(name, description)" class="navbar-link">
@@ -26,14 +26,14 @@
     </div>
     <form>
         <div class="form-group">
-            <label for="website-name">Website Name</label>
+            <label for="website-name">Wordlist Name</label>
             <input ng-model="name" type="text"
                    class="form-control"
                    id="website-name"
                    placeholder="Google">
         </div>
         <div class="form-group">
-            <label for="website-description">Website Description</label>
+            <label for="website-description">Wordlist Description</label>
                 <textarea ng-model="description" rows="4"
                           id="website-description"
                           class="form-control"

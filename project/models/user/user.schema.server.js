@@ -8,14 +8,14 @@ module.exports = function () {
         lastName: String,
         email: String,
         phone: Number,
-        facebook: {
-            token: String,
-            id: String,
-            displayName: String
-        },
+        // facebook: {
+        //     token: String,
+        //     id: String,
+        //     displayName: String
+        // },
         dob: Date,
         dateCreated: {type: Date, default: Date.now()}
-    },{collection: "assignment.user"});
+    },{collection: "project.user"});
 
     return UserSchema;
 };

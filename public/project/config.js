@@ -42,15 +42,64 @@
             })
             .when("/login", {
                 templateUrl: "views/user/login.view.client.html",
+                controller: "LoginController",
+                controllerAs: "model"
             })
             .when("/register", {
                 templateUrl: "views/user/register.view.client.html",
+                controller: "RegisterController",
+                controllerAs: "model"
             })
-            .when("/profile", {
-                templateUrl: "views/user/profile.view.client.html",
+            .when("/user/:userId/profile" , {
+                templateUrl:"views/user/profile.view.client.html",
+                controller: "ProfileController",
+                controllerAs: "model",
+                // resolve: {
+                //     loggedIn: checkLoggedIn
+                // }
             })
-            .when("/profile-homepage", {
+            .when("/user/:userId", {
                 templateUrl: "views/user/user-homepage.view.client.html",
+                controller:"ProfileController",
+                controllerAs: "model",
+                // resolve: {
+                //     loggedIn:checkLoggedIn
+                // }
+            })
+            .when("/user/:userId/wordlist", {
+                templateUrl: "views/wordlist/wordlist.view.client.html",
+                controller: "WebsiteListController",
+                controllerAs: "model"
+            })
+            .when("/user/:userId/wordlist/new", {
+                templateUrl: "views/wordlist/wordlist-new.view.client.html",
+                controller: "NewWebsiteController",
+                controllerAs: "model"
+            })
+            .when("/user/:userId/wordlist/:websiteId", {
+                templateUrl: "views/wordlist/wordlist-edit.view.client.html",
+                controller: "EditWebsiteController",
+                controllerAs: "model"
+            })
+            .when("/user/:userId/wordlist/:websiteId/word", {
+                templateUrl: "views/word/word.view.client.html",
+                controller: "PageListController",
+                controllerAs: "model"
+            })
+            .when("/user/:userId/wordlist/:websiteId/word/new", {
+                templateUrl: "views/word/pearson-api-user.search.view.client.html",
+                controller: "PearsonSearchController",
+                controllerAs: "model"
+            })
+            .when("/user/:userId/wordlist/:websiteId/word/:definition/:word/:example", {
+                templateUrl: "views/word/flashcard.view.client.html",
+                controller: "FlashCardController",
+                controllerAs: "model"
+            })
+            .when("/user/:userId/wordlist/:websiteId/word/:pageId", {
+                templateUrl: "views/word/word-edit.view.client.html",
+                controller: "EditPageController",
+                controllerAs: "model"
             })
             .when("/ps", {
                 templateUrl: "views/quant/ps.view.client.html",
@@ -99,6 +148,33 @@
             .otherwise({
                 redirectTo: "/homepage"
             });
+
+        function checkLoggedIn(UserService, $location, $q, $rootScope) {
+
+            var deferred = $q.defer();
+
+            UserService
+                .loggedIn()
+                .then(
+                    function(response) {
+                        var user = response.data;
+                        console.log("Hello");
+                        if(user == '0') {
+                            $rootScope.currentUser = null;
+                            deferred.reject();
+                            $location.url("/login");
+                        } else {
+                            $rootScope.currentUser = user;
+                            deferred.resolve();
+                        }
+                    },
+                    function(err) {
+                        $location.url("/login");
+                    }
+                );
+
+            return deferred.promise;
+        }
 
     }
 })();

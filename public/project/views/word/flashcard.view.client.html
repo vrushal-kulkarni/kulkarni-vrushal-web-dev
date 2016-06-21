@@ -3,35 +3,32 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <p class="navbar-text pull-left">
-                <a href="#/user/{{model.userId}}/wordlist" class="navbar-link">
-                <span class="glyphicon glyphicon-chevron-left"/>
-                </a>
-            </p>
-            <a class="navbar-brand" href="">
-                Words
-            </a>
-            <p class="navbar-text pull-right">
-                <a ng-click="model.linkToPageNew()" class="navbar-link">
-                    <span class="glyphicon glyphicon-plus">
+                <a href="#/user/{{model.userId}}/wordlist/{{model.websiteId}}/word">
+                    <span class="glyphicon glyphicon-chevron-left">
                     </span>
                 </a>
             </p>
+            <a class="navbar-brand" href="">
+                Flashcard
+            </a>
+
         </div>
     </div>
 </nav>
 
-<div class="container">
-    <ul class="list-group">
-        <li ng-repeat="page in model.pages" class="list-group-item">
-            <a ng-click="model.searchWords(page.name)">
-                {{page.name}}
-            </a>
-            <a href="#/user/{{model.userId}}/wordlist/{{model.websiteId}}/word/{{page._id}}" class="pull-right">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-        </li>
-    </ul>
+<div class="stage">
+    <div class="flashcard">
+        <div class="front">
+            <p>{{model.word}}</p>
+        </div>
+        <div class="back">
+            <b><h1>{{model.word}}</h1></b><br>
+            <i><h3>{{model.definition}}</h3></i><br>
+            <h3>{{model.example}}</h3>
+        </div>
+    </div>
 </div>
+
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container">
@@ -50,3 +47,9 @@
         </div>
     </div>
 </nav>
+
+
+
+
+
+

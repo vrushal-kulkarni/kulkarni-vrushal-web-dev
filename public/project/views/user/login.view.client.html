@@ -47,17 +47,30 @@
     </div>
 </div>
 
-<div class="container" style="margin-top: 7%">
+
+<br><br>
+<div class="container">
+
+    <div ng-if="model.error" class="alert alert-danger">
+        {{model.error}}
+    </div>
 
     <h1>Login</h1>
-    <input type="text"
+    <input ng-model="username"
+           type="text"
            class="form-control"
            placeholder="username"/>
-    <input type="password"
+    <input ng-model="password"
+           type="password"
            class="form-control"
            placeholder="password"/>
-    <a class="btn btn-primary btn-block"
-       href="#/profile-homepage">Login</a>
+    <a ng-click="model.login(username, password)"
+       class="btn btn-primary btn-block">Login</a>
     <a class="btn btn-success btn-block"
        href="#/register">Register</a>
+    <!--<a class="btn btn-primary btn-block"-->
+       <!--href="/auth/pfacebook"-->
+       <!--role="button">-->
+        <!--<span class="fa fa-facebook-official"></span>-->
+        <!--Facebook </a>-->
 </div>

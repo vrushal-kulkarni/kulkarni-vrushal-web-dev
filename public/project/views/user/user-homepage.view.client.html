@@ -37,8 +37,8 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right" role="navigation">
-                        <li><a href="#/login">Log in</a></li>
-                        <li><a href="#/register"><button type="button" class="btn btn-sm btn-primary">Sign Up</button></a></li>
+                        <li><a>Welcome {{model.user.username}}</a></li>
+                        <li><a href="#/homepage"><button type="button" class="btn btn-sm btn-primary">Logout</button></a></li>
                     </ul>
                 </div>
             </div>
@@ -47,32 +47,17 @@
     </div>
 </div>
 
-
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner" role="listbox">
-        <div class="item active">
-            <div class="container">
-                <div class="carousel-caption">
-                    <h1>Name</h1>
-                    <p><a class="btn btn-lg btn-primary" href="#/pearson" role="button">Photo</a></p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div><!-- /.carousel -->
-
-
 <!-- Marketing messaging and featurettes
 ================================================== -->
 <!-- Wrap the rest of the page in another container to center all the content. -->
-
+<br>
 <div class="container marketing">
 
     <!-- Three columns of text below the carousel -->
     <div class="row">
         <div class="col-lg-3">
             <div class="round-button"><div class="round-button-circle">
-                <a href="http://example.com" class="round-button">
+                <a href="#/user/{{model.user._id}}/wordlist" class="round-button">
                     <button type="button" class="btn btn-lg btn-default">Wordlist</button>
                 </a>
             </div>
@@ -84,7 +69,7 @@
 
         <div class="col-lg-3">
             <div class="round-button"><div class="round-button-circle">
-                <a href="#/profile" class="round-button">
+                <a href="#/user/{{model.user._id}}/profile" class="round-button">
                     <button type="button" class="btn btn-lg btn-default">Profile</button>
                 </a>
             </div>

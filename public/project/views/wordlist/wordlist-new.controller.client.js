@@ -1,6 +1,6 @@
 (function(){
     angular
-        .module("WebAppMaker")
+        .module("GreAppMaker")
         .controller("NewWebsiteController", NewWebsiteController);
 
     function NewWebsiteController($location, $routeParams, WebsiteService) {
@@ -24,7 +24,7 @@
                         var newWebsite = response.data;
 
                         if (newWebsite) {
-                            $location.url("/user/" + vm.userId + "/website");
+                            $location.url("/user/" + vm.userId + "/wordlist");
                         }
                         else {
                             vm.error = "Unable to create website";

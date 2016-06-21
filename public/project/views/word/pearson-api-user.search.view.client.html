@@ -37,64 +37,48 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right" role="navigation">
-                        <li><a href="#/user/{{model.user._id}}">Welcome {{model.user.username}}</a></li>
-                        <li><a href="#/homepage"><button type="button" class="btn btn-sm btn-primary">Logout</button></a></li>
+                        <li><a href="#/login">Log in</a></li>
+                        <li><a href="#/register"><button type="button" class="btn btn-sm btn-primary">Sign Up</button></a></li>
                     </ul>
                 </div>
             </div>
         </nav>
 
+
+        <div class="grid_13">
+            <div class="input-group">
+                <input ng-model="searchText"
+                       type="text"
+                       class="form-control">
+            <span class="input-group-btn">
+                <a ng-click="model.searchWords(searchText)"
+                   class="btn btn-default"
+                   type="button">
+                    <span class="glyphicon glyphicon-search">
+                    </span>
+                </a>
+            </span>
+            </div>
+
+
+            <div class="stage">
+                <div class="flashcard">
+                    <div class="front">
+                        <p>{{model.word}}</p>
+                    </div>
+                    <div class="back">
+                        <b><h1>{{model.word}}</h1></b><br>
+                        <i><h3>{{model.definition}}</h3></i>
+                        <h3>{{model.example}}</h3>
+                    </div>
+                </div>
+            </div>
+
+            <a class="btn btn-primary btn-block"
+               ng-click="model.createPage(searchText)">Add to Wordlist</a>
+
+        </div>
+
+
     </div>
 </div>
-
-
-
-<br><br><br>
-<div class="container">
-
-    <div ng-show="model.success" class="alert alert-success alert-dismissible">
-        {{model.success}}
-    </div>
-    <div ng-show="model.error" class="alert alert-danger">
-        {{model.error}}
-    </div>
-
-    <form>
-        <div class="form-group">
-            <label for="Username">Username</label>
-            <input ng-model="model.user.username"
-                   type="text"
-                   class="form-control"
-                   id="Username"
-                   placeholder="Username">
-        </div>
-        <div class="form-group">
-            <label for="Email">Email</label>
-            <input ng-model="model.user.email"
-                   type="Email"
-                   class="form-control"
-                   id="Email"
-                   placeholder="alice@wonderland.com">
-        </div>
-        <div class="form-group">
-            <label for="FirstName">First Name</label>
-            <input ng-model="model.user.firstName"
-                   type="text"
-                   class="form-control"
-                   id="FirstName"
-                   placeholder="Alice">
-        </div>
-        <div class="form-group">
-            <label for="LastName">Last Name</label>
-            <input ng-model="model.user.lastName"
-                   type="text"
-                   class="form-control"
-                   id="LastName"
-                   placeholder="Wonderland">
-        </div>
-        <a class="btn btn-primary btn-block"
-           ng-click="model.updateUser(model.user)">Save</a>
-
-    </form>
-</div>
-

@@ -1,6 +1,6 @@
 (function () {
     angular
-        .module("WebAppMaker")
+        .module("GreAppMaker")
         .controller("EditWebsiteController", EditWebsiteController);
 
     function EditWebsiteController($location, $routeParams, WebsiteService) {
@@ -24,7 +24,7 @@
             WebsiteService
                 .deleteWebsite(vm.websiteId)
                 .then(function () {
-                    $location.url("/user/" + vm.userId + "/website");
+                    $location.url("/user/" + vm.userId + "/wordlist");
                 }, function () {
                     vm.error = "Unable to delete website";
                 });
@@ -35,7 +35,7 @@
                 WebsiteService
                     .updateWebsite(vm.websiteId, vm.website)
                     .then(function (response) {
-                        $location.url("/user/" + vm.userId + "/website");
+                        $location.url("/user/" + vm.userId + "/wordlist");
                     }, function (error) {
                         vm.error = "Unable to update website";
                     });
