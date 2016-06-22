@@ -59,7 +59,7 @@
                 // }
             })
             .when("/user/:userId", {
-                templateUrl: "views/user/user-homepage.view.client.html",
+                templateUrl: "views/user/new-user-homepage.view.client.html",
                 controller:"ProfileController",
                 controllerAs: "model",
                 // resolve: {

@@ -1,0 +1,134 @@
+
+<!-- NAVBAR
+================================================== -->
+
+<div class="navbar-wrapper">
+    <div class="container">
+
+        <nav class="navbar navbar-inverse navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#/homepage">Project name</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#/homepage">Home</a></li>
+                        <li><a href="#/testimonials">Testimonials</a></li>
+                        <li><a href="#/about">About</a></li>
+                        <li><a href="#/contact">Contact</a></li>
+                        <li class="dropdown">
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true" aria-expanded="false">GRE HUB <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#/verbal">Verbal Section</a></li>
+                                <li><a href="#/quant">Quant Section</a></li>
+                                <li><a href="#/awa">AWA Section</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#/greinfo">GRE Basic Info</a></li>
+                                <li><a href="#/practicetest">Practice Test</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right" role="navigation">
+                        <li><a>Welcome {{model.user.username}}</a></li>
+                        <li><a href="#/homepage"><button type="button" class="btn btn-sm btn-primary">Logout</button></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 col-xs-10">
+            <div class="well panel panel-default">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-4 text-center">
+                            <img src="http://api.randomuser.me/portraits/men/21.jpg" alt="Profile Image"  class="center-block img-circle img-thumbnail img-responsive">
+                            <ul class="list-inline ratings text-center" title="Ratings">
+                                <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
+                                <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
+                                <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
+                                <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
+                                <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
+                            </ul>
+                        </div>
+                        <!--/col-->
+                        <div class="col-xs-12 col-sm-8">
+                            <h2>Welcome {{model.user.username}}</h2><br>
+                            <p ><strong>About: </strong> </p><br>
+                            <p><strong>Hobbies: </strong> </p>
+
+                        </div>
+
+
+                    </div>
+                    <!--/row-->
+                </div>
+                <!--/panel-body-->
+
+
+            </div>
+            <!--/panel-->
+
+        </div>
+        <!--/col-->
+    </div>
+    <!--/row-->
+
+
+    <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
+        <div class="btn-group" role="group">
+            <a href="#/user/{{model.user._id}}/wordlist">
+                <button type="button" class="btn btn-primary" data-toggle="tab">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    <div class="hidden-xs">Wordlist</div>
+                </button>
+            </a>
+        </div>
+        <div class="btn-group" role="group">
+            <a href="#/verbal">
+                <button type="button" id="followers" class="btn btn-default" data-toggle="tab">
+                    <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
+                    <div class="hidden-xs">Verbal</div>
+                </button>
+            </a>
+        </div>
+        <div class="btn-group" role="group">
+            <a href="#/quant">
+                <button type="button" id="following" class="btn btn-default" data-toggle="tab"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
+                    <div class="hidden-xs">Quantitative</div>
+                </button>
+            </a>
+        </div>
+        <div class="btn-group" role="group">
+            <a  href="#/awa">
+                <button type="button" id="reviews" class="btn btn-default" data-toggle="tab"><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
+                    <div class="hidden-xs">Writing</div>
+                </button>
+            </a>
+        </div>
+        <div class="btn-group" role="group">
+            <a href="#/user/{{model.user._id}}/profile">
+                <button type="button" id="editProfile" class="btn btn-default" data-toggle="tab"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+                <!-- ngIf: !model.isdifferentUser --><div class="hidden-xs ng-scope">Edit Profile</div><!-- end ngIf: !model.isdifferentUser -->
+                <!-- ngIf: model.isdifferentUser -->
+                 </button>
+            </a>
+        </div>
+    </div>
+
+
+</div>
+<!--/container-->
