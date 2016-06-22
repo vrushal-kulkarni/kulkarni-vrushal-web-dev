@@ -125,25 +125,15 @@
             .when("/argument", {
                 templateUrl: "views/awa/argument.view.client.html",
             })
-            .when("/nep", {
-                templateUrl: "views/quant/nep.view.client.html",
-            })
             .when("/psp", {
                 templateUrl: "views/quant/psp.view.client.html",
                 controller: "PSPController",
                 controllerAs: "model"
             })
-            .when("/qcp", {
-                templateUrl: "views/quant/qcp.view.client.html",
-            })
             .when("/rcp", {
                 templateUrl: "views/verbal/rcp.view.client.html",
-            })
-            .when("/sep", {
-                templateUrl: "views/verbal/sep.view.client.html",
-            })
-            .when("/tcp", {
-                templateUrl: "views/verbal/tcp.view.client.html",
+                controller: "RCPController",
+                controllerAs: "model"
             })
             .otherwise({
                 redirectTo: "/homepage"
