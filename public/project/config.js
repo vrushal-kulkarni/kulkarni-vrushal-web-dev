@@ -38,9 +38,6 @@
             .when("/awa", {
                 templateUrl: "views/awa/awa.view.client.html",
             })
-            .when("/greinfo", {
-                templateUrl: "views/general/greinfo.view.client.html",
-            })
             .when("/practicetest", {
                 templateUrl: "views/general/practicetest.view.client.html",
             })
@@ -54,18 +51,16 @@
                 controller: "RegisterController",
                 controllerAs: "model"
             })
-            .when("/user/:userId/profile" , {
-                templateUrl:"views/user/profile.view.client.html",
-                controller: "ProfileController",
-                controllerAs: "model",
-            })
+            // .when("/user/:userId/profile" , {
+            //     templateUrl:"views/user/profile.view.client.html",
+            //     controller: "ProfileController",
+            //     controllerAs: "model",
+            // })
             .when("/user/:userId", {
                 templateUrl: "views/user/new-user-homepage.view.client.html",
                 controller:"ProfileController",
                 controllerAs: "model",
-                // resolve: {
-                //     loggedIn:checkLoggedIn
-                // }
+                resolve: { loggedin: checkLoggedin }
             })
             // .when("/profile-homepage" , {
             //     templateUrl: "views/user/new-user-homepage.view.client.html",
@@ -148,30 +143,46 @@
                 redirectTo: "/homepage"
             });
 
-        function checkLoggedIn(UserService, $location, $q, $rootScope) {
+        // function checkLoggedIn(UserService, $location, $q, $rootScope) {
+        //
+        //     var deferred = $q.defer();
+        //
+        //     UserService
+        //         .loggedIn()
+        //         .then(
+        //             function(response) {
+        //                 var user = response.data;
+        //                 console.log("Hello"+user);
+        //                 if(user == '0') {
+        //                     $rootScope.currentUser = null;
+        //                     deferred.reject();
+        //                     $location.url("/login");
+        //                 } else {
+        //                     $rootScope.currentUser = user;
+        //                     deferred.resolve();
+        //                 }
+        //             },
+        //             function(err) {
+        //                 $location.url("/login");
+        //             }
+        //         );
+        //
+        //     return deferred.promise;
+        // }
 
+        function checkLoggedin($q, $timeout, $http, $location, $rootScope) {
             var deferred = $q.defer();
-
-            UserService
-                .loggedIn()
-                .then(
-                    function(response) {
-                        var user = response.data;
-                        console.log("Hello"+user);
-                        if(user == '0') {
-                            $rootScope.currentUser = null;
-                            deferred.reject();
-                            $location.url("/login");
-                        } else {
-                            $rootScope.currentUser = user;
-                            deferred.resolve();
-                        }
-                    },
-                    function(err) {
-                        $location.url("/login");
-                    }
-                );
-
+            $http.get('/proj/loggedin').success(function(user) {
+                $rootScope.errorMessage = null;
+                if (user !== '0') {
+                    $rootScope.currentUser = user;
+                    deferred.resolve();
+                } else {
+                    $rootScope.currentUser=null;
+                    deferred.reject();
+                    $location.url('/');
+                }
+            });
             return deferred.promise;
         }
 

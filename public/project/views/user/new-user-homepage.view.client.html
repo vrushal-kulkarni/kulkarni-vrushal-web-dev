@@ -38,7 +38,7 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right" role="navigation">
                         <li><a>Welcome {{model.user.username}}</a></li>
-                        <li><a href="#/homepage"><button type="button" class="btn btn-sm btn-primary">Logout</button></a></li>
+                        <li><a ng-click="model.logout()"><button type="button" class="btn btn-sm btn-primary">Logout</button></a></li>
                     </ul>
                 </div>
             </div>

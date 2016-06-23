@@ -102,7 +102,7 @@ body {
 @media (min-width: 768px) {
   /* Navbar positioning foo */
   .navbar-wrapper {
-    margin-top: 20px;
+    margin-top: 0px;
   }
   .navbar-wrapper .container {
     padding-right: 15px;
@@ -145,9 +145,9 @@ input.form-control {
   margin-top: 100px;
 }
 
-body.context{
-  background-image: url("/public/project/images/bg.jpg");
-}
+/*body.context{*/
+  /*background-image: url("/public/project/images/bg.jpg");*/
+/*}*/
 
 .entry {
   font: normal 13px/1.5em Verdana, Geneva, sans-serif;
