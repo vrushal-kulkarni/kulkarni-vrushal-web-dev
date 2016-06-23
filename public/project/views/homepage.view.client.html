@@ -13,7 +13,7 @@ http://webdev-kulkarni.rhcloud.com/ (double-click to edit) -->
 
 <!-- NAVBAR
 ================================================== -->
-<div class="navbar-wrapper">
+<div class="navbar-wrapper" xmlns:text-align="http://www.w3.org/1999/xhtml">
     <div class="container">
 
         <nav class="navbar navbar-inverse navbar-static-top">
@@ -61,6 +61,7 @@ http://webdev-kulkarni.rhcloud.com/ (double-click to edit) -->
 
 <!-- Carousel
 ================================================== -->
+
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -73,8 +74,24 @@ http://webdev-kulkarni.rhcloud.com/ (double-click to edit) -->
             <img class="first-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="First slide">
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>GRE Champ</h1>
-                    <p>We have hundreds of GRE practice questions arranged into mini tests, each mini test has a score card at the end</p>
+
+                    <div class="input-group">
+                        <input ng-model="searchText"
+                               type="text"
+                               class="form-control">
+            <span class="input-group-btn">
+                <a ng-click="model.searchWords(searchText)"
+                   class="btn btn-default"
+                   type="button">
+                    <span class="glyphicon glyphicon-search">
+                    </span>
+                </a>
+            </span>
+                    </div>
+                    <h3 style="color:#c4c4c4">{{model.definition}}</h3>
+
+                    <h1>GRE CHAMP</h1>
+                    <p>We have a flashcard generator tool which you can use to create your own wordlist. Click below to generate a flashcard.</p>
                     <p><a class="btn btn-lg btn-primary" href="#/pearson" role="button">Learn a word today!!</a></p>
                 </div>
             </div>
@@ -83,8 +100,8 @@ http://webdev-kulkarni.rhcloud.com/ (double-click to edit) -->
             <img class="second-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>Be a GRE champ</h1>
-                    <p>Our questions are developed by test prep professionals and reflect any new changes introduced.</p>
+                    <h1>We will make you a Champ!!</h1>
+                    <p> Use the menu on the top to get more information about the test sections, or choose a question type and do a test now.</p>
                     <p><a class="btn btn-lg btn-primary" href="#/about" role="button">Learn more</a></p>
                 </div>
             </div>
@@ -93,8 +110,8 @@ http://webdev-kulkarni.rhcloud.com/ (double-click to edit) -->
             <img class="third-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>We will make you a Champ!!</h1>
-                    <p>Use the menu on the left to get more information about the test sections, or choose a question type and do a test now.</p>
+                    <h1>Be a GRE CHAMP</h1>
+                    <p>We have sample GRE practice test arranged into respective sections along with the exam format. Each mini test has a score card at the end.</p>
                     <p><a class="btn btn-lg btn-primary" href="#/register" role="button">Sign up today</a></p>
                 </div>
             </div>
@@ -115,7 +132,9 @@ http://webdev-kulkarni.rhcloud.com/ (double-click to edit) -->
 ================================================== -->
 <!-- Wrap the rest of the page in another container to center all the content. -->
 
-<div class="container marketing">
+<div style="background-color: #cccccc;padding-top: 40px" >
+
+    <div class="container marketing">
 
     <!-- Three columns of text below the carousel -->
     <div class="row">
@@ -148,7 +167,7 @@ http://webdev-kulkarni.rhcloud.com/ (double-click to edit) -->
             <u><b><a href="#/issue"> Analyze an Issue</a></br>
                     <a href="#/argument"> Analyze an Argument</a><br></b></u>
                 The tasks are designed to test critical thinking and analytical writing skills. The essays come first on the test - 30 minutes for the issue and 30 minutes for the argument.</p>
-            <p><a class="btn btn-default" href="#/awa" role="button">View details &raquo;</a></p>
+            <br><p><a class="btn btn-default" href="#/awa" role="button">View details &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
     </div><!-- /.row -->
 
@@ -158,49 +177,46 @@ http://webdev-kulkarni.rhcloud.com/ (double-click to edit) -->
 
     <hr class="featurette-divider">
 
-    <div class="row featurette" style="background: #26B67C">
+    <div class="row featurette" style="background: rebeccapurple">
         <div class="col-md-6 down-30">
-            <h3 style="color:black">Prep with only top-quality materials</h3>
+            <h3 style="color:black">Prepare with our top-quality materials</h3>
             <p style="color:  black;">
-                We’re here to help you improve as fast as possible. With Magoosh, you’ll always be studying with the <strong style="color: #B3FFC5;">most updated, tried-and-tested materials, based on careful analysis of millions of students’ answers</strong>. We don’t overwhelm you with questions; we make every question count!
+                We’re here to help you improve as fast as possible. With GRE CHAMP, you’ll always be studying with the most updated, tried-and-tested materials, based on careful analysis of millions of students’ answers. We don’t overwhelm you with questions; we make every question count!
                 <br><br>
                 You can also take notes, bookmark, read transcripts, and give us feedback. We give you everything you need to make studying a breeze.
             </p>
         </div>
         <div class="col-md-5">
-            <img class="featurette-image img-responsive center-block" src="../images/awa_homepage.jpg" alt="Generic placeholder image">
+            <img class="featurette-image img-responsive center-block" src="http://englisheverywhere.org/wp-content/uploads/2014/09/privatelesson3.jpg" alt="Generic placeholder image">
         </div>
     </div>
 
     <hr class="featurette-divider">
 
-    <div class="row featurette" style="background: burlywood">
+    <div class="row featurette" style="background: limegreen">
         <div class="col-md-7 col-md-push-5">
-            <h3 style="color:black">Prep with only top-quality materials</h3>
+            <h3 style="color:black">Abundant practice tests and study resources</h3>
             <p style="color:  black;">
-                We’re here to help you improve as fast as possible. With Magoosh, you’ll always be studying with the <strong style="color: #B3FFC5;">most updated, tried-and-tested materials, based on careful analysis of millions of students’ answers</strong>. We don’t overwhelm you with questions; we make every question count!
-                <br><br>
+                This course delivers all the prep tools you need to study on your own. Learn at your own pace and on your own time, whether it's during lunch or late into the evening. All your lessons, drills and practice tests are online, ready for you whenever you want to use them.<br><br>
                 You can also take notes, bookmark, read transcripts, and give us feedback. We give you everything you need to make studying a breeze.
             </p>
         </div>
         <div class="col-md-5 col-md-pull-7">
-            <img class="featurette-image img-responsive center-block" src="../images/awa_homepage.jpg" alt="Generic placeholder image">
+            <img class="featurette-image img-responsive center-block" src="http://jntuforum.com/files/Articles/8/2.png" alt="Generic placeholder image">
         </div>
     </div>
 
     <hr class="featurette-divider" >
 
-    <div class="row featurette" style="background: lightskyblue">
+    <div class="row featurette" style="background: saddlebrown">
         <div class="col-md-7" >
-            <h3 style="color:black">Prep with only top-quality materials</h3>
+            <h3 style="color:black">Full satisfaction guarantee</h3>
             <p style="color:  black;">
-                We’re here to help you improve as fast as possible. With Magoosh, you’ll always be studying with the <strong style="color: #B3FFC5;">most updated, tried-and-tested materials, based on careful analysis of millions of students’ answers</strong>. We don’t overwhelm you with questions; we make every question count!
-                <br><br>
-                You can also take notes, bookmark, read transcripts, and give us feedback. We give you everything you need to make studying a breeze.
+                As a GRE CHAMP on-site or online student, you are entitled to repeat your course for any reason at no extra charge. If you don't feel fully prepared after your first course attempt, re-enroll immediately. If you take the GRE after completing a course and you're unhappy with your score, re-enroll in your course to get more training for free. In order to take advantage of this guarantee, you must attend all course sessions, complete all homework assignments, and finish all assigned practice tests during your initial course attempt. <br><br>
             </p>
         </div>
         <div class="col-md-5">
-            <img class="featurette-image img-responsive center-block" src="../images/awa_homepage.jpg" alt="Generic placeholder image">
+            <img class="featurette-image img-responsive center-block pull-right" src="http://www.kensingtonacademy.com/assets/EXAM-PREPARATION.jpg" alt="Generic placeholder image">
         </div>
     </div>
 
@@ -211,8 +227,10 @@ http://webdev-kulkarni.rhcloud.com/ (double-click to edit) -->
 
     <!-- FOOTER -->
     <footer>
-        <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; 2015 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        <p class="pull-right"><a href="">Back to top</a></p>
+        <p>&copy; 2015 Company, Inc. &middot; <a href="">Privacy</a> &middot; <a href="">Terms</a></p>
     </footer>
 
 </div><!-- /.container -->
+
+</div>

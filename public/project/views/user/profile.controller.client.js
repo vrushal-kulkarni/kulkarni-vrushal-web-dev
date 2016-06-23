@@ -6,7 +6,7 @@
     function ProfileController($routeParams, UserService, $rootScope, $location) {
         var vm = this;
         vm.updateUser = updateUser;
-        var id = $routeParams.userId;
+        var id = $rootScope.currentUser._id;
         vm.logout = logout;
 
         function init() {

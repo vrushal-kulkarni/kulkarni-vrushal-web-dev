@@ -10,7 +10,7 @@
             findPageByWebsiteId: findPageByWebsiteId,
             findPageById: findPageById,
             updatePage: updatePage,
-            deletePage: deletePage
+            deletePage: deletePage,
         };
         return api;
 

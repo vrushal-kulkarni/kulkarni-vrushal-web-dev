@@ -7,7 +7,8 @@ module.exports = function () {
         description: String,
         _website: {type: mongoose.Schema.ObjectId, ref:"Website"},
         dateCreated: {type: Date, default: Date.now()}
-    },{collection: "project.word"});
+    },
+        {collection: "project.word"});
 
     return PageSchema;
 };

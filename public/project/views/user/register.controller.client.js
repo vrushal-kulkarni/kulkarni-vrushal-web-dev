@@ -3,7 +3,7 @@
         .module("GreAppMaker")
         .controller("RegisterController", RegisterController);
 
-    function RegisterController($location, UserService) {
+    function RegisterController($location, UserService, $rootScope) {
 
         var vm = this;
         vm.register  = register ;
@@ -20,8 +20,11 @@
                         .register(username,password1)
                         .then(function (response) {
                             var user = response.data;
-                            if (user)
+                            if (user && user._id){
                                 $location.url("/user/" + user._id);
+                                $rootScope.currentUser = user;
+
+                            }
                             else
                                 vm.error = "Error while creating user";
                         });

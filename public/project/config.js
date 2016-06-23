@@ -7,9 +7,13 @@
         $routeProvider
             .when("/", {
                 templateUrl: "views/homepage.view.client.html",
+                controller: "PearsonWordSearchController",
+                controllerAs: "model"
             })
             .when("/homepage", {
                 templateUrl: "views/homepage.view.client.html",
+                controller: "PearsonWordSearchController",
+                controllerAs: "model"
             })
             .when("/pearson", {
                 templateUrl: "views/pearson/pearson-api.search.view.client.html",
@@ -54,9 +58,6 @@
                 templateUrl:"views/user/profile.view.client.html",
                 controller: "ProfileController",
                 controllerAs: "model",
-                // resolve: {
-                //     loggedIn: checkLoggedIn
-                // }
             })
             .when("/user/:userId", {
                 templateUrl: "views/user/new-user-homepage.view.client.html",
@@ -66,6 +67,14 @@
                 //     loggedIn:checkLoggedIn
                 // }
             })
+            // .when("/profile-homepage" , {
+            //     templateUrl: "views/user/new-user-homepage.view.client.html",
+            //     controller: "ProfileController",
+            //     controllerAs: "model",
+            //     resolve: {
+            //         loggedIn: checkLoggedIn
+            //     }
+            // })
             .when("/user/:userId/wordlist", {
                 templateUrl: "views/wordlist/wordlist.view.client.html",
                 controller: "WebsiteListController",
@@ -148,7 +157,7 @@
                 .then(
                     function(response) {
                         var user = response.data;
-                        console.log("Hello");
+                        console.log("Hello"+user);
                         if(user == '0') {
                             $rootScope.currentUser = null;
                             deferred.reject();

@@ -3,7 +3,7 @@
         .module("GreAppMaker")
         .controller("LoginController", LoginController);
 
-    function LoginController($location, UserService) {
+    function LoginController($location, UserService, $rootScope) {
         var vm = this;
         
         vm.login = function(username, password) {
@@ -14,7 +14,8 @@
                     .login(username, password)
                     .then(function (response) {
                         var user = response.data;
-                        if (user) {
+                        if (user && user._id) {
+                            $rootScope.currentUser = user;
                             $location.url("/user/" + user._id);
                         }
                         else {

@@ -38,15 +38,30 @@
         </div>
         <div class="form-group">
             <label for="title">Add mneomonic</label>
-            <input ng-model="model.page.title"
-                   type="text"
-                   id="title"
-                   class="form-control"
-                   placeholder="Abash=Abhi+Ash is embarrasing">
+            <textarea ng-model="model.page.title"
+                      id="title"
+                      rows="4" cols="50"
+                      class="form-control"
+                      placeholder="Abash=Abhi+Ash is embarrasing"></textarea>
         </div>
     </form>
+    <a class="btn btn-success  btn-block"
+       ng-click="model.postComment()">Add Mneomonic</a>
     <a class="btn btn-danger  btn-block"
        ng-click="model.deletePage()">Delete Word</a>
+</div>
+
+<div class="container">
+    <ul class="list-group">
+        <li ng-repeat="comment in model.comments" class="list-group-item">
+            <a href="#/user/{{website._user}}/website/{{website._id}}/page">
+                {{comment}}
+            </a>
+            <a ng-click="model.deleteComment()" class="pull-right">
+                <span class="glyphicon glyphicon-cog"></span>
+            </a>
+        </li>
+    </ul>
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
