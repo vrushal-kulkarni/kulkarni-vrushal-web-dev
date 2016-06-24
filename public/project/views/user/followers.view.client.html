@@ -1,0 +1,83 @@
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+    <div ng-show="model.message" class="alert alert-success" role="alert">{{model.message}}</div>
+    <div>
+        <h2>{{currentUser.username}}, you can follow the users below: </h2>
+        &nbsp;
+        <ul class="thumbnails list-inline">
+            <li ng-repeat="user in model.allUsers">
+                <div class="thumbnail" ng-hide= "model.isCurrentUser(user.username) || model.isFriend(user)">
+                    <!--userFav.resIds.indexOf(searchDetail.id) == -1-->
+                    <a style="color:lightcoral" href="#users/profile/{{user.username}}">
+                        {{user.username}}
+                    </a>
+                    <!--<a href = "#/api/profile/{{user.username}}/profile"><img src="//placehold.it/120x120">
+                        <h4><p align="center">{{user.username}}</p></h4></a>-->
+                    <a ng-click = "model.addFriend(user)"  width = "100%" class="btn btn-primary btn-block" role="button">Follow</a>
+
+
+                </div>
+            </li>
+        </ul>
+        <div ng-if = "model.allUsers.length < 1" class="text-center more-button" >
+            <h3> No users yet</h3>
+        </div>
+        <div ng-if = "(model.allUsers.length - 1) == (model.friends.length)" class="text-center more-button" >
+            <h3 style="color:white"> No new users to make followers yet </h3>
+        </div>
+
+        &nbsp;
+    </div>
+    <div >
+        <h2>Your followers</h2>
+        &nbsp;
+        <ul class="thumbnails list-inline">
+            <li ng-repeat="friend in model.friends">
+                <!--ng-repeat="friend in model.Friends">-->
+                <div class="thumbnail ">
+                    <!--<img src="//placehold.it/120x120">-->
+                    <!-- <div class = "notify">
+                         <span ng-if="model.hasNotification(friend.notify)" class="glyphicon glyphicon-heart red" ></span>
+                         <h4 ng-if="model.hasNotification(friend.notify)"> New Notification</h4>
+                         <span ng-if="!model.hasNotification(friend.notify)" class="glyphicon glyphicon-heart-empty" ></span>
+                     </div>-->
+                    <a   ng-click = "model.undoNotify(friend)" >
+                        <h4>
+
+                            <a style="color:limegreen" href="#users/profile/{{friend.followerName}}">
+                                {{friend.followerName}}
+                            </a>
+
+                        </h4>
+                    </a>
+                    <a ng-click = "model.removeFriend(friend.followerName)"  width = "100%" class="btn btn-primary btn-block" role="button">Remove follower</a>
+                </div>
+            </li>
+        </ul>
+
+        <div ng-if = "model.friends.length < 1" class="text-center more-button" >
+            <h3> You have no follwers yet</h3>
+        </div>
+        &nbsp;
+    </div>
+    <div>
+        <h2>People who follow you : </h2>
+        &nbsp;
+        <ul class="thumbnails list-inline">
+            <li ng-repeat="follower in model.followers">
+                <div class="thumbnail">
+                    <!--  <a style="color:white" href="#users/profile/{{user.username}}">
+                          {{follower.username}}
+                      </a>-->
+                    <a href = "#users/profile/{{follower.userName}}">
+                        <h4 >{{follower.userName}}</h4></a>
+                </div>
+            </li>
+        </ul>
+
+        <div ng-if = "model.followers.length < 1" class="text-center more-button" >
+            <h3> No Follower's yet</h3>
+        </div>
+    </div>
+    &nbsp;
+</div>

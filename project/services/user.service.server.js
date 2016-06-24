@@ -283,6 +283,19 @@ module.exports = function(app,models) {
 
     var projUserModel = models.projUserModel;
 
+
+    // User Follows Part
+    app.post("/api/project/:userId/follow/:userName", addFriend);
+    app.get("/api/project/find/friends/:userId", findFriends);
+    app.get("/api/project/find/followers/:userId", findFollowers);
+    app.delete("/api/project/:userId/friend/:fId", removeFriend);
+    app.put("/api/project/notify", undoNotify);
+    app.get("/api/project/userAll",findAllUsersForFollow);
+
+
+
+    app.get("/api/project/user",findUserByUsername); //Changed
+
     app.post("/proj/user", createUser);
     app.get("/proj/user", findUserByCredentials);
     app.get("/proj/user/:userId", findUserById);
@@ -372,6 +385,150 @@ module.exports = function(app,models) {
             );
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+    // 1. addFriend function
+    function addFriend(req,res){
+        console.log(req.params.userName);
+
+        projUserModel.addFriend(req.params.userId,req.params.userName,req.body)
+            .then(
+                function (doc) {
+
+                    res.json(doc);
+                },
+                function ( err ) {
+                    res.status(400).send(err);
+                });
+    }
+
+    // 2. FindFriends
+    function findFriends (req,res){
+        console.log(req.params.userId);
+        console.log("Inside findFriends");
+        //console.log(req.params.userId);
+        projUserModel.findFriends(req.params.userId)
+            .then(
+                function (doc) {
+
+                    res.json(doc);
+                },
+                function ( err ) {
+                    res.status(400).send(err);
+                });
+    }
+
+    // 3. findFollowers
+    function findFollowers (req,res){
+        console.log(req.params.userId);
+
+        projUserModel.findFollowers(req.params.userId)
+            .then(
+                function (doc) {
+
+                    res.json(doc);
+                },
+                function ( err ) {
+                    res.status(400).send(err);
+                });
+    }
+
+    // 4. RemoveFriend
+    function removeFriend(req,res){
+        projUserModel.removeFriend(req.params.userId,req.params.fId)
+            .then(
+                function (doc) {
+
+                    res.json(doc);
+                },
+                function ( err ) {
+                    res.status(400).send(err);
+                });
+    }
+
+    // 5. Undo Notify
+    function undoNotify(req,res){
+        var friend = req.body;
+        console.log(req.body);
+
+        projUserModel.undoNotify(friend.userName, friend.followerName)
+            .then(function (doc) {
+
+                    res.json(doc);
+                },
+                function ( err ) {
+                    res.status(400).send(err);
+                });
+    }
+
+    // 6.FindAllUserForFollow
+    function findAllUsersForFollow(req,res){
+        var userName = req.query.username;
+        var password = req.query.password;
+        var user = null;
+        if (userName != null && password != null){
+            var credentials = {username : userName, password : password};
+            projUserModel.findUserByCredentials(credentials)
+                .then( function(user){
+                        //req.session.currentUser = user;
+                        res.json(user);
+                    },
+                    function(err){
+                        res.status(400).send(err);
+                    }
+                );
+        }
+        if(userName!=null && password == null){
+            projUserModel.findUserByUsername(userName)
+            // handle model promise
+                .then(
+                    // login user if promise resolved
+                    function(doc) {
+
+                        //console.log(JSON.stringify(doc));
+                        res.json(doc);
+                    },
+                    // send error if promise rejected
+                    function ( err ) {
+                        res.status(400).send(err);
+                    });
+        }
+        if(userName ==null && password == null){
+            projUserModel.findAllUsers()
+                .then(function(users){
+                        res.json(users);
+                    },
+                    function(err){
+                        res.status(400).send(err);
+                    });
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     function login(req, res) {
         var user = req.user;
         res.json(user);
@@ -409,22 +566,105 @@ module.exports = function(app,models) {
             )
     }
 
-    function updateUser(req, res) {
-        var id = req.params.userId;
-        var newUser = req.body;
 
-        projUserModel
-            .updateUser(id, newUser)
-            .then(
-                function(stats) {
-                    console.log(stats);
-                    res.send(200);
+
+
+
+
+    function findUserByUsername(req,res)
+    {
+
+        var username = req.query.username;
+
+        console.log("Inside findUSer of services");
+        console.log(username);
+        projUserModel.findUserByUsername(username)
+            .then(function(doc)
+                {
+                    console.log("In services returned Object: ");
+                    console.log(doc);
+                    res.json(doc);
                 },
-                function(error) {
-                    res.statusCode(404).send(error);
-                }
-            );
+                function(err)
+                {
+                    console.log("Returned error");
+                    res.status(400).send(err);
+                });
     }
+
+
+
+
+
+
+    // Changed this fucntion
+    function updateUser(req,res) {
+        console.log("Inside update function of server Services");
+        var userId = req.params.id;
+        var userObj = req.body;
+        console.log("Password coming from client");
+        console.log(userObj.password);
+        console.log(userObj.password);
+
+        for (var email in userObj.emails) {
+            userObj.emails[email] = userObj.emails[email].trim();
+        }
+        console.log("Inside Update User: ");
+        console.log(userObj);
+        projUserModel.findUserById(userId)
+            .then(
+                function (doc) {
+                    var user = doc;
+                    console.log("Old password is : ");
+                    console.log(user.password);
+                    if (user.password !== userObj.password) {
+                        userObj.password = bcrypt.hashSync(userObj.password);
+                        console.log("Updated Password");
+                        console.log(userObj.password);
+                    }
+                    projUserModel.updateUserByUserId(userId, userObj)
+                        .then(
+                            function (doc) {
+
+                                res.json(doc);
+                            },
+                            function (err) {
+                                res.status(400).send(err);
+                            }
+                        )
+
+
+                }
+            )
+
+
+    }
+
+
+
+
+
+
+
+
+
+    //
+    // function updateUser(req, res) {
+    //     var id = req.params.userId;
+    //     var newUser = req.body;
+    //
+    //     projUserModel
+    //         .updateUser(id, newUser)
+    //         .then(
+    //             function(stats) {
+    //                 console.log(stats);
+    //                 res.send(200);
+    //             },
+    //             function(error) {
+    //                 res.statusCode(404).send(error);
+    //             }
+    //         );
+    // }
 
     function findUserById(req, res) {
         var id = req.params.userId;

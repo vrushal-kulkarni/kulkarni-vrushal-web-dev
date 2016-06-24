@@ -5,11 +5,17 @@ module.exports = function (app) {
     //     //  console.log(msg);
     //     res.send({message : msg});
     // });
-
+    //
     var models = require("./models/models.server.js")();
+
+
     require("./services/user.service.server.js")(app, models);
     require("./services/wordlist.service.server.js")(app, models);
     require("./services/word.service.server.js")(app, models);
+    
+
+
+    // require("./services/psp.service.server")(app, models);
     //require("./services/widget.service.server.js")(app, models);
 
     // var users = [

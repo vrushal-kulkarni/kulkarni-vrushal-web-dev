@@ -51,16 +51,26 @@
                 controller: "RegisterController",
                 controllerAs: "model"
             })
-            // .when("/user/:userId/profile" , {
-            //     templateUrl:"views/user/profile.view.client.html",
-            //     controller: "ProfileController",
-            //     controllerAs: "model",
-            // })
+            .when("/user/:userId/profile" , {
+                templateUrl:"views/user/profile.view.client.html",
+                controller: "ProfileController",
+                controllerAs: "model",
+            })
+
+            .when('/user/:userId/profile/:userId', {
+                templateUrl: "views/user/profile.readonly.view.html",
+                controller: "ProfileReadOnlyController",
+                controllerAs : "model",
+                // resolve: {
+                //     loggedin: checkCurrentUser
+                // }
+
+            })
             .when("/user/:userId", {
                 templateUrl: "views/user/new-user-homepage.view.client.html",
                 controller:"ProfileController",
                 controllerAs: "model",
-                resolve: { loggedin: checkLoggedin }
+                resolve: { checkLoggedIn: checkLoggedin }
             })
             // .when("/profile-homepage" , {
             //     templateUrl: "views/user/new-user-homepage.view.client.html",
@@ -70,6 +80,15 @@
             //         loggedIn: checkLoggedIn
             //     }
             // })
+
+            .when("/user/:userId/social", {
+                templateUrl: "views/user/followers.view.client.html",
+                controller: "FindController",
+                controllerAs: "model",
+                resolve: {
+                    checkLoggedIn: checkLoggedin
+                }
+            })
             .when("/user/:userId/wordlist", {
                 templateUrl: "views/wordlist/wordlist.view.client.html",
                 controller: "WebsiteListController",
@@ -185,6 +204,25 @@
             });
             return deferred.promise;
         }
+
+        var checkCurrentUser = function($q, $timeout, $http, $location, $rootScope)
+        {
+            var deferred = $q.defer();
+
+            $http.get('/proj/loggedin').success(function(user)
+            {
+                $rootScope.errorMessage = null;
+                // User is Authenticated
+                if (user !== '0')
+                {
+                    $rootScope.currentUser = user[0];
+                }
+                deferred.resolve();
+            });
+
+            return deferred.promise;
+        };
+
 
     }
 })();

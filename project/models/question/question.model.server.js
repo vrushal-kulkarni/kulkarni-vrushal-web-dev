@@ -5,13 +5,13 @@
 //     var Question= mongoose.model("Question", QuestionSchema);
 //
 //     var api = {
-//         getQuestion: getQuestion
+//         createScore:createScore
 //     };
 //     return api;
 //
 //
-//     function getQuestion(qId){
-//         return Question.findById({_id: qId});
+//     function createScore(score){
+//         return Question.create(score);
 //     }
 //
 // }

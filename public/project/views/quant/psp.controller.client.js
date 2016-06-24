@@ -12,6 +12,22 @@
         vm.checkAnswer=checkAnswer;
         vm.nextQuestion=nextQuestion;
 
+        // vm.submit=submit;
+        //
+        // function  submit(score) {
+        //     PSPService
+        //         .submit(score)
+        //         .then(function (response) {
+        //                 var score = response.data;
+        //
+        //                 console.log("Score sumbitted"+score);  ///
+        //
+        //         },
+        //         function (err) {
+        //             vm.error=err.data;
+        //         })
+        // }
+
             function start() {
                 vm.id = 0;
                 vm.quizOver = false;

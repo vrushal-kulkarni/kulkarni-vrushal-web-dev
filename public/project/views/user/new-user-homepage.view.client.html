@@ -49,6 +49,8 @@
 
 
 <div class="container">
+    <div class="grid_13">
+
     <div class="row">
         <div class="col-md-12 col-xs-10">
             <div class="well panel panel-default">
@@ -69,6 +71,13 @@
                             <h2>Welcome {{model.user.username}}</h2><br>
                             <p ><strong>About: </strong> </p><br>
                             <p><strong>Hobbies: </strong> </p>
+
+                            <a href="#/user/{{model.user._id}}/social">
+                                <button type="button" class="btn btn-primary" data-toggle="tab">
+                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                    <div class="hidden-xs">Social Connect</div>
+                                </button>
+                            </a>
 
                         </div>
 
@@ -130,5 +139,28 @@
     </div>
 
 
+
+        <div class="container" style="padding-top:60px;">
+            <u><h1>Why Flashcards Are So Effective</h1></u>
+
+            <h2>Flashcards engage “active recall”</h2>
+            <blockquote>
+                <p>When you look at the front side of a flashcard and think of the answer, you are engaging a mental faculty known as active recall. In other words, you are attempting to remember the concept from scratch rather than simply staring at the passage in your textbook or recognizing it on a multiple choice quiz. Active recall has been proven to create stronger neuron connections for that memory trace. And because flashcards can so easily facilitate repetition , they are the best way to create multiple memory-enhancing recall events.</p>
+            </blockquote>
+
+            <h2>Flashcards utilize your metacognitive faculties</h2>
+            <blockquote>
+                <p>When you reveal the answer side of a flashcard to assess your correctness, you are essentially asking yourself “How did my answer compare to this correct answer?” and “How well did I know (or not know) it?” This act of self-reflection is known as metacognition. Research shows that applying metacognition tends to ingrain memories deeper into your knowledge.</p>
+            </blockquote>
+
+            <h2> Flashcards allow for confidence-based repetition</h2>
+            <blockquote>
+                <p>Because flashcards exist loosely, rather than tied to a book or document, you are able to separate them into piles based on whether (or how often) you need to study them again. This practice of confidence-based repetition is proven by decades of research to be the most scientifically optimized way to improve memory performance.</p>
+            </blockquote>
+
+        </div>
+
+
 </div>
 <!--/container-->
+</div>

@@ -153,3 +153,47 @@ input.form-control {
   font: normal 13px/1.5em Verdana, Geneva, sans-serif;
   color: #000000;
 }
+
+/*.stage {*/
+/*-webkit-perspective: 1000;                   !* Sets up your viewpoint for seeing the animation *!*/
+/*}*/
+
+.flashcard {
+  height: 300px;
+  width: 500px;
+  margin: 10% auto;                                              /* Centers the flashcard on the page */
+  border: 1px solid gray;                            /*  Border makes the animation easier to see. */
+  box-shadow: 2px 2px 2px #000;
+  -webkit-transform-style: preserve-3d;                                 /* Provides 3D perspective. */
+  transition: all 0.3s;                                /* Slows down any transitions (e.g. rotation) */
+  -webkit-transition: all 0.3s;
+}
+
+.flipped, .back {
+  transform: rotateX(180deg);
+  -webkit-transform: rotateX(180deg);                      /* Rotates flashcard div when applied */
+}
+
+.front, .back {
+  position: absolute;
+  -webkit-backface-visibility: hidden;           /*  Hides back side of text (it's upside down) */
+  height: 300px;                                   /* Stretches side to inhabit full size of flashcard */
+  width: 500px;
+  text-align: center;
+}
+
+.front p, .back p {
+  margin-top: 25%;
+  font-size: 3em;
+}
+
+
+li {
+  list-style: none;
+}
+
+.help {
+  background: #eee;
+  padding: 3px;
+  border-bottom: 1px dotted;
+}

@@ -93,17 +93,75 @@
         .factory("UserService", UserService);
 
 
-    function UserService($http) {
+    function UserService($http, $rootScope) {
         var api = {
             createUser: createUser,
             findUserByCredentials:findUserByCredentials,
             findUserById:findUserById,
+            findUserByUsername : findUserByUsername,
             updateUser:updateUser,
             login:login,
             logout:logout,
-            register: register
+            register: register,
+
+
+            //follow
+            addFriend: addFriend,
+            findFriends:findFriends,
+            findFollowers:findFollowers,
+            removeFriend: removeFriend,
+            undoNotify:undoNotify,
+            findAllUsers: findAllUsers,
+            setUser: setUser
+
+
         };
         return api;
+
+
+
+
+        // Follow Functions
+        // 1.addFriend
+        function addFriend(userId,userName,friend){
+            return $http.post("/api/project/"+userId+"/follow/"+userName,friend,{headers: {'Content-Type': 'application/json'} });
+        }
+
+        // 2.findFriends
+        function findFriends(userId){
+
+            return $http.get("/api/project/find/friends/"+userId);
+        }
+
+        // 3.findFollowers
+        function findFollowers(userId){
+            return $http.get("/api/project/find/followers/"+userId);
+        }
+
+        // 4.removeFriend
+        function removeFriend(userId,fId){
+            return $http.delete("/api/project/"+userId+"/friend/"+fId);
+        }
+
+        // 5.undoNotify
+        function undoNotify(friend){
+            return $http.put("/api/project/notify", friend);
+        }
+
+        //6. findAllUsers
+        function findAllUsers() {
+            return $http.get("/api/project/userAll");
+        }
+
+        //7. setUser
+        function setUser(user){
+            $rootScope.currentUser = user;
+
+        }
+
+
+
+
 
         function createUser(username, password) {
             var user = {
@@ -116,6 +174,12 @@
             var url = "/proj/user?username="+username+"&password="+password;
             return $http.get(url);
 
+        }
+
+        function findUserByUsername(username)
+        {
+            console.log("Inside findUserByUsername "+username);
+            return $http.get("/api/project/user?username="+username);
         }
 
         function updateUser(id, newUser) {

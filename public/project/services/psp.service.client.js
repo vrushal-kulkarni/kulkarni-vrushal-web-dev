@@ -3,7 +3,7 @@
         .module("GreAppMaker")
         .factory("PSPService", PSPService);
 
-    function PSPService() {
+    function PSPService($http) {
         var questions = [
             {
                 question: "1. If an object travels at five feet per second, how many feet does it travel in one hour?",
@@ -57,26 +57,39 @@
             }
         ];
 
-        // var api = {
-        //
-        //     getQuestion:getQuestion
-        // };
-        // return api;
-        //
+        var api = {
+
+            getQuestion:getQuestion,
+            // submit:submit
+        };
+        return api;
+
         // function getQuestion(id) {
         //     var url = "/api/psp/" + id;
         //     return $http.get(url);
         // }
 
-        return {
-            getQuestion: function(id) {
-                if(id < questions.length) {
-                    return questions[id];
-                } else {
-                    return false;
-                }
+        // function submit(score) {
+        //     return $http.post("/vru",score);
+        // }
+        //
+        function getQuestion(id) {
+            if(id < questions.length) {
+                return questions[id];
+            } else {
+                return false;
             }
-        };
+        }
+
+        // return {
+        //     getQuestion: function(id) {
+        //         if(id < questions.length) {
+        //             return questions[id];
+        //         } else {
+        //             return false;
+        //         }
+        //     }
+        // };
 
     }
 })();
