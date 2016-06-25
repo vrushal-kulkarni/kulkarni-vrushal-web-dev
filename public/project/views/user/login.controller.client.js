@@ -54,12 +54,34 @@
                     .login(username, password)
                     .then(function (response) {
                         var user = response.data;
-                        if (user && user._id) {
-                            $rootScope.currentUser = user;
-                            $location.url("/user/" + user._id);
-                        } else {
-                            vm.error = "User not found";
+                        if(user) {
+                            UserService.setUser(response.data);
+                            $rootScope.data = response.data;
+                            console.log(response.data);
+                            if ($rootScope.currentUser.roles !== null
+                                && typeof($rootScope.currentUser.roles) !== 'undefined'
+                                && $rootScope.currentUser.roles.indexOf('admin') >= 0) {
+                                $location.url("/admin");
+                                console.log("in admin area");
+                            }
+                            else {
+                                $location.url("/user/" + user._id);
+                            }
+
+
+                            // var user = response.data;
+                            // if (user && user._id) {
+                            //     $rootScope.currentUser = user;
+                            //     $location.url("/user/" + user._id);
+                            // } else {
+                            //     vm.error = "User not found";
+                            // }
+
                         }
+                        else {
+                            vm.message = "Invalid credentials";
+                        }
+
                     });
             }
         }

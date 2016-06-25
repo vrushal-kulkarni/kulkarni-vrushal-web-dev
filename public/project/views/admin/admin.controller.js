@@ -11,8 +11,8 @@
         function init() {
             vm.remove = remove;
             vm.update = update;
-            vm.add    = add;
             vm.select = select;
+            vm.add    = add;
             vm.sortType = 'username';
             vm.sortReverse = false;
             UserService
@@ -36,8 +36,18 @@
             }
         }
 
+        function add(user)
+        {
+            UserService
+                .createUser(user)
+                .then(function(response) {
+                    vm.users.push(response.data);
+                });
+        }
+
         function update(user)
         {
+            console.log("user check"+user);
             if(user.roles) {
                 user.roles = user.roles.split(",");
             }
@@ -54,18 +64,7 @@
                     }
                 });
         }
-
-        function add(user)
-        {
-            if(user.roles) {
-                user.roles = user.roles.split(",");
-            }
-            UserService
-                .createUser(user)
-                .then(function(response) {
-                    vm.users.push(response.data);
-                });
-        }
+        
 
         function select(user)
         {

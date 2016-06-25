@@ -51,6 +51,14 @@
                 controller: "RegisterController",
                 controllerAs: "model"
             })
+            .when('/admin', {
+                templateUrl: "views/admin/admin.view.html",
+                controller: "AdminController",
+                controllerAs: "model",
+                resolve: {
+                    checkAdmin: checkAdmin
+                }
+            })
             .when("/user/:userId/profile" , {
                 templateUrl:"views/user/profile.view.client.html",
                 controller: "ProfileController",
@@ -87,6 +95,14 @@
                 controllerAs: "model",
                 resolve: {
                     checkLoggedIn: checkLoggedin
+                }
+            })
+            .when("/users/profile/:username",{
+                templateUrl:"views/user/profile-read-only.view.client.html",
+                controller:"StaticProfileController",
+                controllerAs:"model",
+                resolve:{
+                    checkLoggedIn : checkLoggedin
                 }
             })
             .when("/user/:userId/wordlist", {
@@ -202,6 +218,26 @@
                     $location.url('/');
                 }
             });
+            return deferred.promise;
+        }
+
+
+        function checkAdmin($q, $timeout, $http, $location, $rootScope)
+        {
+            var deferred = $q.defer();
+
+            $http.get('/proj/loggedin').success(function(user)
+            {
+                // console.log(user[0]);
+                $rootScope.errorMessage = null;
+                // User is Authenticated
+                if (user !== '0' && user.roles.indexOf('admin') != -1)
+                {
+                    $rootScope.currentUser = user;
+                    deferred.resolve();
+                }
+            });
+
             return deferred.promise;
         }
 

@@ -31,13 +31,14 @@ module.exports = function() {
         email:String,
         phone: String,
         friends : [String],  //Follows
+        roles : [String],
         google: {
             id:    String,
             token: String,
             displayName: String
         },
         dateCreated: {type: Date, default: Date.now}
-    }, {collection: "project.userdata"});
+    }, {collection: "project.userdb"});
 
     return UserSchema;
 };

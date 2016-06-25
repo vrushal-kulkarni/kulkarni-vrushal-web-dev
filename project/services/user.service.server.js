@@ -284,6 +284,9 @@ module.exports = function(app,models) {
     var projUserModel = models.projUserModel;
 
 
+    var loggedInUser;
+
+
     // User Follows Part
     app.post("/api/project/:userId/follow/:userName", addFriend);
     app.get("/api/project/find/friends/:userId", findFriends);
@@ -296,10 +299,14 @@ module.exports = function(app,models) {
 
     app.get("/api/project/user",findUserByUsername); //Changed
 
-    app.post("/proj/user", createUser);
+    app.post("/proj/user", isAdmin, createUser);
     app.get("/proj/user", findUserByCredentials);
     app.get("/proj/user/:userId", findUserById);
     app.put("/proj/user/:userId", updateUser);
+
+    app.delete('/api/project/user/:id', deleteUserById);
+
+
     app.post("/proj/logout", logout);
     app.post("/proj/login", passport.authenticate('localNew'), login);
     app.post ('/proj/register', register);
@@ -531,6 +538,7 @@ module.exports = function(app,models) {
 
     function login(req, res) {
         var user = req.user;
+        loggedInUser = user;
         res.json(user);
     }
 
@@ -538,6 +546,9 @@ module.exports = function(app,models) {
     function createUser(req, res) {
         var user = req.body;
 
+        user.roles = ["user"];
+
+        console.log("user role is:"+user.roles);
         projUserModel
             .createUser(user)
             .then(
@@ -666,6 +677,35 @@ module.exports = function(app,models) {
     //         );
     // }
 
+
+    function deleteUserById(req, res) {
+        var userId = req.params.id;
+        projUserModel.deleteUserById(userId)
+            .then(
+                function(doc) {
+                    res.json(doc);
+                },
+
+                function(err) {
+                    res.status(400).send(err);
+                }
+            );
+    }
+
+
+    function isAdmin(req, res, next) {
+
+        if(req.isAuthenticated()) {
+            if(loggedInUser.roles.indexOf("admin") >= 0) {
+                next();
+            }
+        }
+        else {
+            res.send(403);
+        }
+    }
+
+
     function findUserById(req, res) {
         var id = req.params.userId;
 
@@ -688,6 +728,9 @@ module.exports = function(app,models) {
     function register (req, res) {
         var username = req.body.username;
         var password = req.body.password;
+        var newUser = req.body;
+        newUser.roles = ['user'];
+
         projUserModel.findUserByUsername(username)
             .then(function (user) {
                     if(user){
@@ -710,6 +753,7 @@ module.exports = function(app,models) {
                                 res.status(400).send(err);
                             }
                             else{
+                                loggedInUser = user;
                                 res.json(user);
                             }
                         });

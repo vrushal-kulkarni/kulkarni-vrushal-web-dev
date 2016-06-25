@@ -71,6 +71,8 @@ module.exports = function() {
         findUserByUsername:findUserByUsername,
         findUserByGoogleId:findUserByGoogleId,
         findAllUsers:findAllUsers,
+        deleteUserById : deleteUserById,
+
 
 
 
@@ -257,9 +259,22 @@ module.exports = function() {
     function findUserById(userId) {
         return User.findById(userId);
     }
-    
+
     function findUserByUsername(username) {
         return User.findOne({username:username});
+    }
+
+
+    function deleteUserById(userId) {
+        var deferred = q.defer();
+        User.remove({_id : userId}, function (err, doc) {
+            if (err) {
+                deferred.reject(err);
+            } else {
+                deferred.resolve(doc);
+            }
+        });
+        return deferred.promise;
     }
 
     // function findUserByUsername(username) //Search/find a user by his username

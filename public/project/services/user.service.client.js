@@ -100,6 +100,7 @@
             findUserById:findUserById,
             findUserByUsername : findUserByUsername,
             updateUser:updateUser,
+            deleteUserById: deleteUserById,
             login:login,
             logout:logout,
             register: register,
@@ -190,6 +191,11 @@
         function findUserById(id) {
             var url = "/proj/user/" + id;
             return $http.get(url);
+        }
+
+
+        function deleteUserById(userId) {
+            return $http.delete('/api/project/user/' + userId);
         }
 
         function login(username,password) {

@@ -1,0 +1,20 @@
+<div class="col-md-8 col-md-offset-2">
+    <div  class="panel-grid panel panel-info">
+
+        <div class="panel-heading">
+            <div>
+                <i class="fa fa-user fa-4x"></i>&nbsp;
+                <h1 class="my-heading">{{model.userdata.data.username}}</h1>
+            </div>
+        </div>
+
+        <div class="panel-body">
+            <p><strong>First Name: </strong> {{model.userdata.data.firstName}}</p>
+            <p><strong>Last Name: </strong>{{model.userdata.data.lastName}}</p>
+            <p><strong>Email: </strong>{{model.userdata.data.emails[0]}}</p>
+            <p><strong>Requirements : </strong> {{model.userdata.data.requirements}}</p>
+            <p><strong>About {{model.userdata.data.username}}: </strong> {{model.userdata.data.aboutme}}</p>
+        </div>
+
+    </div>
+</div>
