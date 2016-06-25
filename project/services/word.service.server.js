@@ -8,12 +8,27 @@ module.exports = function (app, models) {
     //     {"_id": "543", "name": "Post 3", "websiteId": "456"}
     // ];
 
+    app.get("/project/word/:name", findPageByName);
+
     app.get("/project/word/:pageId", findPageById);
     app.get("/project/wordlist/:websiteId/word", findAllPagesForWebsite);
     app.post("/project/wordlist/:websiteId/word", createPage);
     app.put("/project/word/:pageId", updatePage);
     app.delete("/project/word/:pageId", deletePage);
 
+
+
+    function findPageByName(req, res) {
+        var pageName=req.params.name;
+
+        pageModel
+            .findPageByName(pageName)
+            .then(function (page) {
+                res.send(page);
+            },function(error) {
+                res.status(400).send(error);
+            });
+    }
 
     function findPageById(req, res) {
         var pageId = req.params.pageId;

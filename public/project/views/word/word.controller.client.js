@@ -11,6 +11,7 @@
         vm.linkToPageNew = linkToPageNew;
 
         vm.searchWords = searchWords;
+        vm.searchComments =searchComments;
 
         function  init() {
             PageService
@@ -25,6 +26,20 @@
              $location.url("/user/" + vm.userId + "/wordlist/" + vm.websiteId + "/word/new");
          }
 
+
+        function searchComments(name) {
+            PageService
+                .findPageByName(name)
+                .then(function (response) {
+                   vm.pageList=response.data;
+
+                    // for(var i in vm.pageList){
+                    //     console.log(vm.pageList.title);
+                    //     if(vm.pageList.title !=null)
+                    //         vm.comments=vm.pageList.title;
+                    // }
+                })
+        }
 
         function searchWords(searchText) {
             PearsonService

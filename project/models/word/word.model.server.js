@@ -9,9 +9,14 @@ module.exports = function(){
         findAllPagesForWebsite: findAllPagesForWebsite,
         createPage: createPage,
         deletePage: deletePage,
-        updatePage: updatePage
+        updatePage: updatePage,
+        findPageByName:findPageByName
     };
     return api;
+
+    function findPageByName(name) {
+        return Page.find({"name":name});
+    }
 
     function findPageByID(pageId){
         return Page.findById(pageId);
