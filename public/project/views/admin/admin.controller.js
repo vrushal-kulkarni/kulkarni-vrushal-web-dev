@@ -3,10 +3,14 @@
         .module("GreAppMaker")
         .controller("AdminController", adminController);
 
-    function adminController(UserService, $rootScope) {
+    function adminController(UserService, $rootScope, $location) {
 
         var vm = this;
         var selectedUserId;
+
+        vm.userId = $rootScope.currentUser._id;
+        vm.logout=logout;
+        vm.name=$rootScope.currentUser.username;
 
         function init() {
             vm.remove = remove;
@@ -20,6 +24,20 @@
                 .then(handleSuccess, handleError);
         }
         init();
+
+        function logout() {
+            UserService.logout()
+                .then(
+                    function (response) {
+                        $rootScope.currentUser = null;
+                        $location.url("/login");
+                    }
+                    ,function () {
+                        $rootScope.currentUser = null;
+                        $location.url("/login");
+                    }
+                )
+        }
 
         function remove(user, index)
         {
