@@ -2,7 +2,7 @@
 module.exports = function(){
 
     var models = {
-        projUserModel: require("./user/user.model.server")(),
+        projUserModel: require("./user/user.model.server.js")(),
         // usersModel: require("./user/user.model.server.js")(),
         wordlistModel: require("./wordlist/wordlist.model.server.js")(),
         wordModel: require("./word/word.model.server.js")(),
