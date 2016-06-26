@@ -57,7 +57,7 @@
         vm.register = register;
 
 
-        function register(username,password,verifyPassword) {
+        function register(username,password,verifyPassword, firstName, lastName, email) {
             vm.userError = false;
             vm.passError = false;
             vm.verifyError = false;
@@ -75,7 +75,7 @@
             else {
                 if (password === verifyPassword) {
                     UserService
-                        .register(username, password)
+                        .register(username, password, firstName, lastName, email)
                         .then(function (response) {
                                 var user = response.data;
                                 $rootScope.currentUser = user;

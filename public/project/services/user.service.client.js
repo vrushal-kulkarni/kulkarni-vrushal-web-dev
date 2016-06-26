@@ -209,10 +209,13 @@
             return $http.post("/proj/logout");
         }
 
-        function register(username, password) {
+        function register(username, password, firstName, lastName, email) {
             var user = {
                 username: username,
-                password: password
+                password: password,
+                firstName: firstName,
+                lastName: lastName,
+                email: email
             };
             return $http.post("/proj/register", user);
         }

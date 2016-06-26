@@ -3,6 +3,7 @@
 ================================================== -->
 
 <div class="navbar-wrapper">
+
     <div class="container">
 
         <nav class="navbar navbar-inverse navbar-static-top">
@@ -15,7 +16,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#/homepage">Project name</a>
+                    <a class="navbar-brand" href="#/homepage">GRE CHAMP</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
@@ -31,8 +32,6 @@
                                 <li><a href="#/quant">Quant Section</a></li>
                                 <li><a href="#/awa">AWA Section</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="#/greinfo">GRE Basic Info</a></li>
-                                <li><a href="#/practicetest">Practice Test</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -44,11 +43,28 @@
             </div>
         </nav>
 
+    </div>
+
+</div>
+
+    <div style="background-color: #dddddd">
+
+
+        <div class="container">
+
 
         <div class="grid_13">
+
+            <center><u><h1>Improve Your Vocabulary Today!!!</h1></u>
+
+            <div class="alert alert-success">
+                <h3>You should <a href="#/register">create an account</a> to create a wordlist and save your progress. It only takes a minute!</h3>
+            </div></center>
+
             <div class="input-group">
                 <input ng-model="searchText"
                        type="text"
+                       placeholder="Search a GRE word.."
                        class="form-control">
             <span class="input-group-btn">
                 <a ng-click="model.searchWords(searchText)"
@@ -67,8 +83,8 @@
                         <p>{{model.word}}</p>
                     </div>
                     <div class="back">
-                        <h1>{{model.word}}</h1>
-                        <h3>{{model.definition}}</h3>
+                        <b><h1>{{model.word}}</h1></b><br>
+                        <i><h3>{{model.definition}}</h3></i>
                         <h3>{{model.example}}</h3>
                     </div>
                 </div>
@@ -78,4 +94,4 @@
 
 
     </div>
-</div>
+    </div>

@@ -29,7 +29,6 @@ module.exports = function(app, models) {
     };
 
     function findAllWebsitesForUser(req, res) {
-        console.log("hi vrushal");
         var resultSet = [];
         var id = req.params.userId;
         projectWebsiteModel

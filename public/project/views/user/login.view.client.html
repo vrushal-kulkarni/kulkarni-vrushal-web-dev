@@ -48,28 +48,94 @@
 </div>
 
 
-<br><br>
-<div class="container">
+<!--<br><br>-->
+<!--<div class="container">-->
 
-    <div ng-if="model.error" class="alert alert-danger">
-        {{model.error}}
+    <!--<div ng-if="model.error" class="alert alert-danger">-->
+        <!--{{model.error}}-->
+    <!--</div>-->
+
+    <!--<h1>Login</h1>-->
+    <!--<input ng-model="username"-->
+           <!--type="text"-->
+           <!--class="form-control"-->
+           <!--placeholder="username"/>-->
+    <!--<input ng-model="password"-->
+           <!--type="password"-->
+           <!--class="form-control"-->
+           <!--placeholder="password"/>-->
+    <!--<a ng-click="model.login(username, password)"-->
+       <!--class="btn btn-primary btn-block">Login</a>-->
+    <!--<a class="btn btn-success btn-block"-->
+       <!--href="#/register">Register</a>-->
+    <!--<a href="/auth/google" class="btn btn-danger btn-block">-->
+        <!--<span class="fa fa-google"></span>-->
+        <!--Google-->
+    <!--</a>-->
+<!--</div>-->
+
+
+<div style="background-color: #dddddd">
+
+    <div class="container">
+
+        <div class="grid_13" >
+
+            <div class="container" style="margin-top:30px">
+
+        <div ng-if="model.error" class="alert alert-danger">
+            {{model.error}}
+        </div>
+
+        <center><h1>Login</h1></center>
+
+        <div class="col-md-4 col-md-offset-4">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <form role="form">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1" class="sr-only">Email address</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
+                                <input  ng-model="username"
+                                        type="text"
+                                        class="form-control"
+                                        id="exampleInputEmail1"
+                                       placeholder="Enter username">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1" class="sr-only">Password</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock fa-fw"></i></span>
+                                <input ng-model="password"
+                                       type="password"
+                                       class="form-control"
+                                       id="exampleInputPassword1"
+                                       placeholder="Password">
+                            </div>
+                        </div>
+                        <a ng-click="model.login(username, password)">
+                            <button type="button" class="btn btn-success">Sign in</button>
+                        </a>
+                        <a href="/auth/google" class="btn btn-danger">
+                            <span class="fa fa-google"></span>
+                            Google
+                        </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="#/register">
+                            <button type="button" class="btn btn-primary">Create account</button>
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <h1>Login</h1>
-    <input ng-model="username"
-           type="text"
-           class="form-control"
-           placeholder="username"/>
-    <input ng-model="password"
-           type="password"
-           class="form-control"
-           placeholder="password"/>
-    <a ng-click="model.login(username, password)"
-       class="btn btn-primary btn-block">Login</a>
-    <a class="btn btn-success btn-block"
-       href="#/register">Register</a>
-    <a href="/auth/google" class="btn btn-danger btn-block">
-        <span class="fa fa-google"></span>
-        Google
-    </a>
+        </div>
+
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
 </div>

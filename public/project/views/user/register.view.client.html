@@ -14,7 +14,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#/homepage">Project name</a>
+                    <a class="navbar-brand" href="#/homepage">GRE CHAMP</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
@@ -30,8 +30,6 @@
                                 <li><a href="#/quant">Quant Section</a></li>
                                 <li><a href="#/awa">AWA Section</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="#/greinfo">GRE Basic Info</a></li>
-                                <li><a href="#/practicetest">Practice Test</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -48,25 +46,98 @@
 
 
 
-<div class="container">
-    <div ng-if="model.error" class="alert alert-danger">
-        {{model.error}}
+<!--<div class="container">-->
+    <!--<div ng-if="model.error" class="alert alert-danger">-->
+        <!--{{model.error}}-->
+    <!--</div>-->
+    <!--<h1>Register</h1>-->
+    <!--<input ng-model="username"-->
+           <!--type="text"-->
+           <!--class="form-control"-->
+           <!--placeholder="username"/>-->
+    <!--<input ng-model="password1"-->
+           <!--type="password"-->
+           <!--class="form-control"-->
+           <!--placeholder="password"/>-->
+    <!--<input ng-model="password2"-->
+           <!--type="password"-->
+           <!--class="form-control"-->
+           <!--placeholder="verify password"/>-->
+    <!--<a class="btn btn-primary btn-block"-->
+       <!--ng-click="model.register(username, password1, password2)">Register</a>-->
+    <!--<a class="btn btn-danger btn-block"-->
+       <!--href="#/login">Cancel</a>-->
+<!--</div>-->
+
+<div style="background-color: #dddddd">
+
+    <div class="container">
+
+        <div class="grid_13" >
+
+    <div class="container">
+        <div ng-if="model.error" class="alert alert-danger">
+            {{model.error}}
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+                <form role="form">
+                    <h2>Please Sign Up <small>It's free and always will be.</small></h2>
+                    <hr class="colorgraph">
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <input type="text" ng-model="firstName" id="first_name" class="form-control input-lg" placeholder="First Name" tabindex="1">
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <input type="text" ng-model="lastName" id="last_name" class="form-control input-lg" placeholder="Last Name" tabindex="2">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" ng-model="username" id="display_name" class="form-control input-lg" placeholder="Username" tabindex="3">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" ng-model="email" id="email" class="form-control input-lg" placeholder="Email Address" tabindex="4">
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <input type="password" ng-model="password1" id="password" class="form-control input-lg" placeholder="Password" tabindex="5">
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <input type="password" ng-model="password2" id="password_confirmation" class="form-control input-lg" placeholder="Confirm Password" tabindex="6">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-9 col-sm-9 col-md-9">
+                            By clicking <strong class="label label-primary">Register</strong>, you agree to the <a href="">Terms and Conditions</a> set out by this site, including our Cookie Use.
+                        </div>
+                    </div>
+                    <hr class="colorgraph">
+                    <div class="row">
+                        <div class="col-xs-6 col-md-6">
+                            <a ng-click="model.register(username, password1, password2, firstName, lastName, email)">
+                                <input type="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="7">
+                            </a>
+                        </div>
+                        <div class="col-xs-6 col-md-6">
+                            <a href="#/login" class="btn btn-success btn-block btn-lg">Sign In</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-    <h1>Register</h1>
-    <input ng-model="username"
-           type="text"
-           class="form-control"
-           placeholder="username"/>
-    <input ng-model="password1"
-           type="password"
-           class="form-control"
-           placeholder="password"/>
-    <input ng-model="password2"
-           type="password"
-           class="form-control"
-           placeholder="verify password"/>
-    <a class="btn btn-primary btn-block"
-       ng-click="model.register(username, password1, password2)">Register</a>
-    <a class="btn btn-danger btn-block"
-       href="#/login">Cancel</a>
+
+</div>
+
+    </div>
+    <br><br><br><br>
+
 </div>
