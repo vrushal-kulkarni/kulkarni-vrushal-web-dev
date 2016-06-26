@@ -38,7 +38,7 @@ module.exports = function() {
             displayName: String
         },
         dateCreated: {type: Date, default: Date.now}
-    }, {collection: "project.userdb"});
+    }, {collection: "project.useracc"});
 
     return UserSchema;
 };
