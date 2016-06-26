@@ -32,11 +32,29 @@
             .when("/verbal", {
                 templateUrl: "views/verbal/verbal.view.client.html",
             })
+            .when("/user/:userId/verbal", {
+                templateUrl: "views/verbal/verbal.user.view.client.html",
+                controller: "ProfileController",
+                controllerAs : "model",
+                resolve: { checkLoggedIn: checkLoggedin }
+            })
             .when("/quant", {
                 templateUrl: "views/quant/quant.view.client.html",
             })
+            .when("/user/:userId/quant", {
+                templateUrl: "views/quant/quant.user.view.client.html",
+                controller: "ProfileController",
+                controllerAs : "model",
+                resolve: { checkLoggedIn: checkLoggedin }
+            })
             .when("/awa", {
                 templateUrl: "views/awa/awa.view.client.html",
+            })
+            .when("/user/:userId/awa", {
+                templateUrl: "views/awa/awa.user.view.client.html",
+                controller: "ProfileController",
+                controllerAs : "model",
+                resolve: { checkLoggedIn: checkLoggedin }
             })
             .when("/login", {
                 templateUrl: "views/user/login.view.client.html",
@@ -60,31 +78,15 @@
                 templateUrl:"views/user/profile.view.client.html",
                 controller: "ProfileController",
                 controllerAs: "model",
+                resolve: { checkLoggedIn: checkLoggedin }
             })
 
-            .when('/user/:userId/profile/:userId', {
-                templateUrl: "views/user/profile.readonly.view.html",
-                controller: "ProfileReadOnlyController",
-                controllerAs : "model",
-                // resolve: {
-                //     loggedin: checkCurrentUser
-                // }
-
-            })
             .when("/user/:userId", {
                 templateUrl: "views/user/new-user-homepage.view.client.html",
                 controller:"ProfileController",
                 controllerAs: "model",
                 resolve: { checkLoggedIn: checkLoggedin }
             })
-            // .when("/profile-homepage" , {
-            //     templateUrl: "views/user/new-user-homepage.view.client.html",
-            //     controller: "ProfileController",
-            //     controllerAs: "model",
-            //     resolve: {
-            //         loggedIn: checkLoggedIn
-            //     }
-            // })
 
             .when("/user/:userId/social", {
                 templateUrl: "views/user/followers.view.client.html",
@@ -140,36 +142,91 @@
             .when("/ps", {
                 templateUrl: "views/quant/ps.view.client.html",
             })
+            .when("/user/:userId/quant/ps", {
+                templateUrl: "views/quant/ps.user.view.client.html",
+                controller: "ProfileController",
+                controllerAs : "model",
+                resolve: { checkLoggedIn: checkLoggedin }
+            })
             .when("/ne", {
                 templateUrl: "views/quant/ne.view.client.html",
+            })
+            .when("/user/:userId/quant/ne", {
+                templateUrl: "views/quant/ne.user.view.client.html",
+                controller: "ProfileController",
+                controllerAs : "model",
+                resolve: { checkLoggedIn: checkLoggedin }
             })
             .when("/qc", {
                 templateUrl: "views/quant/qc.view.client.html",
             })
+            .when("/user/:userId/quant/qc", {
+                templateUrl: "views/quant/qc.user.view.client.html",
+                controller: "ProfileController",
+                controllerAs : "model",
+                resolve: { checkLoggedIn: checkLoggedin }
+            })
             .when("/se", {
                 templateUrl: "views/verbal/se.view.client.html",
+            })
+            .when("/user/:userId/verbal/se", {
+                templateUrl: "views/verbal/se.user.view.client.html",
+                controller: "ProfileController",
+                controllerAs : "model",
+                resolve: { checkLoggedIn: checkLoggedin }
             })
             .when("/tc", {
                 templateUrl: "views/verbal/tc.view.client.html",
             })
+            .when("/user/:userId/verbal/tc", {
+                templateUrl: "views/verbal/tc.user.view.client.html",
+                controller: "ProfileController",
+                controllerAs : "model",
+                resolve: { checkLoggedIn: checkLoggedin }
+            })
             .when("/rc", {
                 templateUrl: "views/verbal/rc.view.client.html",
+            })
+            .when("/user/:userId/verbal/rc", {
+                templateUrl: "views/verbal/rc.user.view.client.html",
+                controller: "ProfileController",
+                controllerAs : "model",
+                resolve: { checkLoggedIn: checkLoggedin }
             })
             .when("/issue", {
                 templateUrl: "views/awa/issue.view.client.html",
             })
-            .when("/argument", {
-                templateUrl: "views/awa/argument.view.client.html",
+            .when("/user/:userId/awa/issue", {
+                templateUrl: "views/awa/issue.user.view.client.html",
+                controller: "ProfileController",
+                controllerAs : "model",
+                resolve: {
+                    checkLoggedIn: checkLoggedin
+                }
             })
-            .when("/psp", {
-                templateUrl: "views/quant/psp.view.client.html",
+            .when("/user/:userId/awa/argument", {
+                templateUrl: "views/awa/argument.user.view.client.html",
+                controller: "ProfileController",
+                controllerAs : "model",
+                resolve: {
+                    checkLoggedIn: checkLoggedin
+                }
+            })
+            .when("/user/:userId/psp", {
+                templateUrl: "views/quant/psp.user.view.client.html",
                 controller: "PSPController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {
+                    checkLoggedIn: checkLoggedin
+                }
             })
-            .when("/rcp", {
-                templateUrl: "views/verbal/rcp.view.client.html",
+            .when("/user/:userId/rcp", {
+                templateUrl: "views/verbal/rcp.user.view.client.html",
                 controller: "RCPController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {
+                    checkLoggedIn: checkLoggedin
+                }
             })
             .otherwise({
                 redirectTo: "/homepage"

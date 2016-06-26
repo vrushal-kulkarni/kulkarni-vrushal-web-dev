@@ -1,0 +1,93 @@
+
+<!-- NAVBAR
+================================================== -->
+
+<div class="navbar-wrapper">
+    <div class="container">
+
+        <nav class="navbar navbar-inverse navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#/homepage">GRE CHAMP</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#/homepage">Home</a></li>
+                        <li><a href="#/testimonials">Testimonials</a></li>
+                        <li><a href="#/about">About</a></li>
+                        <li><a href="#/contact">Contact</a></li>
+                        <li class="dropdown">
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true" aria-expanded="false">GRE HUB <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#/user/{{model.userId}}/verbal">Verbal Section</a></li>
+                                <li><a href="#/user/{{model.userId}}/quant">Quant Section</a></li>
+                                <li><a href="#/user/{{model.userId}}/awa">AWA Section</a></li>
+                                <li role="separator" class="divider"></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right" role="navigation">
+                        <li><a href="#/user/{{model.userId}}">Welcome {{model.name}}</a></li>
+                        <li><a ng-click="model.logout()"><button type="button" class="btn btn-sm btn-primary">Logout</button></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </div>
+</div>
+
+<div style="background-color: #fdf5ce">
+
+<div class="container">
+
+    <div id="content-section" class="grid_13">
+        <a href="#/user/{{model.userId}}">
+            <button type="button" class="btn btn-lg btn-info"><< BACK</button>
+        </a>
+    <h1>GRE Math</h1>
+    <p>The Math skills required for GRE quantitative reasoning section are of a basic standard that should be within the reach of a tenth grade student. You don't need to
+    learn up lots of new formulae but you will need to sharpen up your thinking skills.
+</p>
+    <p>Questions are of three main types:
+    </p><ul>
+    <li><a href="#/user/{{model.userId}}/quant/ps">Multiple choice problem solving</a> (with one or more correct answers)</li>
+    <li><a href="#/user/{{model.userId}}/quant/ne">Numeric entry</a></li>
+    <li><a href="#/user/{{model.userId}}/quant/qc">Quantitative comparisons</a></li>
+</ul>
+    <p>You may be tested on basic arithmetic, algebra, geometry and a few miscellaneous topics
+        (mainly data interpretation and applied math). </p>
+
+    <p></p>
+    <h3>More information</h3>
+    <p>It is important to try full-length practice tests under timed conditions; for this we recommend the <a href="http://www.ets.org/gre/revised_general/prepare/powerprep2/">Powerprep II tests</a> provided free by ETS.
+    </p>
+    <p>You are allowed to use a calculator. You are allowed to do rough work on the paper provided during the GRE test,
+        so have some rough sheets available when you start the mini tests. Remember, math skills improve with practice.
+    </p>
+    <p>What do integral calculus, trigonometry, and geometry proofs all have in common? Well, besides being three things you probably don’t enjoy doing for fun, they also do not show up on the GRE. That’s right, all higher-level math is absent from the GRE.
+        <br><br>
+        The type of math that shows up on the GRE is the stuff you most likely learned as a high school sophomore or junior. Sure you may have forgotten much–if not all–of this information. To give you a little refresher: basic properties of shapes (circles, quadrilaterals, etc.), integer properties, exponents, word problems (this includes rate questions and probability). Really, not much beyond that.
+        <br><br>
+        What makes the GRE so tricky is the complexity and impenetrability of many of the questions. Once you figure out what the question is asking, the math involved isn’t nearly as long-winded as what you probably did in high school. You know, where you teacher exactingly checked your homework to make sure that you followed each of thirteen steps to arrive at the solution. Indeed, with the GRE, you don’t even have to show your work. You just have to pick the right answer.If it has been a long time since you've done any math and need a review we recommend the <a href="http://www.amazon.com/gp/product/1419550039/ref=as_li_ss_tl?ie=UTF8&amp;tag=majortecom-20&amp;linkCode=as2&amp;camp=217145&amp;creative=399373&amp;creativeASIN=1419550039">Kaplan GRE Math Workbook</a><img src="http://www.assoc-amazon.com/e/ir?t=&amp;l=as2&amp;o=1&amp;a=1419550039&amp;camp=217145&amp;creative=399373" width="0" height="0" border="0" alt="" style="border: none !important; margin: 0px !important; display: none !important; visibility: hidden !important; opacity: 0 !important; background-position: 1px 1px;">
+    </p>
+</div>
+
+</div>
+
+<div class="container">
+    <!-- FOOTER -->
+    <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2015 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+    </footer>
+</div>
+</div>

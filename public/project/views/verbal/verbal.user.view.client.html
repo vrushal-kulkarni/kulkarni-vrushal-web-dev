@@ -15,7 +15,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#/homepage">Project name</a>
+                    <a class="navbar-brand" href="#/homepage">GRE CHAMP</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
@@ -27,18 +27,16 @@
                             <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-haspopup="true" aria-expanded="false">GRE HUB <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#/verbal">Verbal Section</a></li>
-                                <li><a href="#/quant">Quant Section</a></li>
-                                <li><a href="#/awa">AWA Section</a></li>
+                                <li><a href="#/user/{{model.userId}}/verbal">Verbal Section</a></li>
+                                <li><a href="#/user/{{model.userId}}/quant">Quant Section</a></li>
+                                <li><a href="#/user/{{model.userId}}/awa">AWA Section</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="#/greinfo">GRE Basic Info</a></li>
-                                <li><a href="#/practicetest">Practice Test</a></li>
                             </ul>
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right" role="navigation">
-                        <li><a href="#/login">Log in</a></li>
-                        <li><a href="#/register"><button type="button" class="btn btn-sm btn-primary">Sign Up</button></a></li>
+                        <li><a href="#/user/{{model.userId}}">Welcome {{model.name}}</a></li>
+                        <li><a ng-click="model.logout()"><button type="button" class="btn btn-sm btn-primary">Logout</button></a></li>
                     </ul>
                 </div>
             </div>
@@ -47,16 +45,19 @@
     </div>
 </div>
 
-<div style="background-color: #dddddd">
+<div style="background-color: #fdf5ce">
 <div class="container" >
 
     <div id="content-section" class="grid_13" >
+        <a href="#/user/{{model.userId}}">
+            <button type="button" class="btn btn-lg btn-info"><< BACK</button>
+        </a>
     <h1>GRE Verbal</h1>
     <p>The verbal reasoning section of the GRE contains questions of three types:</p>
     <ul>
-        <li><a href="#/se">Sentence Equivalence</a></li>
-        <li><a href="#/tc">Text Completion</a></li>
-        <li><a href="#/rc">Reading Comprehension</a></li>
+        <li><a href="#/user/{{model.userId}}/verbal/se">Sentence Equivalence</a></li>
+        <li><a href="#/user/{{model.userId}}/verbal/tc">Text Completion</a></li>
+        <li><a href="#/user/{{model.userId}}/verbal/rc">Reading Comprehension</a></li>
     </ul>
     <p >A good vocabulary is essential for the Text Completion and Sentence Equivalence questions which account for approximately 50% of the questions in this section.
         We recommend that you learn our word lists before starting the minitests. Then the minitests will reinforce the words that you have learned.

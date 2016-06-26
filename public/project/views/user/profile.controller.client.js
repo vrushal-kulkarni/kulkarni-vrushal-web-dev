@@ -58,10 +58,13 @@
 
     function ProfileController($routeParams,UserService,$rootScope,$location) {
         var vm =this;
-        vm.updateUser = updateUser;
         var index=-1;
         var id = $rootScope.currentUser._id;
+        vm.userId = $rootScope.currentUser._id;
         vm.logout=logout;
+        vm.name=$rootScope.currentUser.username;
+        vm.updateUser = updateUser;
+
 
         function init() {
             UserService

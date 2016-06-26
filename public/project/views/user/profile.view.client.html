@@ -15,7 +15,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#/homepage">Project name</a>
+                    <a class="navbar-brand" href="#/homepage">GRE CHAMP</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
@@ -31,14 +31,12 @@
                                 <li><a href="#/quant">Quant Section</a></li>
                                 <li><a href="#/awa">AWA Section</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="#/greinfo">GRE Basic Info</a></li>
-                                <li><a href="#/practicetest">Practice Test</a></li>
                             </ul>
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right" role="navigation">
-                        <li><a href="#/user/{{model.user._id}}">Welcome {{model.user.username}}</a></li>
-                        <li><a href="#/homepage"><button type="button" class="btn btn-sm btn-primary">Logout</button></a></li>
+                        <li><a href="#/user/{{model.userId}}">Welcome {{model.name}}</a></li>
+                        <li><a ng-click="model.logout()"><button type="button" class="btn btn-sm btn-primary">Logout</button></a></li>
                     </ul>
                 </div>
             </div>
@@ -47,10 +45,13 @@
     </div>
 </div>
 
+<div style="background-color: #fdf5ce">
+    <div class="container">
+
+<div class="grid_13" >
 
 
-
-<div class="container">
+    <div class="container">
 
     <div ng-show="model.success" class="alert alert-success alert-dismissible">
         {{model.success}}
@@ -59,6 +60,7 @@
         {{model.error}}
     </div>
 
+        <h2>Profile</h2>
     <form>
         <div class="form-group">
             <label for="Username">Username</label>
@@ -102,5 +104,123 @@
            ng-click="model.updateUser(model.user)">Save</a>
 
     </form>
+        <br><br><br><br><br><br><br><br><br><br><br>
 </div>
 
+</div>
+    </div>
+</div>
+
+<!--<div style="background-color: #fdf5ce">-->
+
+    <!--<div class="container">-->
+
+        <!--<div class="grid_13" >-->
+
+
+            <!--<div class="container" style="padding-top: 60px;">-->
+
+                <!--<div ng-show="model.success" class="alert alert-success alert-dismissible">-->
+                    <!--{{model.success}}-->
+                <!--</div>-->
+                <!--<div ng-show="model.error" class="alert alert-danger">-->
+                    <!--{{model.error}}-->
+                <!--</div>-->
+
+    <!--<h1 class="page-header">Edit Profile</h1>-->
+    <!--<div class="row">-->
+        <!--&lt;!&ndash; left column &ndash;&gt;-->
+        <!--<div class="col-md-4 col-sm-6 col-xs-12">-->
+            <!--<div class="text-center">-->
+                <!--<img src="http://lorempixel.com/200/200/people/9/" class="avatar img-circle img-thumbnail" alt="avatar">-->
+                <!--<h6>Upload a different photo...</h6>-->
+                <!--<input type="file" class="text-center center-block well well-sm">-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--&lt;!&ndash; edit form column &ndash;&gt;-->
+        <!--<div class="col-md-8 col-sm-6 col-xs-12 personal-info">-->
+            <!--<div class="alert alert-info alert-dismissable">-->
+                <!--<a class="panel-close close" data-dismiss="alert">×</a>-->
+                <!--<i class="fa fa-coffee"></i>-->
+                <!--This is an <strong>.alert</strong>. Use this to show important messages to the user.-->
+            <!--</div>-->
+            <!--<h3>Personal info</h3>-->
+            <!--<form class="form-horizontal" role="form">-->
+                <!--<div class="form-group">-->
+                    <!--<label class="col-lg-3 control-label">First name:</label>-->
+                    <!--<div class="col-lg-8">-->
+                        <!--<input ng-model="model.user.firstName" class="form-control"  placeholder="Alice" type="text">-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<label class="col-lg-3 control-label">Last name:</label>-->
+                    <!--<div class="col-lg-8">-->
+                        <!--<input ng-model="model.user.lastName" class="form-control" placeholder="Wonderland" type="text">-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<label class="col-lg-3 control-label">Email:</label>-->
+                    <!--<div class="col-lg-8">-->
+                        <!--<input ng-model="model.user.email" class="form-control" placeholder="alice@wonderland.com" type="text">-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<label class="col-lg-3 control-label">Time Zone:</label>-->
+                    <!--<div class="col-lg-8">-->
+                        <!--<div class="ui-select">-->
+                            <!--<select id="user_time_zone" class="form-control">-->
+                                <!--<option value="Hawaii">(GMT-10:00) Hawaii</option>-->
+                                <!--<option value="Alaska">(GMT-09:00) Alaska</option>-->
+                                <!--<option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>-->
+                                <!--<option value="Arizona">(GMT-07:00) Arizona</option>-->
+                                <!--<option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)</option>-->
+                                <!--<option value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central Time (US &amp; Canada)</option>-->
+                                <!--<option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)</option>-->
+                                <!--<option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>-->
+                            <!--</select>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<label class="col-md-3 control-label">Username:</label>-->
+                    <!--<div class="col-md-8">-->
+                        <!--<input ng-model="model.user.username" class="form-control" placeholder="Username" type="text">-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<label class="col-md-3 control-label">Password:</label>-->
+                    <!--<div class="col-md-8">-->
+                        <!--<input class="form-control" value="11111122333" type="password">-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<label class="col-md-3 control-label">Confirm password:</label>-->
+                    <!--<div class="col-md-8">-->
+                        <!--<input class="form-control" value="11111122333" type="password">-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="form-group">-->
+                    <!--<label class="col-md-3 control-label"></label>-->
+                    <!--<div class="col-md-8">-->
+
+                            <!--<input ng-click="model.updateUser(model.user)" class="btn btn-primary" value="Save Changes" type="button">-->
+
+                        <!--<span></span>-->
+                        <!--<a href="#/user/{{model.user._id}}">-->
+                            <!--<input class="btn btn-default" value="Cancel" type="reset">-->
+                        <!--</a>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</form>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+
+
+        <!--</div>-->
+
+    <!--</div>-->
+
+
+<!--</div>-->

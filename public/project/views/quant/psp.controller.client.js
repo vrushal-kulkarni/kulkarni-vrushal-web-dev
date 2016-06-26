@@ -3,8 +3,10 @@
         .module("GreAppMaker")
         .controller("PSPController", PSPController);
 
-    function PSPController(PSPService) {
+    function PSPController(PSPService, $routeParams) {
         var vm = this;
+
+        vm.userId = $routeParams.userId;
 
         vm.start=start;
         vm.reset=reset;

@@ -3,8 +3,10 @@
         .module("GreAppMaker")
         .controller("RCPController", RCPController);
 
-    function RCPController(RCPService) {
+    function RCPController(RCPService, $routeParams) {
         var vm = this;
+
+        vm.userId = $routeParams.userId;
 
         vm.start=start;
         vm.reset=reset;

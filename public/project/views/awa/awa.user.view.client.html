@@ -1,0 +1,99 @@
+
+<!-- NAVBAR
+================================================== -->
+<div class="navbar-wrapper">
+    <div class="container">
+
+        <nav class="navbar navbar-inverse navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#/homepage">GRE CHAMP</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#/homepage">Home</a></li>
+                        <li><a href="#/testimonials">Testimonials</a></li>
+                        <li><a href="#/about">About</a></li>
+                        <li><a href="#/contact">Contact</a></li>
+                        <li class="dropdown">
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true" aria-expanded="false">GRE HUB <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#/user/{{model.userId}}/verbal">Verbal Section</a></li>
+                                <li><a href="#/user/{{model.userId}}/quant">Quant Section</a></li>
+                                <li><a href="#/user/{{model.userId}}/awa">AWA Section</a></li>
+                                <li role="separator" class="divider"></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right" role="navigation">
+                        <li><a href="#/user/{{model.userId}}">Welcome {{model.name}}</a></li>
+                        <li><a ng-click="model.logout()"><button type="button" class="btn btn-sm btn-primary">Logout</button></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </div>
+</div>
+
+<div style="background-color: #fdf5ce">
+
+<div class="container">
+
+    <div id="content-section" class="grid_13">
+    <!-- grid_13 -->
+        <a href="#/user/{{model.userId}}">
+            <button type="button" class="btn btn-lg btn-info"><< BACK</button>
+        </a>
+    <h1>GRE Essays</h1>
+    GRE sets two writing tasks (Analyze an Issue, and Analyze an Argument) collectively called the Analytical Writing Section (or Analytical Writing Measure). The tasks are designed to test critical thinking and analytical writing skills. The essays come first on the test - 30 minutes for the issue and 30 minutes for the argument.
+</p>
+    <ul>
+        <li>You have to type your response. Obviously there is no spell-check or grammar check available.</li>
+        <li>The essays are marked by one human reader and one computer program (e-rater)</li>
+        <li>Scores range from 1-6</li>
+    </ul>
+
+    <h2>Analyze an issue</h2>
+    <p>
+        The first task on the GRE is the discussion of an <a href="#/user/{{model.userId}}/awa/issue">issue</a>. The topic is intentionally open to interpretation, so that you can marshal your arguments in support of a position. It is rather like a debate. A good essay of this type will give highly specific reasons for a point of view, and back up its thesis with suitable examples. Minor errors in spelling punctuation or grammar will not prevent your getting a good mark - poor logical flow and vagueness will.</p>
+    <p>For tips on how to structure your essay visit our <a href="#/user/{{model.userId}}/awa/issue">GRE issue</a> page.
+    </p>
+
+    <h2>Analyze an argument</h2>
+    <p>
+        The second task on the GRE is the analysis of an <a href="#/user/{{model.userId}}/awa/argument">argument</a>, which tests your ability to find flaws in apparently logical arguments. It does help if you have a basic familiarity with the terms of logic, so that you can successfully identify the premises and assumptions on which a conclusion rests. Here the mark you obtain is directly linked to your ability to evaluate the logic of the given argument and address the specific instructions you are given. With a little training and practice, this task is actually easier than the issue.</p>
+    <p>For tips on how to structure your essay visit our <a href="#/user/{{model.userId}}/awa/argument">GRE argument</a> page.
+    </p>
+
+    <h3>Additional information</h3>
+    <ul>
+        <li>Visit the ETS for <a href="http://www.ets.org/gre/revised_general/prepare/analytical_writing/score_level_descriptions/">scoring guidelines</a></li>
+        <li>Essay Topics come from the pool of <a href="http://www.ets.org/gre/revised_general/prepare/analytical_writing/issue/pool">issue topics</a> and <a href="http://www.ets.org/gre/revised_general/prepare/analytical_writing/argument/pool">argument topics</a> on the official GRE website</li>
+    </ul>
+
+    <h3>Final points</h3>
+    <p>It is a good idea to get someone to review your essays. Get feedback from a teacher or from someone with good language and logical skills. You will not get a good mark if you write too little. If you think your essays are too short, you can ask your reviewer for ideas on what else you could have included. Essays always need good transitions between paragraphs and good logical flow throughout ï¿½ someone else could spot where you could have improved the flow.</p>
+    <p>A few minor lapses in spelling and grammar will not count too much against you, but a mostly error-free response will obviously get a better score.</p>
+    <p>A score of 4 out of the potential 6 is considered ï¿½competentï¿½. While it is nice to be competent, it is worth striving to be ï¿½goodï¿½ or very goodï¿½, so put in a little extra effort on this section.</p>
+
+
+</div>
+
+</div><br>
+<div class="container">
+    <!-- FOOTER -->
+    <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2015 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+    </footer>
+</div>
+</div>

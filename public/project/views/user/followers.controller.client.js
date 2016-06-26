@@ -9,6 +9,11 @@
 
         var vm = this;
 
+        vm.userId = $rootScope.currentUser._id;
+        vm.userName=$rootScope.currentUser.username;
+
+        vm.logout=logout;
+
         vm.isCurrentUser = isCurrentUser;
         vm.addFriend = addFriend;
         vm.removeFriend = removeFriend;
@@ -59,6 +64,20 @@
         //     }
         //     return false;
         // }
+
+        function logout() {
+            UserService.logout()
+                .then(
+                    function (response) {
+                        $rootScope.currentUser = null;
+                        $location.url("/login");
+                    }
+                    ,function () {
+                        $rootScope.currentUser = null;
+                        $location.url("/login");
+                    }
+                )
+        }
 
         function isCurrentUser(username){
             if( $rootScope.currentUser != null && $rootScope.currentUser.username == username ){

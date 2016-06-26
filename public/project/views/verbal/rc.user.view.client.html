@@ -1,0 +1,146 @@
+
+<!-- NAVBAR
+================================================== -->
+
+<div class="navbar-wrapper">
+    <div class="container">
+
+        <nav class="navbar navbar-inverse navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#/homepage">GRE CHAMP</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#/homepage">Home</a></li>
+                        <li><a href="#/testimonials">Testimonials</a></li>
+                        <li><a href="#/about">About</a></li>
+                        <li><a href="#/contact">Contact</a></li>
+                        <li class="dropdown">
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true" aria-expanded="false">GRE HUB <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#/user/{{model.userId}}/verbal">Verbal Section</a></li>
+                                <li><a href="#/user/{{model.userId}}/quant">Quant Section</a></li>
+                                <li><a href="#/user/{{model.userId}}/awa">AWA Section</a></li>
+                                <li role="separator" class="divider"></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right" role="navigation">
+                        <li><a href="#/user/{{model.userId}}">Welcome {{model.name}}</a></li>
+                        <li><a ng-click="model.logout()"><button type="button" class="btn btn-sm btn-primary">Logout</button></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </div>
+</div>
+
+<div style="background-color: #fdf5ce">
+
+<div class="container">
+
+    <div class="grid_13">
+        <a href="#/user/{{model.userId}}/verbal">
+            <button type="button" class="btn btn-lg btn-info"><< BACK</button>
+        </a>
+    <header>
+        <h1>GRE Reading Comprehension</h1>
+    </header>
+    <section class="entry">
+        <p>&nbsp;</p>
+        <p>Here’s the best approach to avoid getting trapped by misleading answer choices in the GRE’s Reading
+            Comprehension section.</p>
+        <p>The RAMA method is one I’ve refined over the years, while tutoring for the GMAT, SAT, and GRE. While there
+            are differences between each test in terms of approach, and what to look out for, the tests are overall very
+            similar. Below is the RAMA I’ve adapted for the New GRE.</p>
+        <p>So, you’re probably wondering, what does RAMA stand for? R (Re-phrase), A (Anticipate), M (Match), A
+            (Awareness). Let’s take a closer look!</p>
+        <p><strong>1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><strong>Re-phrase question in your own words</strong></p>
+        <p>Reading the question is the obvious part. The not-so-obvious part is putting the question into your own
+            words. What often happens is you will read the question, and then go back to the passage without
+            understanding what the question was asking in the first place. At this point, you are likely to grasp at
+            words in the passages that look important. Then, you may go back to the passage and simply look for those
+            words in the answer choices. The test writers know this, and will, therefore, make sure that even the wrong
+            answer choices include words from the passage.</p>
+        <p>Instead of falling into this trap, it is best to rephrase the question in your own words. The more
+            straightforward your interpretation of the question, the better you will be able to navigate through the
+            passage when looking for the answer.</p>
+        <p><strong>2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><strong>Anticipate the answer</strong></p>
+        <p>Now that’s you’ve re-phrased the question in your own words, you must return to the passage and find the
+            answer. Once you think you’ve found the answer, try to phrase the answer in your own words. If you are
+            noticing a common theme, i.e. putting everything in your own words, that is because doing so is the single
+            most effective away to avoid getting trapped by the answer choices. On other hand, if you immediately begin
+            scanning the answer choices without anticipating the answer, you’ll likely get trapped. This is especially
+            true on primary purpose/main idea questions.</p>
+        <p><strong>3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><strong>Match Answer</strong></p>
+        <p>Once you have come up with your own answer, you want to return to the answer choices and match them up with
+            the answer choice that you think is the closest. If none of the answers works, you can return to the passage
+            and read it one more time&nbsp;to see if you’ve misinterpreted something. Or, you can eliminate answer
+            choices to see if you are left with one answer. To effectively eliminate wrong answer choices you need
+            an…</p>
+        <p><strong>4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><strong>Awareness of Wrong Answers Choices</strong><strong>
+            &nbsp;</strong></p>
+        <p>When the test writers are creating a multiple-choice question, they create wrong answer choices that fall
+            into several categories. Knowing these categories can help you correctly identify and eliminate wrong
+            answers.</p>
+        <ul>
+            <ul>
+                <li>Too Extreme</li>
+            </ul>
+        </ul>
+        <ul>
+            <ul>
+                <li>Assumes Too Much</li>
+            </ul>
+        </ul>
+        <ul>
+            <ul>
+                <li>Rotten Fruit</li>
+            </ul>
+        </ul>
+        <ul>
+            <ul>
+                <li>Beyond the Scope of the Passage</li>
+            </ul>
+        </ul>
+        <ul>
+            <ul>
+                <li>Too Broad/Too Specific</li>
+            </ul>
+        </ul>
+        <ul>
+            <ul>
+                <li>True…But Doesn’t Answer the Question</li>
+            </ul>
+        </ul>
+        <p>&nbsp;</p>
+        <p><strong><em>Takeaway:</em></strong></p>
+        <p><strong><em>This may all seem rather complicated, and it can be. But don’t worry – by doing a few reading
+            comprehension passages and applying the RAMA technique, you will start to get a sense of how all of the
+            above comes together.&nbsp;</em></strong></p>
+    </section>
+
+    <hr class="featurette-divider">
+    <a href="#/user/{{model.userId}}/rcp"><button type="button" class="btn btn-lg btn-info">Practice Now >></button></a>
+
+</div>
+
+</div><br>
+<div class="container">
+    <!-- FOOTER -->
+    <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2015 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+    </footer>
+</div><br><br>
+</div>

@@ -1,0 +1,97 @@
+
+<!-- NAVBAR
+================================================== -->
+
+<div class="navbar-wrapper">
+    <div class="container">
+
+        <nav class="navbar navbar-inverse navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#/homepage">GRE CHAMP</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#/homepage">Home</a></li>
+                        <li><a href="#/testimonials">Testimonials</a></li>
+                        <li><a href="#/about">About</a></li>
+                        <li><a href="#/contact">Contact</a></li>
+                        <li class="dropdown">
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true" aria-expanded="false">GRE HUB <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#/user/{{model.userId}}/verbal">Verbal Section</a></li>
+                                <li><a href="#/user/{{model.userId}}/quant">Quant Section</a></li>
+                                <li><a href="#/user/{{model.userId}}/awa">AWA Section</a></li>
+                                <li role="separator" class="divider"></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right" role="navigation">
+                        <li><a href="#/user/{{model.userId}}">Welcome {{model.name}}</a></li>
+                        <li><a ng-click="model.logout()"><button type="button" class="btn btn-sm btn-primary">Logout</button></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </div>
+</div>
+
+<div style="background-color: #fdf5ce">
+
+<div class="container">
+
+    <div class="grid_13">
+        <a href="#/user/{{model.userId}}/quant">
+            <button type="button" class="btn btn-lg btn-info"><< BACK</button>
+        </a>
+    <header>
+        <h1>GRE Math Problem Solving</h1>
+    </header>
+    <section class="entry">
+        <p>Practice your math problem solving skills with our 12 tests. You shouldn't need more than three lines
+            of working for any problem. Redraw geometry figures on your rough paper to include the information in the
+            question.
+        </p>
+        <p>Most of the questions have 5 answer choices only one of which is correct. Some of the questions can have 3 -
+            9 answer choices any number of which may be correct. Be careful to select ALL relevant answers in this type
+            of question.
+        </p>
+        <p>Tests 11 and 12 contain data interpretation questions. Data Interpretation question are sets of problem
+            solving questions that refer to data in graphs and tables. These questions test your ability to read and
+            analyse charts, tables, graphs (line graphs, bar graphs, circle graphs etc.). They require you to estimate
+            as well as calculate.The GRE math definitely tests your ability to deal with number properties and standard geometric figures. <br><br>Yet, at a deeper level, it really tests the way you go about solving problems (half of the questions are filed under Problem Solving, after all). In essence, the math section tests your ability to reason with numbers. Often, the key to solving a question is to logically unwrap the problem, instead of just crunching a bunch of numbers.</p>
+        <p>
+            <em>Each test has ten questions and should take 12 minutes.
+            </em></p>
+        <p>Initially don't worry too much about the time until you have a feel for the type of questions. But, by the
+            time
+            you have done two or three tests you should start getting tough about the time you take.<br><br>You are allowed to use a calculator. You are allowed to do rough work on the paper provided during the GRE test,
+            so have some rough sheets available when you start the mini tests. Remember, math skills improve with practice.
+        </p>
+
+    </section>
+    <hr class="featurette-divider">
+    <a href="#/user/{{model.userId}}/psp">
+        <button type="button" class="btn btn-lg btn-info">Practice Now >></button>
+    </a>
+</div>
+
+</div>
+
+<div class="container">
+    <!-- FOOTER -->
+    <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2015 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+    </footer>
+</div>
+</div>

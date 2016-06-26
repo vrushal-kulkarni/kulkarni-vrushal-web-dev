@@ -1,3 +1,7 @@
+
+<!-- NAVBAR
+================================================== -->
+
 <div class="navbar-wrapper">
     <div class="container">
 
@@ -43,33 +47,56 @@
 
 <div style="background-color: #fdf5ce">
 
-    <div class="container">
+<div class="container">
 
-        <div class="grid_13">
-
-<div class="col-md-8 col-md-offset-2">
-    <div  class="panel-grid panel panel-info">
-
-        <div class="panel-heading">
-            <div>
-                <i class="fa fa-user fa-4x"></i>&nbsp;
-                <h1 class="my-heading">{{model.userdata.data.username}}</h1>
-            </div>
+    <div class="grid_13">
+        <a href="#/user/{{model.userId}}/quant">
+            <button type="button" class="btn btn-lg btn-info"><< BACK</button>
+        </a>
+    <header>
+        <h1>GRE Math Numeric Entry</h1>
+    </header>
+    <section class="entry">
+        <p>Numeric entry questions require you to solve a problem and enter your answer in the space provided. Numeric
+            entry questions account for approximately 10% of the GRE quantitative reasoning section.
+        </p>
+        <p><em>Each test has ten questions and should take 12 minutes.</em>
+        </p>
+        <p>In our tests we allow you to enter up to four digits. You can use any digit from 0 to 9 and you can use a
+            decimal point or a slash (/). Use a slash to indicate a fraction.
+        </p>
+    </section>
+    <div id="directions">
+        <h2>Directions</h2>
+        <p>Solve each question and enter the answer in the spaces provided. Use any of the symbols 1,2,3,4,5,6,7,8,9,0,
+            . , /.</p>
+        <p>Notes:</p>
+        <div class="bkgrnd-g">
+            <ul>
+                <li>Use a calculator when needed</li>
+                <li>Do rough work on a sheet of paper</li>
+                <li>Remember to answer as accurately as possible</li>
+                <li>Do not enter a zero before a decimal point in a fractional answer (for example, enter .667 rather
+                    than 0.66)
+                </li>
+                <li>Do not use mixed fractions (you cannot enter 1 and a half as a fraction; use 1.5 or 3/2)</li>
+            </ul>
         </div>
-
-        <div class="panel-body">
-            <p><strong>First Name: </strong> {{model.userdata.data.firstName}}</p>
-            <p><strong>Last Name: </strong>{{model.userdata.data.lastName}}</p>
-            <p><strong>Email: </strong>{{model.userdata.data.email}}</p>
-        </div>
-
     </div>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    <hr class="featurette-divider">
+    <a href="#/user/{{model.userId}}/psp">
+        <button type="button" class="btn btn-lg btn-info">Practice Now >></button>
+    </a>
 </div>
 
-
-
-        </div>
-
-    </div>
+</div>
+<br>
+<div class="container">
+    <!-- FOOTER -->
+    <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2015 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+    </footer>
+</div>
 </div>
