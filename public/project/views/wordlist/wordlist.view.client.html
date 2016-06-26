@@ -11,7 +11,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#/homepage">Project name</a>
+                    <a class="navbar-brand" href="#/homepage">GRE CHAMP</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
@@ -23,18 +23,16 @@
                             <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-haspopup="true" aria-expanded="false">GRE HUB <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#/verbal">Verbal Section</a></li>
-                                <li><a href="#/quant">Quant Section</a></li>
-                                <li><a href="#/awa">AWA Section</a></li>
+                                <li><a href="#/user/{{model.userId}}/verbal">Verbal Section</a></li>
+                                <li><a href="#/user/{{model.userId}}/quant">Quant Section</a></li>
+                                <li><a href="#/user/{{model.userId}}/awa">AWA Section</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="#/greinfo">GRE Basic Info</a></li>
-                                <li><a href="#/practicetest">Practice Test</a></li>
                             </ul>
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right" role="navigation">
-                        <li><a href="#/user/{{model.userId}}">Welcome {{model.user.username}}</a></li>
-                        <li><a href="#/homepage"><button type="button" class="btn btn-sm btn-primary">Logout</button></a></li>
+                        <li><a href="#/user/{{model.userId}}">Welcome {{model.name}}</a></li>
+                        <li><a ng-click="model.logout()"><button type="button" class="btn btn-sm btn-primary">Logout</button></a></li>
                     </ul>
                 </div>
             </div>
@@ -44,25 +42,29 @@
 </div>
 
 
+
+<div style="background-color: #fdf5ce">
+
+    <div class="container">
+
 <div class="grid_13">
 
 <div class="container">
 
     <nav class="navbar navbar-default ">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="">
-                Wordlists
-            </a>
-            <p class="navbar-text pull-right">
-                <a href="#/user/{{model.userId}}/wordlist/new" class="navbar-link">
-                  <span class="glyphicon glyphicon-plus">
-                  </span>
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="">
+                    <h2>Wordlists</h2>
                 </a>
-            </p>
+                <p class="navbar-text pull-right">
+                    <a href="#/user/{{model.userId}}/wordlist/new" class="navbar-link">
+                        <button type="button" class="btn btn-lg btn-info">CREATE WORDLIST</button>
+                    </a>
+                </p>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
 </div>
 
@@ -72,6 +74,7 @@
             <a href="#/user/{{website._user}}/wordlist/{{website._id}}/word">
                 {{website.name}}
             </a>
+
             <a href="#/user/{{website._user}}/wordlist/{{website._id}}" class="pull-right">
                 <span class="glyphicon glyphicon-cog"></span>
                 <span class="glyphicon glyphicon-play"></span>
@@ -81,23 +84,32 @@
 </div>
 
 
-        <nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container">
-        <div class="row navbar-text">
-            <div class="col-xs-3 text-center">
-            </div>
-            <div class="col-xs-3 text-center">
-            </div>
-            <div class="col-xs-3 text-center">
-            </div>
-            <div class="col-xs-3 text-center">
-                <a href="#/user/{{model.userId}}">
-                    <span class="glyphicon glyphicon-user"></span>
-                </a>
-            </div>
+
+    <!--<div class="col-md-4">-->
+        <!--<div class="panel panel-primary">-->
+            <!--<div class="panel-heading">-->
+                <!--<h3 class="panel-title">Wordlists-->
+                <!--<p class="navbar-text pull-right">-->
+                    <!--<a href="#/user/{{model.userId}}/wordlist/new" >-->
+                  <!--<span class="glyphicon glyphicon-plus">-->
+                  <!--</span>-->
+                    <!--</a>-->
+                <!--</p></h3>-->
+            <!--</div>-->
+            <!--<ul class="list-group">-->
+                <!--<li ng-repeat="website in model.websites" class="list-group-item">-->
+                    <!--<a href="#/user/{{website._user}}/wordlist/{{website._id}}/word" class="list-group-item">-->
+                        <!--{{website.name}}-->
+                    <!--</a>-->
+                    <!--<a href="#/user/{{website._user}}/wordlist/{{website._id}}" class="pull-right">-->
+                        <!--<span class="glyphicon glyphicon-cog"></span>-->
+                    <!--</a>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</div>-->
+    <!--</div>-->
+
+</div>
+
         </div>
-    </div>
-</nav>
-
-
 </div>
