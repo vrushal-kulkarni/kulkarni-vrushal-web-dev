@@ -4,9 +4,13 @@
         .module("GreAppMaker")
         .controller("PageListController",PageListController);
 
-    function PageListController($routeParams,PageService, $location, PearsonService) {
+    function PageListController($routeParams,PageService, $location, PearsonService, $rootScope, UserService) {
         var vm = this;
-        vm.userId = $routeParams.userId;
+        // vm.userId = $routeParams.userId;
+        vm.userId = $rootScope.currentUser._id;
+        vm.logout=logout;
+        vm.name=$rootScope.currentUser.username;
+
         vm.websiteId = $routeParams.websiteId;
         vm.linkToPageNew = linkToPageNew;
 
@@ -25,6 +29,20 @@
         function linkToPageNew() {
              $location.url("/user/" + vm.userId + "/wordlist/" + vm.websiteId + "/word/new");
          }
+
+        function logout() {
+            UserService.logout()
+                .then(
+                    function (response) {
+                        $rootScope.currentUser = null;
+                        $location.url("/login");
+                    }
+                    ,function () {
+                        $rootScope.currentUser = null;
+                        $location.url("/login");
+                    }
+                )
+        }
 
 
         function searchComments(name) {

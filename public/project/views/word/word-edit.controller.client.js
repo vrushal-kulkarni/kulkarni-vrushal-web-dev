@@ -3,10 +3,15 @@
         .module("GreAppMaker")
         .controller("EditPageController", EditPageController);
 
-    function  EditPageController($routeParams, $location, PageService) {
+    function  EditPageController($routeParams, $location, PageService, $rootScope, UserService) {
 
         var vm = this;
-        vm.userId = $routeParams.userId;
+        // vm.userId = $routeParams.userId;
+
+        vm.userId = $rootScope.currentUser._id;
+        vm.logout=logout;
+        vm.name=$rootScope.currentUser.username;
+
         vm.websiteId = $routeParams.websiteId;
         vm.pageId = $routeParams.pageId;
 
@@ -39,8 +44,22 @@
                 });
         }
 
+        function logout() {
+            UserService.logout()
+                .then(
+                    function (response) {
+                        $rootScope.currentUser = null;
+                        $location.url("/login");
+                    }
+                    ,function () {
+                        $rootScope.currentUser = null;
+                        $location.url("/login");
+                    }
+                )
+        }
+
         function updatePage() {
-            if (vm.page.name) {
+
                 PageService
                     .updatePage(vm.pageId, vm.page)
                     .then(function (response) {
@@ -48,10 +67,7 @@
                     }, function (error) {
                         vm.error = "Unable to update page";
                     });
-            }
-            else{
-                vm.error="Page Name is required";
-            }
+            
         }
         
         function linkToPageList() {

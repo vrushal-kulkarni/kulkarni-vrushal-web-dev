@@ -1,7 +1,6 @@
 
 <!-- NAVBAR
 ================================================== -->
-
 <div class="navbar-wrapper">
     <div class="container">
 
@@ -15,7 +14,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#/homepage">Project name</a>
+                    <a class="navbar-brand" href="#/homepage">GRE CHAMP</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
@@ -27,26 +26,36 @@
                             <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-haspopup="true" aria-expanded="false">GRE HUB <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#/verbal">Verbal Section</a></li>
-                                <li><a href="#/quant">Quant Section</a></li>
-                                <li><a href="#/awa">AWA Section</a></li>
+                                <li><a href="#/user/{{model.userId}}/verbal">Verbal Section</a></li>
+                                <li><a href="#/user/{{model.userId}}/quant">Quant Section</a></li>
+                                <li><a href="#/user/{{model.userId}}/awa">AWA Section</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="#/greinfo">GRE Basic Info</a></li>
-                                <li><a href="#/practicetest">Practice Test</a></li>
                             </ul>
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right" role="navigation">
-                        <li><a href="#/login">Log in</a></li>
-                        <li><a href="#/register"><button type="button" class="btn btn-sm btn-primary">Sign Up</button></a></li>
+                        <li><a href="#/user/{{model.userId}}">Welcome {{model.name}}</a></li>
+                        <li><a ng-click="model.logout()"><button type="button" class="btn btn-sm btn-primary">Logout</button></a></li>
                     </ul>
                 </div>
             </div>
         </nav>
 
+    </div>
+</div>
+
+<div style="background-color: #fdf5ce">
+
+    <div class="container" >
 
         <div class="grid_13">
-            <div class="input-group">
+            <a href="#/user/{{model.userId}}/wordlist/{{model.websiteId}}/word">
+                <button type="button" class="btn btn-lg btn-info"><< BACK</button>
+            </a>
+            <center><u><h1>Improve Your Vocabulary Today!!!</h1></u></center>
+                <center><h3>Search and Learn using Flashcard!!!</h3></center>
+
+                <div class="input-group">
                 <input ng-model="searchText"
                        placeholder="Search a GRE word.."
                        type="text"
@@ -80,6 +89,7 @@
 
         </div>
 
-
     </div>
+
 </div>
+

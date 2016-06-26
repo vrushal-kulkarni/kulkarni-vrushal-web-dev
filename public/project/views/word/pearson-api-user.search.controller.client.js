@@ -3,12 +3,17 @@
         .module("GreAppMaker")
         .controller("PearsonSearchController", PearsonSearchController);
 
-    function PearsonSearchController($routeParams,$location,PearsonService, PageService) {
+    function PearsonSearchController($routeParams,$location,PearsonService, PageService, $rootScope, UserService) {
         var vm = this;
 
         vm.searchWords = searchWords;
-        
-        vm.userId = $routeParams.userId;
+
+        vm.userId = $rootScope.currentUser._id;
+        vm.logout=logout;
+        vm.name=$rootScope.currentUser.username;
+
+
+        // vm.userId = $routeParams.userId;
         vm.websiteId = $routeParams.websiteId;
 
         vm.createPage = createPage;
@@ -37,6 +42,20 @@
             }
         }
 
+
+        function logout() {
+            UserService.logout()
+                .then(
+                    function (response) {
+                        $rootScope.currentUser = null;
+                        $location.url("/login");
+                    }
+                    ,function () {
+                        $rootScope.currentUser = null;
+                        $location.url("/login");
+                    }
+                )
+        }
 
 
         function searchWords(searchText) {

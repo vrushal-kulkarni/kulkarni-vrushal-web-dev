@@ -3,10 +3,14 @@
         .module("GreAppMaker")
         .controller("NewWebsiteController", NewWebsiteController);
 
-    function NewWebsiteController($location, $routeParams, WebsiteService) {
+    function NewWebsiteController($location, $routeParams, WebsiteService,  $rootScope, UserService) {
         var vm = this;
 
-        vm.userId = $routeParams.userId;
+        // vm.userId = $routeParams.userId;
+        vm.userId = $rootScope.currentUser._id;
+        vm.logout=logout;
+        vm.name=$rootScope.currentUser.username;
+
         vm.createWebsite = createWebsite;
 
         function createWebsite(name, description) {
@@ -32,9 +36,25 @@
                     });
             }
             else {
-                vm.error = "Please enter website name";
+                vm.error = "Please enter wordlist name";
             }
 
         }
+
+        function logout() {
+            UserService.logout()
+                .then(
+                    function (response) {
+                        $rootScope.currentUser = null;
+                        $location.url("/login");
+                    }
+                    ,function () {
+                        $rootScope.currentUser = null;
+                        $location.url("/login");
+                    }
+                )
+        }
+
+
     }
 })();

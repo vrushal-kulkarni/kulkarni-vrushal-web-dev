@@ -11,7 +11,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#/homepage">Project name</a>
+                    <a class="navbar-brand" href="#/homepage">GRE CHAMP</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
@@ -23,18 +23,16 @@
                             <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-haspopup="true" aria-expanded="false">GRE HUB <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#/verbal">Verbal Section</a></li>
-                                <li><a href="#/quant">Quant Section</a></li>
-                                <li><a href="#/awa">AWA Section</a></li>
+                                <li><a href="#/user/{{model.userId}}/verbal">Verbal Section</a></li>
+                                <li><a href="#/user/{{model.userId}}/quant">Quant Section</a></li>
+                                <li><a href="#/user/{{model.userId}}/awa">AWA Section</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="#/greinfo">GRE Basic Info</a></li>
-                                <li><a href="#/practicetest">Practice Test</a></li>
                             </ul>
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right" role="navigation">
-                        <li><a href="#/user/{{model.userId}}">Welcome {{model.user.username}}</a></li>
-                        <li><a href="#/homepage"><button type="button" class="btn btn-sm btn-primary">Logout</button></a></li>
+                        <li><a href="#/user/{{model.userId}}">Welcome {{model.name}}</a></li>
+                        <li><a ng-click="model.logout()"><button type="button" class="btn btn-sm btn-primary">Logout</button></a></li>
                     </ul>
                 </div>
             </div>
@@ -42,6 +40,9 @@
 
     </div>
 </div>
+
+<div style="background-color: #fdf5ce">
+    <div class="container">
 
 <div class="grid_13">
 
@@ -57,14 +58,13 @@
                 </a>
             </p>
             <a class="navbar-brand" href="">
-                Edit Word
+                <u><strong>Edit Word</strong></u>
             </a>
-            <p class="navbar-text pull-right">
-                <a ng-click="model.updatePage()" class="navbar-link">
-                    <span class="glyphicon glyphicon-ok">
-                    </span>
-                </a>
-            </p>
+            <!--<p class="navbar-text pull-right">-->
+                <!--<a ng-click="model.updatePage()" class="navbar-link">-->
+                    <!--<button type="button" class="btn btn-md btn-info">SAVE</button>-->
+                <!--</a>-->
+            <!--</p>-->
         </div>
     </div>
 </nav>
@@ -78,15 +78,10 @@
 
     <form>
         <div class="form-group">
-            <label for="name">Word</label>
-            <input ng-model="model.page.name"
-                   type="text"
-                   class="form-control"
-                   id="name"
-                   placeholder="Abash">
+            <center><h3><u>{{model.page.name}}</u></h3></center>
         </div>
         <div class="form-group">
-            <label for="title">Add mneomonic</label>
+            <h3><label for="title">Add a Mnemonic</label></h3>
             <textarea ng-model="model.page.title"
                       id="title"
                       rows="4" cols="50"
@@ -95,44 +90,14 @@
         </div>
     </form>
     <a class="btn btn-success  btn-block"
-       ng-click="model.postComment()">Add Mneomonic</a>
+       ng-click="model.updatePage()">Add Mnemonic</a>
     <a class="btn btn-danger  btn-block"
        ng-click="model.deletePage()">Delete Word</a>
 </div>
 
-    <div class="container">
-    <ul class="list-group">
-        <li ng-repeat="comment in model.comments" class="list-group-item">
-            <a href="#/user/{{website._user}}/website/{{website._id}}/page">
-                {{comment}}
-            </a>
-            <a ng-click="model.deleteComment()" class="pull-right">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-        </li>
-    </ul>
+
 </div>
 
-    <nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container">
-        <div class="row navbar-text">
-            <div class="col-xs-3 text-center">
-            </div>
-            <div class="col-xs-3 text-center">
-            </div>
-            <div class="col-xs-3 text-center">
-            </div>
-            <div class="col-xs-3 text-center">
-                <a href="#/user/{{model.userId}}">
-                    <span class="glyphicon glyphicon-user"></span>
-                </a>
-            </div>
-        </div>
     </div>
-</nav>
-
-
 </div>
-
-
 

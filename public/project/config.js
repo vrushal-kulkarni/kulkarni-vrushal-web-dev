@@ -107,37 +107,58 @@
             .when("/user/:userId/wordlist", {
                 templateUrl: "views/wordlist/wordlist.view.client.html",
                 controller: "WebsiteListController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {
+                    checkLoggedIn: checkLoggedin
+                }
             })
             .when("/user/:userId/wordlist/new", {
                 templateUrl: "views/wordlist/wordlist-new.view.client.html",
                 controller: "NewWebsiteController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {
+                    checkLoggedIn: checkLoggedin
+                }
             })
             .when("/user/:userId/wordlist/:websiteId", {
                 templateUrl: "views/wordlist/wordlist-edit.view.client.html",
                 controller: "EditWebsiteController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {
+                    checkLoggedIn: checkLoggedin
+                }
             })
             .when("/user/:userId/wordlist/:websiteId/word", {
                 templateUrl: "views/word/word.view.client.html",
                 controller: "PageListController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {
+                    checkLoggedIn: checkLoggedin
+                }
             })
             .when("/user/:userId/wordlist/:websiteId/word/new", {
                 templateUrl: "views/word/pearson-api-user.search.view.client.html",
                 controller: "PearsonSearchController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {
+                    checkLoggedIn: checkLoggedin
+                }
             })
             .when("/user/:userId/wordlist/:websiteId/word/:definition/:word/:example", {
                 templateUrl: "views/word/flashcard.view.client.html",
                 controller: "FlashCardController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {
+                    checkLoggedIn: checkLoggedin
+                }
             })
             .when("/user/:userId/wordlist/:websiteId/word/:pageId", {
                 templateUrl: "views/word/word-edit.view.client.html",
                 controller: "EditPageController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {
+                    checkLoggedIn: checkLoggedin
+                }
             })
             .when("/ps", {
                 templateUrl: "views/quant/ps.view.client.html",

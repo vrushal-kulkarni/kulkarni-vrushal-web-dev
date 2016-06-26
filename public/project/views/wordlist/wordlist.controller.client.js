@@ -5,9 +5,9 @@
 
     function WebsiteListController($routeParams, WebsiteService, $location, $rootScope, UserService) {
         var vm = this;
-        vm.userId = $routeParams.userId;
+        // vm.userId = $routeParams.userId;
 
-        // vm.userId = $rootScope.currentUser._id;
+        vm.userId = $rootScope.currentUser._id;
         vm.logout=logout;
         vm.name=$rootScope.currentUser.username;
 

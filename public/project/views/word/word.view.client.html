@@ -11,7 +11,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#/homepage">Project name</a>
+                    <a class="navbar-brand" href="#/homepage">GRE CHAMP</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
@@ -23,18 +23,16 @@
                             <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-haspopup="true" aria-expanded="false">GRE HUB <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#/verbal">Verbal Section</a></li>
-                                <li><a href="#/quant">Quant Section</a></li>
-                                <li><a href="#/awa">AWA Section</a></li>
+                                <li><a href="#/user/{{model.userId}}/verbal">Verbal Section</a></li>
+                                <li><a href="#/user/{{model.userId}}/quant">Quant Section</a></li>
+                                <li><a href="#/user/{{model.userId}}/awa">AWA Section</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="#/greinfo">GRE Basic Info</a></li>
-                                <li><a href="#/practicetest">Practice Test</a></li>
                             </ul>
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right" role="navigation">
-                        <li><a href="#/user/{{model.userId}}">Welcome {{model.user.username}}</a></li>
-                        <li><a href="#/homepage"><button type="button" class="btn btn-sm btn-primary">Logout</button></a></li>
+                        <li><a href="#/user/{{model.userId}}">Welcome {{model.name}}</a></li>
+                        <li><a ng-click="model.logout()"><button type="button" class="btn btn-sm btn-primary">Logout</button></a></li>
                     </ul>
                 </div>
             </div>
@@ -43,10 +41,15 @@
     </div>
 </div>
 
+<div style="background-color: #fdf5ce">
+
+    <div class="container" >
+
 <div class="grid_13">
 
     <div class="container">
-        <nav class="navbar navbar-default">
+
+        <nav class="navbar navbar-default" style="background-color: #cccccc">
     <div class="container-fluid">
         <div class="navbar-header">
             <p class="navbar-text pull-left">
@@ -55,30 +58,30 @@
                 </a>
             </p>
             <a class="navbar-brand" href="">
-                Words
+                <u><strong>Words</strong></u>
             </a>
             <p class="navbar-text pull-right">
                 <a ng-click="model.linkToPageNew()" class="navbar-link">
-                    <span class="glyphicon glyphicon-plus">
-                    </span>
+                    <button type="button" class="btn btn-md btn-info">ADD A WORD</button>
                 </a>
             </p>
         </div>
     </div>
 </nav>
+
     </div>
 
     <div class="container">
     <ul class="list-group">
-        <li ng-repeat="page in model.pages" class="list-group-item">
+        <li ng-repeat="page in model.pages" class="list-group-item" style="background-color: #cccccc">
             <a ng-click="model.searchWords(page.name)">
-                {{page.name}}
+                <strong><u>{{page.name}}</u></strong>
             </a>
             <a href="#/user/{{model.userId}}/wordlist/{{model.websiteId}}/word/{{page._id}}" class="pull-right">
-                <span class="glyphicon glyphicon-cog"></span>
+                <button type="button" class="btn btn-sm btn-info">ADD MNEMONIC</button>
             </a>
-            <a ng-click="model.searchComments(page.name)" class="pull-right">
-                <span class="glyphicon glyphicon-pencil"></span>
+            <a ng-click="model.searchComments(page.name)">
+                <button type="button" class="btn btn-sm btn-success" style="margin-left: 760px">VIEW ALL MNEMONICS</button>
             </a>
         <li ng-repeat="p in model.pageList" class="list-group-item">
         {{p.title}}
@@ -87,22 +90,9 @@
     </ul>
 </div>
 
-    <nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container">
-        <div class="row navbar-text">
-            <div class="col-xs-3 text-center">
-            </div>
-            <div class="col-xs-3 text-center">
-            </div>
-            <div class="col-xs-3 text-center">
-            </div>
-            <div class="col-xs-3 text-center">
-                <a href="#/user/{{model.userId}}">
-                    <span class="glyphicon glyphicon-user"></span>
-                </a>
-            </div>
-        </div>
+</div>
+
+        <br><br><br><br><br><br><br><br><br> <br><br><br><br><br><br><br><br>
     </div>
-</nav>
 
 </div>
