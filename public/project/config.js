@@ -160,6 +160,14 @@
                     checkLoggedIn: checkLoggedin
                 }
             })
+            .when("/user/:userId/wordlist/:websiteId/word/:pageId/mnemonic", {
+                templateUrl: "views/word/mnemonic.view.client.html",
+                controller: "MnemonicController",
+                controllerAs: "model",
+                resolve: {
+                    checkLoggedIn: checkLoggedin
+                }
+            })
             .when("/ps", {
                 templateUrl: "views/quant/ps.view.client.html",
             })
@@ -224,6 +232,9 @@
                 resolve: {
                     checkLoggedIn: checkLoggedin
                 }
+            })
+            .when("/argument", {
+                templateUrl: "views/awa/argument.view.client.html",
             })
             .when("/user/:userId/awa/argument", {
                 templateUrl: "views/awa/argument.user.view.client.html",

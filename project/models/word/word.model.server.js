@@ -10,13 +10,13 @@ module.exports = function(){
         createPage: createPage,
         deletePage: deletePage,
         updatePage: updatePage,
-        // findPageByName:findPageByName
+        findPageByName:findPageByName
     };
     return api;
 
-    // function findPageByName(name) {
-    //     return Page.find({"name":name});
-    // }
+    function findPageByName(name) {
+        return Page.find({"name":name});
+    }
 
     function findPageByID(pageId){
         return Page.findById(pageId);

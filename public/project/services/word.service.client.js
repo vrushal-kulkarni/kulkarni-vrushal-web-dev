@@ -11,15 +11,15 @@
             findPageById: findPageById,
             updatePage: updatePage,
             deletePage: deletePage,
-            // findPageByName:findPageByName
+            findPageByName:findPageByName
         };
         return api;
 
 
-        // function findPageByName(name) {
-        //     var url="/project/word/" + name;
-        //     return $http.get(url);
-        // }
+        function findPageByName(name) {
+            var url="/project/word/mnemonic/" + name;
+            return $http.get(url);
+        }
 
         function createPage(websiteId, page) {
             var url = "/project/wordlist/:websiteId/word" ;

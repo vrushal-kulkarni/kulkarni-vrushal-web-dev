@@ -8,7 +8,7 @@ module.exports = function (app, models) {
     //     {"_id": "543", "name": "Post 3", "websiteId": "456"}
     // ];
 
-    // app.get("/project/word/:name", findPageByName);
+    app.get("/project/word/mnemonic/:name", findPageByName);
 
     app.get("/project/word/:pageId", findPageById);
     app.get("/project/wordlist/:websiteId/word", findAllPagesForWebsite);

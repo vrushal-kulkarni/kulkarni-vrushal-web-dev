@@ -47,41 +47,34 @@
 
 <div class="grid_13">
 
-    <div class="container">
 
         <nav class="navbar navbar-default" style="background-color: #cccccc">
     <div class="container-fluid">
         <div class="navbar-header">
             <p class="navbar-text pull-left">
-                <a href="#/user/{{model.userId}}/wordlist" class="navbar-link">
+                <a ng-click="model.linkToPageList()" class="navbar-link">
                 <span class="glyphicon glyphicon-chevron-left"/>
                 </a>
             </p>
             <a class="navbar-brand" href="">
-                <u><strong>Words</strong></u>
+                <u><strong>{{model.page.name}}</strong></u>
             </a>
             <p class="navbar-text pull-right">
-                <a ng-click="model.linkToPageNew()" class="navbar-link">
-                    <button type="button" class="btn btn-md btn-info">ADD A WORD</button>
+                <a ng-click="model.searchComments(model.page.name)" class="navbar-link">
+                    <button type="button" class="btn btn-md btn-info">SEARCH MNEMONICS</button>
                 </a>
             </p>
         </div>
     </div>
 </nav>
 
-    </div>
+
 
     <div class="container">
     <ul class="list-group">
-        <li ng-repeat="page in model.pages" class="list-group-item" style="background-color: #cccccc">
-            <a ng-click="model.searchWords(page.name)">
-                <strong><u>{{page.name}}</u></strong>
-            </a>
-            <a href="#/user/{{model.userId}}/wordlist/{{model.websiteId}}/word/{{page._id}}" class="pull-right">
-                <button type="button" class="btn btn-sm btn-info">ADD MNEMONIC</button>
-            </a>
-            <a href="#/user/{{model.userId}}/wordlist/{{model.websiteId}}/word/{{page._id}}/mnemonic" class="pull-right">
-                <button type="button" class="btn btn-sm btn-success">VIEW ALL MNEMONICS</button>
+        <li ng-repeat="p in model.pageList" class="list-group-item" style="background-color: #cccccc">
+            <a>
+                <strong><u>{{p.title}}</u></strong>
             </a>
         </li>
     </ul>
