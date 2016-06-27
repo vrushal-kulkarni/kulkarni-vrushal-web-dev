@@ -158,9 +158,11 @@ input.form-control {
 /*-webkit-perspective: 1000;                   !* Sets up your viewpoint for seeing the animation *!*/
 /*}*/
 
+
 .flashcard {
-  height: 300px;
-  width: 500px;
+  min-height: 200px;
+  min-width: 50px;
+  max-width: 400px;
   margin: 10% auto;                                              /* Centers the flashcard on the page */
   border: 1px solid gray;                            /*  Border makes the animation easier to see. */
   box-shadow: 2px 2px 2px #000;
@@ -177,14 +179,17 @@ input.form-control {
 .front, .back {
   position: absolute;
   -webkit-backface-visibility: hidden;           /*  Hides back side of text (it's upside down) */
-  height: 300px;                                   /* Stretches side to inhabit full size of flashcard */
-  width: 500px;
+  min-height: 200px;                                   /* Stretches side to inhabit full size of flashcard */
+  min-width: 50px;
+  max-width: 400px;
+
   text-align: center;
 }
 
 .front p, .back p {
   margin-top: 25%;
   font-size: 3em;
+  /*text-align: center;*/
 }
 
 
