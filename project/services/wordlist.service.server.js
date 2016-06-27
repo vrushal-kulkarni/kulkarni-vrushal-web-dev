@@ -19,13 +19,6 @@ module.exports = function(app, models) {
             }, function (error) {
                 res.status(400).send(error);
             });
-        // for(var i in websites) {
-        //     if(websites[i]._id === websiteId) {
-        //         res.send(websites[i]);
-        //         return;
-        //     }
-        // }
-        // res.send({});
     };
 
     function findAllWebsitesForUser(req, res) {
@@ -40,13 +33,6 @@ module.exports = function(app, models) {
                     res.status(400).send(error);
                 });
 
-        // for(var i in websites){
-        //     if(websites[i].developerId === id){
-        //         resultSet.push(websites[i]);
-        //     }
-        // }
-        // res.send(resultSet)
-        // return;
     }
 
     function createWebsite(req, res) {
@@ -82,15 +68,6 @@ module.exports = function(app, models) {
                     res.statusCode(400).send(error);
                 }
             );
-        // for (var i in websites) {
-        //     if (websites[i]._id === id)
-        //     {
-        //         websites[i]=newWebsite;
-        //         res.send(200);
-        //         return;
-        //     }
-        // }
-        // res.send(400);
     }
 
     function deleteWebsite(req, res) {
@@ -107,15 +84,6 @@ module.exports = function(app, models) {
                     res.statusCode(400).send(err);
                 }
             );
-        // for (var i in websites) {
-        //     if (websites[i]._id === id)
-        //     {
-        //         websites.splice(i,1);
-        //         res.send(200);
-        //         return;
-        //     }
-        // }
-        // res.send(400);
     }
 
 };

@@ -160,7 +160,7 @@ input.form-control {
 
 
 .flashcard {
-  min-height: 200px;
+  min-height: 30px;
   min-width: 50px;
   max-width: 400px;
   margin: 10% auto;                                              /* Centers the flashcard on the page */
@@ -177,9 +177,9 @@ input.form-control {
 }
 
 .front, .back {
-  position: absolute;
+  position: relative;
   -webkit-backface-visibility: hidden;           /*  Hides back side of text (it's upside down) */
-  min-height: 200px;                                   /* Stretches side to inhabit full size of flashcard */
+  min-height: 30px;                                   /* Stretches side to inhabit full size of flashcard */
   min-width: 50px;
   max-width: 400px;
 
@@ -187,7 +187,7 @@ input.form-control {
 }
 
 .front p, .back p {
-  margin-top: 25%;
+  /*margin-top: 25%;*/
   font-size: 3em;
   /*text-align: center;*/
 }

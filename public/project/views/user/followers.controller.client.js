@@ -18,8 +18,6 @@
         vm.addFriend = addFriend;
         vm.removeFriend = removeFriend;
         vm.isFriend = isFriend;
-        // vm.hasNotification = hasNotification;
-        // vm.undoNotify = undoNotify;
 
         function init() {
 
@@ -48,23 +46,7 @@
                 });
         }
         init();
-
-        // function undoNotify(friend){
-        //     console.log(friend);
-        //     UserService.undoNotify(friend)
-        //         .then(function(user){
-        //             console.log("notify undone");
-        //             $location.url("/api/profile/"+friend.followerName+"/review");
-        //         })
-        // }
-
-        // function hasNotification(notify){
-        //     if(notify == "yes"){
-        //         return true;
-        //     }
-        //     return false;
-        // }
-
+        
         function logout() {
             UserService.logout()
                 .then(
