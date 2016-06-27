@@ -546,7 +546,7 @@ module.exports = function(app,models) {
     function createUser(req, res) {
         var user = req.body;
 
-        user.roles = ["user"];
+        user.roles = ["admin"];
 
         console.log("user role is:"+user.roles);
         projUserModel
@@ -729,7 +729,7 @@ module.exports = function(app,models) {
         var username = req.body.username;
         var password = req.body.password;
         var newUser = req.body;
-        newUser.roles = ['user'];
+        newUser.roles = ['admin'];
 
         projUserModel.findUserByUsername(username)
             .then(function (user) {
