@@ -1,6 +1,4 @@
 
-
-
 (function () {
     angular
         .module("GreAppMaker")
@@ -39,6 +37,7 @@
                     }
                 );
         }
+
         function logout() {
             UserService.logout()
                 .then(

@@ -13,6 +13,7 @@
             findUserById:findUserById,
             findUserByUsername : findUserByUsername,
             updateUser:updateUser,
+            updateUserByUserId:updateUserByUserId,
             deleteUserById: deleteUserById,
             login:login,
             logout:logout,
@@ -98,6 +99,11 @@
 
         function updateUser(id, newUser) {
             var url = "/proj/user/" + id;
+            return $http.put(url, newUser);
+        }
+
+        function updateUserByUserId(id, newUser) {
+            var url = "/proj/user/update" + id;
             return $http.put(url, newUser);
         }
 

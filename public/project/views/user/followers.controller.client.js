@@ -96,19 +96,15 @@
                             friends : friends
                         };
 
-                        UserService.updateUser( $rootScope.currentUser._id, updatedUser)
+                        UserService.updateUserByUserId( $rootScope.currentUser._id, updatedUser)
                             .then(
                                 function (updatedUser){
                                     if (updatedUser.data != null) {
                                         UserService.setUser(updatedUser.data);
                                     }
-                                    else
-                                    {
-                                        vm.message = "Cannot update User";
-                                    }
                                 },
                                 function (error){
-                                    vm.message = "Cannot update User";
+
                                 });
 
                         UserService.findFriends($rootScope.currentUser._id)
@@ -147,19 +143,15 @@
                                     friends : friends
                                 };
 
-                                UserService.updateUser( $rootScope.currentUser._id, updatedUser)
+                                UserService.updateUserByUserId( $rootScope.currentUser._id, updatedUser)
                                     .then(
                                         function (updatedUser){
                                             if (updatedUser.data != null) {
                                                 UserService.setUser(updatedUser.data);
                                             }
-                                            else
-                                            {
-                                                vm.message = "Cannot update User";
-                                            }
                                         },
                                         function (error){
-                                            vm.message = "Cannot update User";
+
                                         });
 
                                 UserService.findFriends($rootScope.currentUser._id)

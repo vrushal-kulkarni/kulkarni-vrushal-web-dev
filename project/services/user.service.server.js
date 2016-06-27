@@ -26,7 +26,9 @@ module.exports = function(app,models) {
     app.post("/proj/user", isAdmin, createUser);
     app.get("/proj/user", findUserByCredentials);
     app.get("/proj/user/:userId", findUserById);
+    app.put("/proj/user/update/:userId", updateUserByUserId);
     app.put("/proj/user/:userId", updateUser);
+
 
     app.delete('/api/project/user/:id', deleteUserById);
 
@@ -301,7 +303,7 @@ module.exports = function(app,models) {
 
 
     // Changed this fucntion
-    function updateUser(req,res) {
+    function updateUserByUserId(req,res) {
         console.log("Inside update function of server Services");
         var userId = req.params.id;
         var userObj = req.body;
@@ -325,7 +327,7 @@ module.exports = function(app,models) {
                         console.log("Updated Password");
                         console.log(userObj.password);
                     }
-                    projUserModel.updateUser(userId, userObj)
+                    projUserModel.updateUserByUserId(userId, userObj)
                         .then(
                             function (doc) {
 
@@ -342,6 +344,25 @@ module.exports = function(app,models) {
 
 
     }
+
+
+    function updateUser(req, res) {
+        var id = req.params.userId;
+        var newUser = req.body;
+
+        projUserModel
+            .updateUser(id, newUser)
+            .then(
+                function(stats) {
+                    console.log(stats);
+                    res.send(200);
+                },
+                function(error) {
+                    res.statusCode(404).send(error);
+                }
+            );
+    }
+
 
 
 

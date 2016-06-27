@@ -15,6 +15,7 @@ module.exports = function() {
         createUser: createUser,
         findUserByCredentials:findUserByCredentials,
         updateUser:updateUser,
+        updateUserByUserId:updateUserByUserId,
         findUserById:findUserById,
         findUserByUsername:findUserByUsername,
         findUserByGoogleId:findUserByGoogleId,
@@ -173,6 +174,8 @@ module.exports = function() {
     function findUserByCredentials(username, password) {
         return User.findOne({username: username, password: password});
     }
+
+
     function updateUser(userId, user) {
         delete user._id;
         return User
@@ -184,6 +187,33 @@ module.exports = function() {
                 }
             });
     }
+
+    function updateUserByUserId(userId,updateduser) //Update a user by id, and updated user object
+    {
+        var deferred = q.defer();
+        User.update({_id:userId},
+            updateduser,
+            function(err,stats)
+            {
+                if(stats) {
+
+                    User.findById(userId, function (err, doc) {
+                        if (err) {
+                            deferred.reject(err);
+                        }
+                        else {
+                            deferred.resolve(doc);
+                        }
+                    });
+                }
+                else{
+                    deferred.reject(err);
+                }
+            });
+        return deferred.promise;
+    }
+
+
 
     function findUserById(userId) {
         return User.findById(userId);

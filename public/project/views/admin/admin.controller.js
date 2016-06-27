@@ -11,6 +11,7 @@
         vm.userId = $rootScope.currentUser._id;
         vm.logout=logout;
         vm.name=$rootScope.currentUser.username;
+        vm.remove=remove;
 
         function init() {
             vm.remove = remove;
@@ -70,7 +71,7 @@
                 user.roles = user.roles.split(",");
             }
             UserService
-                .updateUser(selectedUserId, user)
+                .updateUserByUserId(selectedUserId, user)
                 .then(function(response) {
                     for(var i in vm.users) {
                         if(vm.users[i]._id === selectedUserId) {
