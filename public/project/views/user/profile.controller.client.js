@@ -59,7 +59,7 @@
     function ProfileController($routeParams,UserService,$rootScope,$location) {
         var vm =this;
         var index=-1;
-        var id = $rootScope.currentUser._id;
+        // var id = $rootScope.currentUser._id;
         vm.userId = $rootScope.currentUser._id;
         vm.logout=logout;
         vm.name=$rootScope.currentUser.username;
@@ -68,7 +68,7 @@
 
         function init() {
             UserService
-                .findUserById(id)
+                .findUserById(vm.userId)
                 .then(function(response){
                     vm.user = response.data;
                     vm.user.dob=new Date(vm.user.dob);
@@ -79,7 +79,7 @@
 
         function updateUser(newUser) {
             UserService
-                .updateUser(id, newUser)
+                .updateUser(vm.userId, newUser)
                 .then(
                     function(response) {
                         vm.success = "Updated successfully";

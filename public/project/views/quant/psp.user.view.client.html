@@ -48,7 +48,7 @@
 </div>
 
 
-<div style="background-color: #fdf5ce">
+<div>
 
 <div class="container">
     <div class="grid_13">
@@ -70,8 +70,8 @@
                     <button ng-click="model.nextQuestion()" class="model.next-question">Next Question</button>
                     <span ng-show="model.correctAns"></span>
                     <span ng-show="!model.correctAns"></span>
-                </div><br>                    <br><br><br><br><br><br><br><br><br><br><br><br>
-
+                </div><br><br>
+                <br><br><br><br>
             </div>
 
             <div ng-show="model.quizOver" style="text-align: center">
@@ -84,7 +84,7 @@
                 <button ng-click="model.reset()">RETEST</button>
                 <br><br>
                 <a href="#/user/{{model.userId}}"><button>BACK TO PROFILE</button></a>
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <br><br><br><br><br><br><br>
             </div>
 
         </div><br><br>
@@ -135,7 +135,7 @@
 
 
 
-            <button id="startQuiz" ng-click="model.start()">Start the Exam</button><br>
+            <button id="startQuiz" ng-click="model.start()">Start the Exam</button><br><br><br><br><br><br>
         </div>
 
 

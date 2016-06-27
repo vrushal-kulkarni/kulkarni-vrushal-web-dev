@@ -250,7 +250,6 @@ module.exports = function() {
                 $set: {
                     firstName: user.firstName,
                     lastName: user.lastName,
-                    gender:user.gender,
                     dob:user.dob
                 }
             });

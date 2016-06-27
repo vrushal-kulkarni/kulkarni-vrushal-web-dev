@@ -633,7 +633,7 @@ module.exports = function(app,models) {
                         console.log("Updated Password");
                         console.log(userObj.password);
                     }
-                    projUserModel.updateUserByUserId(userId, userObj)
+                    projUserModel.updateUser(userId, userObj)
                         .then(
                             function (doc) {
 
