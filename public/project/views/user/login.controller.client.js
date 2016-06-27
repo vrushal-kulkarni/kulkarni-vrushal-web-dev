@@ -68,21 +68,14 @@
                                 $location.url("/user/" + user._id);
                             }
 
-
-                            // var user = response.data;
-                            // if (user && user._id) {
-                            //     $rootScope.currentUser = user;
-                            //     $location.url("/user/" + user._id);
-                            // } else {
-                            //     vm.error = "User not found";
-                            // }
-
                         }
                         else {
                             vm.message = "Invalid credentials";
                         }
-
-                    });
+                    },
+                        function (err) {
+                            vm.error = "Please check your username and password";
+                        });
             }
         }
 
